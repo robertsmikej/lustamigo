@@ -40,5 +40,9 @@
       "imagealt": "Dripping Sweet Sweet Juicy Juice",
       "img": "/img/mexi-cons-strawberry-shaved-ice-trimmed.png"
     }
-  ]
+  ],
+  "examplequestion": {
+    "questiontext": "Give A Sexy Massage To Juan",
+    "questionexplaination": "If theres a section that may not make sense, we'll try to explain here."
+  }
 }
