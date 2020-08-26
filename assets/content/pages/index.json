@@ -29,6 +29,11 @@
       "imagename": "Avocado",
       "imagealt": "Juicy Avocado",
       "img": "/img/mexi-cons-avocado-trimmed.png"
+    },
+    {
+      "imagename": "Scorpion",
+      "imagealt": "Wavy Davy Scorpion Tail",
+      "img": "/img/mexi-cons-scorpion-trimmed.png"
     }
   ]
 }
