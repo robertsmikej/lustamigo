@@ -1,0 +1,12 @@
+{
+  "status": true,
+  "nav_items": [
+    {
+      "status": true,
+      "title": "Home",
+      "para": "Go To Home",
+      "link": "/"
+    }
+  ],
+  "title": "Default"
+}
