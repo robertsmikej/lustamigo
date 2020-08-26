@@ -1,6 +1,6 @@
 <template>
     <div>
-        <!-- <Nav :site="siteOptions"/> -->
+        <Nav :sitewide="sitewide" :nav="nav"/>
         <Nuxt />
     </div>
 </template>
@@ -8,6 +8,9 @@
 <script>
 export default {
     computed: {
+        sitewide: function () {
+            return this.$store.state.sitewide
+        },
         nav: function () {
             return this.$store.state.nav
         }

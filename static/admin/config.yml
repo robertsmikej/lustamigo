@@ -130,6 +130,11 @@ collections:
           - { label: 'Pepper Image', name: 'pepper', widget: 'image', required: false }
           - { label: 'Text Content - 2', name: 'content_2', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote"], required: false }
           - { label: 'Text Content - 3', name: 'content_3', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote"], required: false }
+      - label: "Example Question"
+        name: "examplequestion"
+        widget: object
+        fields:
+          - { label: 'Question Text', name: 'questiontext', widget: 'string', required: false}
       - label: "Page Images"
         name: "pageimages"
         widget: "list"

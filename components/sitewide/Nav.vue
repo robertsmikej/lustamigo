@@ -24,7 +24,7 @@
                 <nuxt-link to="/contact" class="nav__link">Contact Us</nuxt-link>
             </div>
             <nuxt-link to="/" class="nav__logo__link">
-                <img :src="site.site_logo.data.full_url" alt="Lust Amigo Logo" class="nav__logo">
+                <img :src="sitewide.logo" alt="Lust Amigo Logo" class="nav__logo">
             </nuxt-link>
         </div>
     </nav>
@@ -35,7 +35,8 @@
 
 export default {
     props: {
-        site: Object
+        sitewide: Object,
+        nav: Array
     },
     data() {
         return {

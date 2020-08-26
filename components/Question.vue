@@ -7,25 +7,29 @@
                     <span>?</span>
                 </div>
                 <div class="question__special" :data-checked="checkHotness(checked)">
-                    <input type="checkbox" :id="removespaces(question.question) + '-checked'" name="muchohot" :checked="checkHotness(checked)">
-                    <label :for="removespaces(question.question) + '-checked'" class="special__icon__label">
-                        <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-red-hot-pepper-trimmed.png" alt="This is Mucho Hot!" class="special__icon">
+                    <input type="checkbox" :id="question.question + '-checked'" name="muchohot" :checked="checkHotness(checked)">
+                    <label :for="question.question + '-checked'" class="special__icon__label">
+                        <img 
+                            :src="hotness" 
+                            alt="This is Mucho Hot!" 
+                            class="special__icon"
+                        >
                     </label>
                 </div>
             </div>
             <div class="question__answer__cell" :data-checked="checkAnswer(checked)" >
                 <div class="question__answer">
-                    <input type="radio" :id="removespaces(question.question) + '-notinterested'" value="not_interested" :name="removespaces(question.question)" :checked="checkAnswer(checked) == 'not_interested'">
-                    <label :for="removespaces(question.question) + '-notinterested'">¡No Way, Jose!</label>
+                    <input type="radio" :id="question.question + '-notinterested'" value="not_interested" :name="question.question" :checked="checkAnswer(checked) == 'not_interested'">
+                    <label :for="question.question + '-notinterested'">¡No Way, Jose!</label>
                 </div>
                 <div class="question__answer">
-                    <input type="radio" :id="removespaces(question.question) + '-maybe'" value="maybe" :name="removespaces(question.question)" :checked="checkAnswer(checked) == 'maybe'">
-                    <label :for="removespaces(question.question) + '-maybe'">Open To It...</label>
+                    <input type="radio" :id="question.question + '-maybe'" value="maybe" :name="question.question" :checked="checkAnswer(checked) == 'maybe'">
+                    <label :for="question.question + '-maybe'">Open To It...</label>
                 </div>
                 <div class="question__answer">
-                    <input type="radio" :id="removespaces(question.question) + '-interested'" value="interested" :name="removespaces(question.question)" v-if="example" checked>
-                    <input type="radio" :id="removespaces(question.question) + '-interested'" value="interested" :name="removespaces(question.question)" v-if="!example" :checked="checkAnswer(checked) == 'interested'">
-                    <label :for="removespaces(question.question) + '-interested'">¡Sí por favor!</label>
+                    <input type="radio" :id="question.question + '-interested'" value="interested" :name="question.question" v-if="example" checked>
+                    <input type="radio" :id="question.question + '-interested'" value="interested" :name="question.question" v-if="!example" :checked="checkAnswer(checked) == 'interested'">
+                    <label :for="question.question + '-interested'">¡Sí por favor!</label>
                 </div>
             </div>
         </div>
@@ -41,6 +45,7 @@
 <script>
 export default {
     props: {
+        hotness: String,
         question: Object,
         name_1: String,
         name_2: String,
@@ -66,11 +71,7 @@ export default {
             }
         },
         checkHotness: function (hotness) {
-            if (hotness) {
-                return hotness.hotness
-            } else {
-                return false
-            }
+            return hotness ? hotness.hotness : false;
         },
         removespaces: function (text) {
             let t = text.replace(/ /g, '_').toLowerCase();

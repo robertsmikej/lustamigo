@@ -1,19 +1,44 @@
 <template>
-    <section class="container">
-        <Hero :dataObj="pageData"/>
-        <span id="get__started"></span>
-        <div class="enter__info">
-            <div class="padded__section" v-html="$md.render(pageData.contentSection1.content_1)"></div>
-
+    <section
+        class="container"
+    >
+        <Hero 
+            :dataObj="pageData"
+        />
+        <span 
+            id="get__started"
+        ></span>
+        <div 
+            class="enter__info"
+        >
+            <div
+                v-html="$md.render(pageData.contentSection1.content_1)"
+                class="padded__section"
+            ></div>
             <div class="qa__cell example__question">
-                <Question :question="this.fakeQuestion" :example="true" :name_1="'Juan'" :name_2="'Maria'" :gender_1="'Male'" :gender_2="'Female'"/>
+                <Question
+                    :hotness="getImage('Pepper')[0].img"
+                    :question="this.fakeQuestion" 
+                    :example="true" 
+                    :name_1="'Juan'" 
+                    :name_2="'Maria'" 
+                    :gender_1="'Male'" 
+                    :gender_2="'Female'"
+                />
             </div>
-            {{pageData}}
             <div class="padded__section">
                 <div class="pepper__section">
                     <span class="pepper__example question__special">
-                        <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-red-hot-pepper-trimmed.png" alt="This is Mucho Hot!" class="pepper__example__img"/>
-                        <div class="pepper__example__text">&#8592; That's one Sexy Pepper!</div>
+                        <img 
+                            :src="getImage('Pepper')[0].img" 
+                            alt="This is Mucho Hot!" 
+                            class="pepper__example__img"
+                        />
+                        <div 
+                            class="pepper__example__text"
+                        >
+                            &#8592; That's one Sexy Pepper!
+                        </div>
                     </span>
                     <p class="info__para">
                         You can also click the sexy pepper icon next to each question to mark things that you think are especially caliente!.  
@@ -33,18 +58,26 @@
                         <input type="email" name="youremail" id="youremail" v-model="formData.email_1">
                     </div>
                     <div class="info__radio__field">
-                        <p class="form__para">Your Gender</p>
+                        <p class="form__para">Your Equipment</p>
                         <input type="radio" id="your-gender-male" name="yourgender" value="Male" v-model="formData.gender_1" checked>
                         <label for="your-gender-male">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-red-hot-pepper-trimmed.png" alt="Male Gender Selection" class="form__img">
+                                <img 
+                                    :src="getImage('Pepper')[0].img" 
+                                    alt="Male Gender Selection" 
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Male</p>
                         </label>
                         <input type="radio" id="your-gender-female" name="yourgender" value="Female" v-model="formData.gender_1">
                         <label for="your-gender-female">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-avocado-trimmed.png" alt="Female Gender Selection" class="form__img">
+                                <img 
+                                    :src="getImage('Avocado')[0].img" 
+                                    alt="Female Gender Selection" 
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Female</p>
                         </label>
@@ -61,18 +94,26 @@
                         <input type="text" name="theiremail" id="theiremail" v-model="formData.email_2">
                     </div>
                     <div class="info__radio__field">
-                        <p class="form__para">Their Gender</p>
+                        <p class="form__para">Their Equipment</p>
                         <input type="radio" id="their-gender-male" name="theirgender" value="Male" v-model="formData.gender_2">
                         <label for="their-gender-male">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-red-hot-pepper-trimmed.png" alt="Male Gender Selection" class="form__img">
+                                <img 
+                                    :src="getImage('Pepper')[0].img" 
+                                    alt="Male Gender Selection" 
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Male</p>
                         </label>
                         <input type="radio" id="their-gender-female" name="theirgender" value="Female" checked v-model="formData.gender_2">
                         <label for="their-gender-female">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-avocado-trimmed.png" alt="Female Gender Selection" class="form__img">
+                                <img 
+                                    :src="getImage('Avocado')[0].img" 
+                                    alt="Female Gender Selection"
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Female</p>
                         </label>
@@ -84,7 +125,11 @@
                         <input type="radio" id="spicy" name="questiontypes" value="Spicy" v-model="formData.question_types" checked>
                         <label for="spicy">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-scorpion-trimmed.png" alt="Advanced Questions Selection" class="form__img">
+                                <img
+                                    :src="getImage('Scorpion')[0].img" 
+                                    alt="Advanced Questions Selection"
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Spicy</p>
                             <p class="small__para">You'll see all the fun stuff</p>
@@ -92,7 +137,11 @@
                         <input type="radio" id="tame" name="questiontypes" value="Tame" v-model="formData.question_types">
                         <label for="tame">
                             <div class="form__img__container">
-                                <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/Mexi-cons-strawberry-shaved-ice-trimmed.png" alt="Basic Questions Selection" class="form__img">
+                                <img
+                                    :src="getImage('Strawberry Ice Cream')[0].img" 
+                                    alt="Basic Questions Selection"
+                                    class="form__img"
+                                >
                             </div>
                             <p class="form__para">Mild</p>
                             <p class="small__para">Just the basics, nice &amp; easy</p>
@@ -144,6 +193,10 @@ export default {
         }
     },
     methods: {
+        getImage: function(name) {
+            let images = this.pageData.pageimages;
+            return images.filter(img => img.imagename === name);
+        },
         //FIGURE OUT COUPLE TYPE HERE AND ADD TO FORMDATA OBJECT OR SIMILAR
         setData: function() {
             if (document.getElementById("yourname").value.length > 0 && document.getElementById("youremail").value.length > 0 && document.getElementById("theirname").value.length > 0 && document.getElementById("theiremail").value.length > 0) {
