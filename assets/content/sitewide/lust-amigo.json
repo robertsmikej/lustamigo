@@ -1,0 +1,18 @@
+{
+  "short_name": "lustamigo",
+  "options": {
+    "nav": {
+      "hamburger": true,
+      "show_name": true,
+      "show_logo": true
+    }
+  },
+  "persistentbar": {
+    "show_sitewide_persistent_bar": false
+  },
+  "name": "Lust Amigo",
+  "logo": "/img/lust-amigo.png",
+  "footer": {
+    "logo": "/img/lust-amigo-small.png"
+  }
+}
