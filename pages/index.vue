@@ -1,29 +1,14 @@
 <template>
     <section class="container">
-        <div class="header">
-            <div class="header__inner">
-                <div class="header__side">
-                    <div class="header__man__container">
-                        <img src="https://www.lustamigo.com/directus/public/uploads/_/originals/123rfcom-mexican-man.png" alt="" class="header__man">
-                    </div>
-                </div>
-                <div class="header__side">
-                    <h1>Hola<br>Amigos!</h1>
-                    <p>I am the Lust Amigo! I'm here with my trusty companion, Sassy Cassie, to privately help guide you through finding new and exciting ways to spice up you and your partner's sex life.</p>
-                    <a href="#get__started" class="get__started__button">Let's Do It!</a>
-                </div>
-            </div>
-        </div>
+        <Hero :dataObj="pageData"/>
         <span id="get__started"></span>
         <div class="enter__info">
-            <div class="padded__section">
-                <h2 class="info__header">The Idea</h2>
-                <p class="info__para">By answering some questions, some spicy, some mild, you'll be able to find new  sexy ideas and activities that you both love (or secretly want).</p>
-                <p class="info__para">We hope this will help you pioneer the wild west of your hacienda!</p>
-            </div>
+            <div class="padded__section" v-html="$md.render(pageData.contentSection1.content_1)"></div>
+
             <div class="qa__cell example__question">
                 <Question :question="this.fakeQuestion" :example="true" :name_1="'Juan'" :name_2="'Maria'" :gender_1="'Male'" :gender_2="'Female'"/>
             </div>
+            {{pageData}}
             <div class="padded__section">
                 <div class="pepper__section">
                     <span class="pepper__example question__special">
@@ -34,16 +19,8 @@
                         You can also click the sexy pepper icon next to each question to mark things that you think are especially caliente!.  
                     </p>
                 </div>
-                <h2 class="info__header">At The End</h2>
-                <p class="info__para">When you're both done, we'll send you a list of the things that you both have indicated you'd like.</p>
-                <p class="info__para">You won't see a thing unless you both liked it! Please enter your first names and email addresses below so we can send you both the results.</p>
-                <h2 class="info__header">What The Catch?</h2>
-                <p class="info__para">Well, aren't you the cautious one? Good!</p>
-                <p class="info__para">We hope you take your privacy seriously, and want to know how we stay afloat.</p>
-                <p class="info__para">Here it is: At the end of this I'll show you some products mixed in with your results that you might like. If you had a bueno time and want to buy a toy or some merchandise that matched up with your sick perverted interests, I just ask that you consider clicking the product links on my site and buying those products if you feel that they're right for you. That's it!</p>
-                <h2 class="info__header">Get Started</h2>
-                <p class="info__para">When you're ready to take this journey of the heart, enter your first names, genders, and email addresses below, you can answer questions right away and we'll send your partner an email with a link to start answering questions.</p>
             </div>
+            <div class="padded__section" v-html="$md.render(pageData.contentSection1.content_2)"></div>
             <form class="enter__info__fields">
                 <div class="info__section">
                     <h2>You</h2>
@@ -137,6 +114,14 @@
 <script>
 export default {
     watchQuery: true,
+    computed: {
+        sitewide: function () {
+            return this.$store.state.sitewide
+        },
+        pageData: function () {
+            return this.$store.state.pages.index
+        }
+    },
     data () {
         return {
             uuid: this.$uuid.v1(),
@@ -248,115 +233,7 @@ export default {
 </script>
 
 <style>
-.header {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    font-family: "Neucha", sans-serif;
-    height: 86vh;
-    max-height: 900px;
-    position: relative;
-    z-index: 1;
-    padding: 0;
-    background-color: var(--light-blue);
-    background-image: url("https://www.lustamigo.com/directus/public/uploads/_/originals/vecteezycom1-dessert.jpg");
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: center bottom;
-}
-.header__inner {
-    width: 100%;
-    max-width: 1600px;
-    margin: 0 auto;
-    height: 100%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 0;
-}
-.header__side {
-    flex: 1 1 50%;
-    max-width: 660px;
-    padding: 10vh 20px 20px;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    position: relative;
-}
-.header__side:nth-of-type(1) {
-    flex-direction: row;
-    align-content: flex-end;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-}
-.header__side:nth-of-type(2) {
-    padding-bottom: 16vh;
-}
-.header h1 {
-    text-shadow: 2px 2px 4px #FFF;
-}
-.header p {
-    margin: 30px auto 0px;
-    max-width: 440px;
-    text-shadow: 2px 2px 1px #FFF;
-}
-.get__started__button {
-    background-color: var(--green);
-    padding: 10px 10px 6px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    color: #FFF;
-    text-transform: uppercase;
-    line-height: 1.5em;
-    font-size: 1.5em;
-    width: 180px;
-    margin: 30px auto 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
-    border-radius: 5px;
-    cursor: pointer;
-    text-decoration: none;
-}
-.header__cactus__container {
-    margin-right: 30px;
-    flex: 1 1 33%;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-end;
-    justify-content: center;
-}
-.header__cactus {
-    max-width: 160px;
-}
-.header__bed__container {
-    margin-top: auto;
-    margin-left: auto;
-    flex: 2 1 66%;
-}
-.header__bed {
-    transform: scaleX(-1);
-    max-width: 400px;
-}
-.header__man__container {
-    margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: flex-end;
-}
-.header__man {
-    align-self: flex-end;
-}
+
 
 .example__question {
     background-color: var(--question-color);
@@ -577,38 +454,7 @@ body .pepper__example__img {
 }
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 730px) {
-    .header {
-        height: auto;
-        max-height: 100%;
-    }
-    .header__inner {
-        flex-direction: column-reverse;
-        flex-wrap: wrap;
-        justify-content: center;
-        padding: 0;
-        padding-top: 6vh;
-        position: initial;
-    }
-    .header__side {
-        max-width: 100%;
-        padding: 20px 14px;
-        margin: 0 auto;
-    }
-    .header__side:nth-of-type(2) {
-        padding-bottom: inherit;
-    }
-    .header p {
-        margin: 10px auto 0px;
-    }
-    .get__started__button {
-        font-size: 1.3em;
-    }
-    .header__man__container {
-        justify-content: center;
-    }
-    .header__man {
-        max-width: 85%;
-    }
+    
     .enter__info {
         padding: 30px 0;
         width: 100%;

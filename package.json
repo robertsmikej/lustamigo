@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/markdownit": "^1.2.10",
     "nuxt": "^2.14.0",
     "vue-uuid": "^2.0.2"
   },

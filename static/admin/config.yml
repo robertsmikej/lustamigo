@@ -6,16 +6,134 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: 'blog'
-    label: 'Blog'
+  - name: 'sitewide'
+    label: 'Sitewide'
+    description: "Sitewide Details"
+    identifier_field: name
     format: 'json'
-    folder: 'content/blog'
+    folder: 'assets/content/sitewide'
     create: true
-    slug: '{{year}}-{{month}}-{{day}}-{{slug}}'
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Company Name', name: 'name', widget: 'string' }
+      - { label: 'Shortened Company Name', name: 'short_name', widget: 'string', default: "", required: false }
+      - { label: 'Logo', name: 'logo', widget: 'image', required: false }
+      - label: "Sitewide Options"
+        name: "options"
+        widget: object
+        fields:
+          - label: "Nav Options"
+            name: "nav"
+            widget: object
+            fields:
+              - { label: 'Use Hamburger Menu', name: "hamburger", widget: "boolean", hint: "Should We Put Nav Items Into A Hamburger Menu On Desktop?", default: true }
+              - { label: 'Show Company Name in Nav', name: "show_name", widget: "boolean", hint: "Should We Show The Company Name In The Nav Bar?", default: true }
+              - { label: 'Show Company Logo in Nav', name: "show_logo", widget: "boolean", hint: "Should We Show The Company Logo In The Nav Bar?", default: true }
+      - label: "Persistent Bar"
+        name: "persistentbar"
+        widget: object
+        fields:
+          - { label: 'Show Sitewide Persistent Bar', name: 'show_sitewide_persistent_bar', widget: 'boolean', default: false, required: false }
+          - { label: 'Text', name: 'text', widget: 'string', required: false }
+          - { label: 'Link', name: 'link', widget: 'string', required: false }
+      - label: "Footer Details"
+        name: "footer"
+        widget: "object"
+        fields:
+        - { label: 'Footer Logo', name: 'logo', widget: 'image', required: false }
+        - { label: 'Footer - Show Footer Logo', name: 'show_logo', widget: 'boolean', required: false }
+        - { label: 'Footer - Show Site Links', name: 'show_site_links', widget: 'boolean', required: false }
+        - { label: 'Footer - Show Social Media', name: 'show_social', widget: 'boolean', required: false }
+        - { label: 'Footer Short Paragraph', name: 'para', widget: 'text', required: false }
+      - label: "Social Media"
+        name: "social_media"
+        widget: "object"
+        fields:
+        - label: "Social Media"
+          name: "social_media"
+          widget: "list"
+          fields:
+          - label: "Which Social Network"
+            name: "which"
+            widget: "select"
+            options: ["Facebook", "Instagram", "Twitter"]
+          - { label: 'Show Social Icon', name: 'show_social', widget: 'boolean', required: false }
+          - {label: "Username", name: "username", widget: "string", required: false}
+
+  - name: 'nav'
+    label: 'Navigation Items'
+    identifier_field: title
+    format: 'json'
+    folder: 'assets/content/nav'
+    create: true
+    slug: '{{slug}}'
     editor:
       preview: false
     fields:
       - { label: 'Title', name: 'title', widget: 'string' }
-      - { label: 'Publish Date', name: 'date', widget: 'datetime' }
-      - { label: 'Description', name: 'description', widget: 'string' }
-      - { label: 'Body', name: 'body', widget: 'markdown' }
+      - { label: "Show This Nav Section", name: "status", widget: "boolean", default: true, required: false }
+      - label: "Nav Items"
+        name: "nav_items"
+        widget: "list"
+        fields:
+        - { label: 'Title', name: 'title', widget: 'string' }
+        - { label: "Shown", name: "status", widget: "boolean", default: true, required: false }
+        - { label: 'Short Description', name: 'para', widget: 'string', required: false }
+        - { label: 'Link', name: 'link', widget: 'string', required: false }
+        - { label: 'Icon', name: 'icon', widget: 'image', required: false }
+
+  - name: 'pages'
+    label: 'Pages'
+    identifier_field: name
+    format: 'json'
+    folder: 'assets/content/pages'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Page Name', name: 'name', widget: 'string' }
+      - label: "SEO Info"
+        name: "seo"
+        widget: "object"
+        fields:
+          - { label: 'Page Title', name: 'title', widget: 'string', required: false }
+          - { label: 'Page Description', name: 'description', widget: 'text', required: false, hint: "What is the purpose of this page? This is for Search Engines."}
+          - label: "Show Page To Search Engines?"
+            name: "indexfollow"
+            hint: "Should Search Engines Index and Follow this page?"
+            widget: "select"
+            options: ["index, follow", "no index, no follow"]
+            default: "index, follow"
+      - label: "Hero Banner"
+        name: "heroBanner"
+        widget: object
+        fields:
+          - { label: 'Header - Line 1', name: 'header_1', widget: 'string', required: false, default: "Header Text Here"}
+          - { label: 'Header - Line 2', name: 'header_2', widget: 'string', required: false }
+          - { label: 'Para', name: 'para', widget: 'text', required: false }
+          - { label: 'Button Text', name: 'button_text', widget: 'string', required: false }
+          - { label: 'Link', name: 'link', widget: 'string', required: false }
+          - { label: 'Is Hero?', name: "special", widget: "boolean", hint: "Is this banner the main header for the page?", default: true }
+          - { label: 'Image - Desktop', name: 'desktop', widget: 'image', required: false }
+          - { label: 'Image - Mobile', name: 'mobile', widget: 'image', required: false }
+          - { label: 'Background Image - Desktop', name: 'background_desktop', widget: 'image', required: false }
+          - { label: 'Background Image - Mobile', name: 'background_mobile', widget: 'image', required: false }
+      - label: "Content Section"
+        name: "contentSection1"
+        widget: object
+        fields:
+          - { label: 'Header - Line 1', name: 'header_1', widget: 'string', required: false, default: "Header Text Here"}
+          - { label: 'Text Content - 1', name: 'content_1', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote"], required: false }
+          - { label: 'Pepper Image', name: 'pepper', widget: 'image', required: false }
+          - { label: 'Text Content - 2', name: 'content_2', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote"], required: false }
+          - { label: 'Text Content - 3', name: 'content_3', widget: 'markdown', buttons: ["bold", "italic", "link", "heading-two", "heading-three", "bulleted-list", "numbered-list", "quote"], required: false }
+      - label: "Page Images"
+        name: "pageimages"
+        widget: "list"
+        fields:
+          - { label: "Image Name", name: "imagename", widget: "string", default: "Image" }
+          - { label: "Alt Text", name: "imagealt", widget: "string", default: "Alt Text", required: false }
+          - { label: "Image", name: "img", widget: "image" }
