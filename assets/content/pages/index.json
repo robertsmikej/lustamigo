@@ -5,12 +5,14 @@
   },
   "name": "index",
   "heroBanner": {
-    "header_1": "Hola Amigos!",
     "para": "I am the Lust Amigo! I'm here with my trusty companion, Sassy Cassie, to privately help guide you through finding new and exciting ways to spice up you and your partner's sex life.",
-    "special": true,
+    "mobile": "/img/lustamigositting.png",
     "background_desktop": "/img/cartoon-desert_back2.jpg",
     "background_mobile": "/img/cartoon-desert_back2.jpg",
+    "special": true,
+    "button_text": "Let's Do It!",
+    "link": "#get__started",
     "desktop": "/img/lustamigositting.png",
-    "mobile": "/img/lustamigositting.png"
+    "header_1": "Hola Amigos!"
   }
 }
