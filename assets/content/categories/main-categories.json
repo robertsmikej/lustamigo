@@ -15,12 +15,14 @@
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Give partner a sexy massage"
+          "question": "Give/get a sexy massage",
+          "allgenders": true
         },
         {
           "status": true,
-          "spicinesslevel": "Medium",
-          "question": "Send Sexy Text Massages"
+          "spicinesslevel": "Mild",
+          "question": "Send Sexy Text Massages with Partner",
+          "allgenders": false
         }
       ]
     },
