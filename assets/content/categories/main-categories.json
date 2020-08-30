@@ -396,7 +396,78 @@
       "status": true,
       "name": "Oral",
       "img": "/img/mexi-cons-tequila-shot.png",
-      "categorydescription": "Where the Cervezas go"
+      "categorydescription": "Where the Cervezas go",
+      "questions": [
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Go Down On Partner",
+          "description": "With the mouth, and tongues and stuff."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-female"
+          ],
+          "question": "Eating that Vagina to kissing"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ],
+          "question": "Penis mouth play to kissing"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "69 Each Other",
+          "description": "Turn around and give each other oral. You know what this is."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ],
+          "question": "Lick male's balls",
+          "description": "Really get in there!"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ],
+          "question": "Suck on male's balls",
+          "description": "Pop! Pop!"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ],
+          "question": "Face Fuck Partner",
+          "description": "Where the male aggressively has sex with a partner's mouth"
+        }
+      ]
     },
     {
       "status": true,
