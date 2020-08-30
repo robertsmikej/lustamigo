@@ -4,7 +4,49 @@
       "status": true,
       "name": "Essentials",
       "img": "/img/mexi-cons-pyramid.png",
-      "categorydescription": "Some of the things everyone should talk about"
+      "categorydescription": "Some of the things everyone should talk about."
+    },
+    {
+      "status": true,
+      "name": "Toying Around",
+      "img": "/img/mexi-cons-ball-in-a-cup.png",
+      "categorydescription": "Get Your Buzz Buzz On"
+    },
+    {
+      "status": true,
+      "name": "Anal",
+      "img": "/img/mexi-cons-donkey-pinata.png",
+      "categorydescription": "Ah, the ol' chocolate tamale!"
+    },
+    {
+      "status": true,
+      "name": "Oral",
+      "img": "/img/mexi-cons-tequila-shot.png",
+      "categorydescription": "Where the Cervezas go"
+    },
+    {
+      "status": true,
+      "name": "BDSM",
+      "img": "/img/mexi-cons-masked-wrestler.png",
+      "categorydescription": "50 Shades of Gris"
+    },
+    {
+      "status": true,
+      "name": "Fetish",
+      "img": "/img/mexi-cons-cactus.png",
+      "categorydescription": "What you find really bueno"
+    },
+    {
+      "status": true,
+      "name": "Group Fun",
+      "img": "/img/mexi-cons-beer-growler.png",
+      "categorydescription": "More fun for your fiestas!"
+    },
+    {
+      "status": true,
+      "name": "Dress Up / Role Play",
+      "img": "/img/mexi-cons-sombrero.png",
+      "categorydescription": "What do you mean I'm under arrest, Officer?"
     }
   ],
   "name": "Main Categories"
