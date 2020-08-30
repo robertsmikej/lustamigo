@@ -1,43 +1,109 @@
 <template>
-    <div class="qa__cell__inner" :data-question="question.question">
+    <div class="qa__cell__inner">
         <div class="qa__cell__inner--1">
             <div class="qa__text__cell">
-                <p v-if="question.question !== null">{{ this.initializeQuestion(question) }}</p>
-                <div class="qa__text__explain__icon" @click="toggleExplainButton" v-if="question.question_explanation !== null">
+                <p 
+                    v-if="question.question"
+                >
+                    {{ this.initializeQuestion(question) }}
+                </p>
+                <div 
+                    v-if="question.description"
+                    @click="toggleExplainButton" 
+                    class="qa__text__explain__icon"
+                >
                     <span>?</span>
                 </div>
-                <div class="question__special" :data-checked="checkHotness(checked)">
-                    <input type="checkbox" :id="question.question + '-checked'" name="muchohot" :checked="checkHotness(checked)">
-                    <label :for="question.question + '-checked'" class="special__icon__label">
+                <div 
+                    :data-checked="checkHotness(checked)"
+                    class="question__special"
+                >
+                    <input 
+                        :id="question.question + '-checked'"
+                        :checked="checkHotness(checked)"
+                        type="checkbox" 
+                        name="muchohot" 
+                    >
+                    <label
+                        :for="question.question + '-checked'"
+                        class="special__icon__label"
+                    >
                         <img 
-                            :src="hotness" 
+                            :src="getImage('Pepper')[0].img"
                             alt="This is Mucho Hot!" 
                             class="special__icon"
                         >
                     </label>
                 </div>
             </div>
-            <div class="question__answer__cell" :data-checked="checkAnswer(checked)" >
+            <div
+                :data-checked="checkAnswer(checked)"
+                class="question__answer__cell"
+            >
                 <div class="question__answer">
-                    <input type="radio" :id="question.question + '-notinterested'" value="not_interested" :name="question.question" :checked="checkAnswer(checked) == 'not_interested'">
-                    <label :for="question.question + '-notinterested'">¡No Way, Jose!</label>
+                    <input 
+                        :id="question.question + '-notinterested'"
+                        :name="question.question"
+                        :checked="checkAnswer(checked) == 'not_interested'"
+                        type="radio"
+                        value="not_interested"
+                    >
+                    <label
+                        :for="question.question + '-notinterested'"
+                    >
+                        ¡No Way, Jose!
+                    </label>
                 </div>
                 <div class="question__answer">
-                    <input type="radio" :id="question.question + '-maybe'" value="maybe" :name="question.question" :checked="checkAnswer(checked) == 'maybe'">
-                    <label :for="question.question + '-maybe'">Open To It...</label>
+                    <input
+                        :id="question.question + '-maybe'"
+                        :name="question.question"
+                        :checked="checkAnswer(checked) == 'maybe'"
+                        type="radio"
+                        value="maybe"
+                    >
+                    <label 
+                        :for="question.question + '-maybe'"
+                    >
+                        Open To It...
+                    </label>
                 </div>
                 <div class="question__answer">
-                    <input type="radio" :id="question.question + '-interested'" value="interested" :name="question.question" v-if="example" checked>
-                    <input type="radio" :id="question.question + '-interested'" value="interested" :name="question.question" v-if="!example" :checked="checkAnswer(checked) == 'interested'">
-                    <label :for="question.question + '-interested'">¡Sí por favor!</label>
+                    <input 
+                        v-if="example"
+                        :name="question.question"
+                        :id="question.question + '-interested'" 
+                        type="radio"
+                        value="interested"
+                        checked
+                    >
+                    <input
+                        v-if="!example"
+                        :name="question.question"
+                        :id="question.question + '-interested'"
+                        :checked="checkAnswer(checked) == 'interested'"
+                        type="radio"
+                        value="interested"
+                    >
+                    <label 
+                        :for="question.question + '-interested'"
+                    >
+                        ¡Sí por favor!
+                    </label>
                 </div>
             </div>
         </div>
-        <div class="qa__text__explain__text" v-if="question.question_explanation !== null">
+        <div
+            v-if="question.description"
+            class="qa__text__explain__text"
+        >
             <div class="qa__text__explain__text__inner">
-                <p>{{ question.question_explanation }}</p>
+                <p>{{ question.description }}</p>
             </div>
-            <div class="explain__close submit__button" @click="toggleExplainClose">Close</div>
+            <div
+                @click="toggleExplainClose"
+                class="explain__close submit__button"
+            >Close</div>
         </div>
     </div>
 </template>
@@ -45,19 +111,23 @@
 <script>
 export default {
     props: {
-        hotness: String,
         question: Object,
-        name_1: String,
-        name_2: String,
-        gender_1: String,
-        gender_2: String,
         example: Boolean,
-        user: Number,
+        users: Object,
         userDone: Number,
         checked: Object,
         currentUserDone: Boolean
     },
+    computed: {
+        pageData: function () {
+            return this.$store.state.pages.index
+        }
+    },
     methods: {
+        getImage: function(name) {
+            const images = this.pageData.pageimages;
+            return images.filter(img => img.imagename === name);
+        },
         checkAnswer: function (answer) {
             if (this.currentUserDone) {
                 if (answer) {
@@ -73,12 +143,8 @@ export default {
         checkHotness: function (hotness) {
             return hotness ? hotness.hotness : false;
         },
-        removespaces: function (text) {
-            let t = text.replace(/ /g, '_').toLowerCase();
-            return t;
-        },
         toggleExplainButton: function (event) {
-            let change = event.target.parentElement.parentElement.parentElement.parentElement.querySelector(".qa__text__explain__text");
+            let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
             if (change) {
                 if (!change.classList.contains("qa__text__explain__text--show")) {
                     change.classList.add("qa__text__explain__text--show");
@@ -88,33 +154,18 @@ export default {
             }
         },
         toggleExplainClose: function () {
-            let change = event.target.parentElement.parentElement.querySelector(".qa__text__explain__text");
+            let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
             change.classList.remove("qa__text__explain__text--show");
         },
         initializeQuestion: function (q) {
             let ques = q.question;
-            if (q.question.toLowerCase().indexOf("female") >= 0 || q.question.toLowerCase().indexOf("male") >= 0) {
-            if (this.gender_1.toLowerCase() === "male") {
-                    let mapper = {
-                        female: this.name_2,
-                        male: this.name_1
-                    };
-                    ques = this.replaceAll(ques, mapper);
-                } else if (this.gender_1.toLowerCase() === "female") {
-                    let mapper = {
-                        female: this.name_1,
-                        male: this.name_2
-                    };
-                    ques = this.replaceAll(ques, mapper);
-                }
-            }
-            if (q.question.toLowerCase().indexOf("partner") >= 0 || q.question.toLowerCase().indexOf("user") >= 0) {
-                let mapper = {
-                    partner: this.name_2,
-                    user: this.name_1
-                };
-                ques = this.replaceAll(ques, mapper);
-            }
+            // if (q.question.toLowerCase().indexOf("partner") >= 0 || q.question.toLowerCase().indexOf("user") >= 0) {
+            //     let mapper = {
+            //         partner: this.users.name_2,
+            //         user: this.users.name_1
+            //     };
+            //     ques = this.replaceAll(ques, mapper);
+            // }
             return ques;
         },
         replaceAll: function (str, obj) {

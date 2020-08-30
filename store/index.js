@@ -35,7 +35,7 @@ export const mutations = {
         state.pages = newObj;
     },
     setCategories(state, data) {
-        state.categories = data;
+        state.categories = data[0].categories;
     }
 };
 

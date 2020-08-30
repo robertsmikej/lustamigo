@@ -9,8 +9,8 @@
                     v-show="this.thisPersonDone === false && this.justQuestions === false"
                     class="half__header__inner"
                 >
-                    <h1>Let's Do This, {{ name_1 }}!</h1>
-                    <p>As soon as you and {{ name_2 }} are done with the questions, we'll email you both with the results and you can get to making some bedroom guacamole.</p>
+                    <h1>Let's Do This, {{ users.name_1 }}!</h1>
+                    <p>As soon as you and {{ users.name_2 }} are done with the questions, we'll email you both with the results and you can get to making some bedroom guacamole.</p>
                 </div>
                 <div
                     v-show="this.justQuestions === true"
@@ -25,16 +25,16 @@
                     v-show="this.thisPersonDone === true"
                     class="half__header__inner"
                 >
-                    <h1>You're already done, {{ name_1 }}!</h1>
-                    <p class="para__slighty__larger">We'll let you know as soon as your partner get theirs done. Tell {{ name_2 }} to hurry up!</p>
-                    <p>In the mean time, feel free to go through and redo your answers before {{ name_2 }} finishes.</p>
+                    <h1>You're already done, {{ users.name_1 }}!</h1>
+                    <p class="para__slighty__larger">We'll let you know as soon as your partner get theirs done. Tell {{ users.name_2 }} to hurry up!</p>
+                    <p>In the mean time, feel free to go through and redo your answers before {{ users.name_2 }} finishes.</p>
                     <p><u>Note: If you decide to change your answers and your partner finishes before you are done revising, they will see your first answers until they are updated.</u></p>
                 </div>
                 <div
                     v-show="this.allDone === true"
                     class="half__header__inner"
                 >
-                    <h1>{{ name_1 }}, You're Both Already Done!</h1>
+                    <h1>{{ users.name_1 }}, You're Both Already Done!</h1>
                     <p>Give us just a momento to get your results and we'll send you to the right page.</p>
                 </div>
             </div>
@@ -63,30 +63,16 @@
                 </ul>
             </div>
             
-            <!-- <div 
+            <div 
                 v-show="this.allDone === false || this.onePersonDone === true || this.justQuestions === true"
             >
                 <CategoryCell 
-                    v-for="(category, index) in questions"
-                    :key="index"
-                    :header="index"
-                    :para="category.para"
-                    :img="category.img"
-                    :questions="category.questions"
+                    v-for="category in categories"
+                    :key="category.name"
                     :category="category"
-                    :name_1="name_1"
-                    :name_2="name_2"
-                    :gender_1="gender_1"
-                    :gender_2="gender_1"
-                    :response_1="response_1"
-                    :response_2="response_2"
-                    :userDone="userDone"
-                    :user="user"
-                    :alldone="allDone"
-                    :questionType="questionType"
-                    :currentUserDone="currentUserDone()"
+                    :users="users"
                 ></CategoryCell>
-            </div> -->
+            </div>
             <div
                 v-show="this.justQuestions === false || this.onePersonDone === true"
                 class="submission__container"
@@ -104,7 +90,7 @@
                 >
                     <div class="submitted__inner">
                         <h2>Questions Submitted Successfully!</h2>
-                        <p>As soon as we hear from {{ name_2 }} we'll reach out, quick as a rattlesnake!</p>
+                        <p>As soon as we hear from {{ users.name_2 }} we'll reach out, quick as a rattlesnake!</p>
                     </div>
                 </div>
             </div>
@@ -124,18 +110,15 @@ export default {
             onePersonDone: false,
             thisPersonDone: false,
             submittedSuccess: false,
-            id: this.$route.query.id,
-            directusid: this.directusID,
             questionType: "Tame",
-            name_1: "Juan",
-            equipment_1: "male",
-            email_1: false,
-            response_1: "",
-            name_2: "Maria",
-            equipment_2: "female",
-            email_2: false,
-            response_2: "",
-            results: "",
+            users: {
+                name_1: "Juan",
+                equipment_1: "male",
+                name_2: "Maria",
+                equipment_2: "female",
+                email_1: false,
+                email_2: false
+            },
             user: 0,
             userDone: 0
         }
@@ -147,8 +130,8 @@ export default {
         pageData: function () {
             return this.$store.state.pages.index
         },
-        questions: function () {
-            return this.$store.state.questions
+        categories: function () {
+            return this.$store.state.categories
         }
     },
     methods: {
@@ -189,59 +172,6 @@ export default {
                                     "hotness": hotnessChecked
                                 }
                             }
-                        }
-                    }
-                });
-                let responser;
-                if (th.user == 1) {
-                    responser = {response_1: JSON.stringify(send).replace(/ /g, "")};
-                } else if (th.user == 2) {
-                    responser = {response_2: JSON.stringify(send).replace(/ /g, "")};
-                }
-                axios.patch("https://www.lustamigo.com/directus/public/_/items/responses/" + th.directusID, responser).then(function (response) {
-                    if (response.status === 200) {
-                        let responsedata = response.data.data;
-                        if (responsedata.response_1 && responsedata.response_2) {
-                            let emaildata = JSON.stringify({
-                                uuid: th.id,
-                                name_1: th.name_1,
-                                email_1: th.email_1,
-                                gender_1: th.gender_1,
-                                name_2: th.name_2,
-                                email_2: th.email_2,
-                                gender_2: th.gender_2
-                            });
-                            const msg = JSON.stringify({
-                                "uuid": th.uuid,
-                                "name1": th.name_1,
-                                "name2": th.name_2,
-                                "name1_email": th.email_1,
-                                "name2_email": th.email_2,
-                                "gender_1": th.gender_1,
-                                "gender_2": th.gender_2,
-                                "couple_type": th.coupletype
-                            });
-                            try {
-                                let xhr = new XMLHttpRequest();
-                                let url = "./sendgridresults.php";
-                                xhr.open("POST", url);
-                                xhr.setRequestHeader("Content-type", "application/json");
-                                xhr.onreadystatechange = function () {
-                                    if (xhr.readyState === 4 && xhr.status === 200) {
-                                        console.log("Sending Results Emails");
-                                        th.$router.push("/results?id=" + th.id + "&user=" + th.user);
-                                    }
-                                };
-                                xhr.onerror = function () {
-                                    console.error("Cannot Send Results Email");
-                                }
-                                xhr.send(msg);
-                            } catch (e) {
-                                console.log("PHP File Not Able To Fire");
-                                // th.$router.push("/results?id=" + th.id + "&user=" + th.user);
-                            }
-                        } else {
-                            th.$router.push("/results?id=" + th.id + "&user=" + th.user);
                         }
                     }
                 });

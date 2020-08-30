@@ -2,48 +2,69 @@
     <div class="category__cell">
         <div>
             <div class="category__img__container">
-                <img :src="img.data.full_url" :alt="header" class="category__img">
+                <img 
+                    :src="category.img" 
+                    :alt="category.name + ' Logo'"
+                    class="category__img"
+                >
             </div>
-            <h2 class="category__name">{{ header }}</h2>
-            <p class="category__para">{{ para }}</p>
+            <h2 class="category__name">{{ category.name }}</h2>
+            <p class="category__para">{{ category.categorydescription }}</p>
         </div>
-        <div class="category__questions" v-show="alldone === false">
-            <div v-if="questionType.toLowerCase() === 'spicy'" class="question__cell__outer">
-                <div v-for="(question, index) in questions" :key="index" class="qa__cell question__cell">
-                    <Question v-if="question.status === 'published'" :key="index" :question="question" :name_1="name_1" :name_2="name_2" :gender_1="gender_1" :gender_2="gender_2" :user="user" :userDone="userDone" :currentUserDone="currentUserDone" :checked="userDoneQuestions(question)"></Question>
+        <div
+            v-if="alldone === false"
+            class="category__questions"
+        >
+            <div class="question__cell__outer">
+                <div 
+                    v-for="question in category.questions" 
+                    :key="question.question" 
+                    class="qa__cell question__cell"
+                >
+                    <Question 
+                        v-if="question.status" 
+                        :question="question" 
+                        :users="users" 
+                        :userDone="userDone" 
+                        :currentUserDone="currentUserDone" 
+                        :checked="userDoneQuestions(question)"
+                    >
+                    </Question>
                 </div>
             </div>
-            <div v-else></div>
-            <div v-if="questionType.toLowerCase() === 'tame'" class="question__cell__outer">
-                <div v-for="(question, index) in basicQuestions" :key="index" class="qa__cell question__cell">
-                    <Question v-if="question.status === 'published'" :key="index" :question="question" :name_1="name_1" :name_2="name_2" :gender_1="gender_1" :gender_2="gender_2" :user="user" :userDone="userDone" :currentUserDone="currentUserDone" :checked="userDoneQuestions(question)"></Question>
-                </div>
-            </div>
-            <div v-else></div>
         </div>
-        <div class="category__questions" v-if="alldone">
+        <div
+            v-if="alldone"
+            class="category__questions"
+        >
             <div class="answer__key__cell answer__cell qa__cell">
                 <div class="answer__text__cell"></div>
                 <div class="answer__key__names__cell answers__cell">
-                    <h5>{{ name_1 }}</h5>
-                    <h5>{{ name_2 }}</h5>
+                    <h5>{{ users.name_1 }}</h5>
+                    <h5>{{ users.name_2 }}</h5>
                 </div>
             </div>
-            <div v-for="(question, index) in questions" :key="index" >
-                <!-- COULD BE V-SHOW - CHANGE IF NEEDED/IT BREAKS -->
-                <div v-if="getAnswer(question)" style="width:100%;" class="qa__cell answer__cell">
-                    <Answer :key="index" :question="question" :name_1="name_1" :name_2="name_2" :gender_1="gender_1" :gender_2="gender_2" :response="getAnswer(question)" :user="user" :userDone="userDone" :currentUserDone="currentUserDone" :checked="userDoneQuestions(question)"/>
+            <div 
+                v-for="question in questions"
+                :key="question.question" 
+            >
+                <div 
+                    v-if="getAnswer(question)"
+                    style="width:100%;"
+                    class="qa__cell answer__cell"
+                >
+                    <Answer
+                        :response="getAnswer(question)" 
+                        :question="question"
+                        :users="users" 
+                        :userDone="userDone"
+                        :currentUserDone="currentUserDone"
+                        :checked="userDoneQuestions(question)"
+                    />
                 </div>
             </div>
         </div>
-        <div v-else></div>
-        <!-- <div v-if="products">
-            <div class="product__cells__outer" v-if="this.checkObj(products)">
-                <h5>Here are some of our favorite toys in this category!</h5>
-                <Products :products="products"/>
-            </div>
-        </div> -->
-        <div v-else></div>
+
     </div>
 </template>
 
@@ -56,21 +77,9 @@ export default {
         }
     },
     props: {
-        header: String,
-        para: String,
-        img: Object,
-        questions: Object,
-        name_1: String,
-        name_2: String,
-        gender_1: String,
-        gender_2: String,
-        response_1: String,
-        response_2: String,
+        category: Object,
+        users: Object,
         alldone: Boolean,
-        response: Object,
-        products: Object,
-        questionType: String,
-        user: Number,
         userDone: Number,
         currentUserDone: Boolean
     },

@@ -175,4 +175,5 @@ collections:
                 widget: "select"
                 options: ["El Diablo", "Hot", "Medium", "Mild"]
                 default: "Medium"
+              - { label: "Ask Both Partners", name: "bothpartners", widget: "boolean", default: false, required: false }
               - { label: "Question Image", name: "img", widget: "image", required: false }
