@@ -2,7 +2,7 @@ export const state = () => ({
     sitewide: {},
     nav: [],
     pages: {},
-    questions: {}
+    categories: {}
 });
 
 function sortItems(data) {
@@ -33,13 +33,17 @@ export const mutations = {
             newObj[obj.slug] = obj;
         }
         state.pages = newObj;
+    },
+    setCategories(state, data) {
+        state.categories = data;
     }
 };
 
 export const getters = {
     sitewide: state => state.sitewide,
     nav: state => state.nav,
-    pages: state => state.pages
+    pages: state => state.pages,
+    categories: state => state.categories
 };
 
 export const actions = {
@@ -67,6 +71,14 @@ export const actions = {
             return res;
         });
         await commit('setPages', d);
+
+        var categories = await require.context('~/assets/content/categories/', false, /\.json$/);
+        var d = categories.keys().map(key => {
+            let res = categories(key);
+            res.slug = key.slice(2, -5);
+            return res;
+        });
+        await commit('setCategories', d);
 
         // var datas = await require.context('~/assets/content/questions/', false, /\.json$/);
         // var d = datas.keys().map(key => {

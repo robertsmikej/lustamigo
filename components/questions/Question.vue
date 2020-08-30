@@ -153,9 +153,6 @@ export default {
 .qa__cell:nth-last-of-type(1) {
     border-bottom: 1px solid var(--gun-grey);
 }
-/* .qa__cell:nth-of-type(even) {
-    border: 1px solid var(--green);
-} */
 .qa__cell:nth-of-type(even) {
     background-color: var(--question-color);
     color: #FFF;
@@ -428,9 +425,6 @@ export default {
     .qa__cell .qa__text__cell {
         border-bottom: 1px solid var(--gun-grey);
     }
-    /* .qa__cell:nth-of-type(even) .qa__text__cell {
-        border-bottom: none;
-    } */
     .qa__cell:nth-of-type(odd) .question__answer:nth-of-type(even) {
         border-right: 1px solid var(--gun-grey);
         border-left: 1px solid var(--gun-grey);

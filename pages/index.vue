@@ -1,16 +1,8 @@
 <template>
-    <section
-        class="container"
-    >
-        <Hero 
-            :dataObj="pageData"
-        />
-        <span 
-            id="get__started"
-        ></span>
-        <div 
-            class="enter__info"
-        >
+    <section class="container">
+        <Hero :dataObj="pageData"/>
+        <span id="get__started"></span>
+        <div class="enter__info">
             <div
                 v-html="$md.render(pageData.contentSection1.content_1)"
                 class="padded__section"
@@ -18,7 +10,7 @@
             <div class="qa__cell example__question">
                 <Question
                     :hotness="getImage('Pepper')[0].img"
-                    :question="this.fakeQuestion" 
+                    :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination}" 
                     :example="true" 
                     :name_1="'Juan'" 
                     :name_2="'Maria'" 
@@ -34,9 +26,7 @@
                             alt="This is Mucho Hot!" 
                             class="pepper__example__img"
                         />
-                        <div 
-                            class="pepper__example__text"
-                        >
+                        <div class="pepper__example__text">
                             &#8592; That's one Sexy Pepper!
                         </div>
                     </span>
@@ -45,22 +35,40 @@
                     </p>
                 </div>
             </div>
-            <div class="padded__section" v-html="$md.render(pageData.contentSection1.content_2)"></div>
+            <div
+                v-html="$md.render(pageData.contentSection1.content_2)"
+                class="padded__section" 
+            ></div>
             <form class="enter__info__fields">
                 <div class="info__section">
                     <h2>You</h2>
                     <div class="info__text__field">
-                        <label for="yourname">Your First Name</label>
-                        <input type="name" name="yourname" id="yourname" v-model="formData.name_1">
+                        <label for="name1">Your First Name</label>
+                        <input 
+                            type="name"
+                            name="name1"
+                            id="name1"
+                            v-model="formData.name_1"
+                        >
                     </div>
                     <div class="info__text__field">
-                        <label for="youremail">Your Email Address</label>
-                        <input type="email" name="youremail" id="youremail" v-model="formData.email_1">
+                        <label for="email1">Your Email Address</label>
+                        <input 
+                            type="email"
+                            name="email1"
+                            id="email1"
+                            v-model="formData.email_1"
+                        >
                     </div>
                     <div class="info__radio__field">
                         <p class="form__para">Your Equipment</p>
-                        <input type="radio" id="your-gender-male" name="yourgender" value="Male" v-model="formData.gender_1" checked>
-                        <label for="your-gender-male">
+                        <input 
+                            type="radio" 
+                            id="equipment-1-male" 
+                            name="equipment-1-male" value="Male" 
+                            v-model="formData.equipment_1" 
+                        >
+                        <label for="equipment-1-male">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -70,8 +78,14 @@
                             </div>
                             <p class="form__para">Male</p>
                         </label>
-                        <input type="radio" id="your-gender-female" name="yourgender" value="Female" v-model="formData.gender_1">
-                        <label for="your-gender-female">
+                        <input
+                            type="radio"
+                            id="equipment-1-female"
+                            name="equipment-1-female"
+                            value="Female"
+                            v-model="formData.equipment_1"
+                        >
+                        <label for="equipment-1-female">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
@@ -86,17 +100,32 @@
                 <div class="info__section">
                     <h2 class="form__spacer">Them</h2>
                     <div class="info__text__field">
-                        <label for="theirname">Their First Name</label>
-                        <input type="name" name="theirname" id="theirname" v-model="formData.name_2">
+                        <label for="name2">Their First Name</label>
+                        <input 
+                            type="name"
+                            name="name2"
+                            id="name2"
+                            v-model="formData.name_2"
+                        >
                     </div>
                     <div class="info__text__field">
-                        <label for="theiremail">Their Email Address</label>
-                        <input type="text" name="theiremail" id="theiremail" v-model="formData.email_2">
+                        <label for="email2">Their Email Address</label>
+                        <input 
+                            type="email"
+                            name="email2"
+                            id="email2"
+                            v-model="formData.email_2"
+                        >
                     </div>
                     <div class="info__radio__field">
                         <p class="form__para">Their Equipment</p>
-                        <input type="radio" id="their-gender-male" name="theirgender" value="Male" v-model="formData.gender_2">
-                        <label for="their-gender-male">
+                        <input 
+                            type="radio" 
+                            id="equipment-2-male" 
+                            name="equipment-2-male" value="Male" 
+                            v-model="formData.equipment_2" 
+                        >
+                        <label for="equipment-2-male">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -106,8 +135,14 @@
                             </div>
                             <p class="form__para">Male</p>
                         </label>
-                        <input type="radio" id="their-gender-female" name="theirgender" value="Female" checked v-model="formData.gender_2">
-                        <label for="their-gender-female">
+                        <input
+                            type="radio"
+                            id="equipment-2-female"
+                            name="equipment-2-female"
+                            value="Female"
+                            v-model="formData.equipment_2"
+                        >
+                        <label for="equipment-2-female">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
@@ -122,7 +157,13 @@
                 <div class="info__section">
                     <h2 class="form__spacer">Types of Questions</h2>
                     <div class="info__radio__field">
-                        <input type="radio" id="spicy" name="questiontypes" value="Spicy" v-model="formData.question_types" checked>
+                        <input 
+                            type="radio" 
+                            id="spicy" 
+                            name="questiontypes" 
+                            value="Spicy" 
+                            v-model="formData.question_types" 
+                        >
                         <label for="spicy">
                             <div class="form__img__container">
                                 <img
@@ -134,7 +175,13 @@
                             <p class="form__para">Spicy</p>
                             <p class="small__para">You'll see all the fun stuff</p>
                         </label>
-                        <input type="radio" id="tame" name="questiontypes" value="Tame" v-model="formData.question_types">
+                        <input 
+                            type="radio" 
+                            id="tame" 
+                            name="questiontypes" 
+                            value="Tame" 
+                            v-model="formData.question_types"
+                        >
                         <label for="tame">
                             <div class="form__img__container">
                                 <img
@@ -149,9 +196,12 @@
                     </div>
                 </div>
             </form>
-            <p>This site is not meant for any ninos under 18 years old. </p>
-            <p class="missing__info__para" v-if="!this.formFilled">Something is missing above... please fill out all the info, you silly billy!</p>
-            <button class="submit__button" @click.stop.prevent="setData()">
+            <p>This site is not meant for any ninos under 18 years old.</p>
+            <p class="missing__info__para" v-if="formMissingData">Something is missing above... please fill out all the info, you silly billy!</p>
+            <button 
+                @click.stop.prevent="setData()"
+                class="submit__button"
+            >
                 <span v-if="this.starting === false">Start The Quiz</span>
                 <span v-if="this.starting">Starting...</span>
             </button>
@@ -173,99 +223,66 @@ export default {
     },
     data () {
         return {
-            uuid: this.$uuid.v1(),
+            devMode: true,
             formData: {
+                uuid: this.$uuid.v1(),
                 name_1: "",
                 email_1: "",
-                gender_1: "Male",
+                equipment_1: "Male",
                 name_2: "",
                 email_2: "",
-                gender_2: "Female",
+                equipment_2: "Female",
                 coupletype: "",
                 question_types: "Spicy"
             },
-            fakeQuestion: {
-                question: "Give A Sexy Massage To user",
-                question_explanation: "If theres a section that may not make sense, we'll try to explain here."
-            },
-            formFilled: true,
+            formMissingData: false,
             starting: false
         }
     },
     methods: {
         getImage: function(name) {
-            let images = this.pageData.pageimages;
+            const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
         },
-        //FIGURE OUT COUPLE TYPE HERE AND ADD TO FORMDATA OBJECT OR SIMILAR
+        validateSelections: function () {
+            const inputs = document.querySelector(".enter__info__fields").getElementsByTagName("input");
+            const empties = Array.from(inputs).filter(input => input.value.length === 0)
+            // const empties
+            if (empties.length > 0 || this.devMode) {//NAMES AND EMAILS ARE FILLED OUT
+                return true;
+            } else {//AT LEAST ONE NAME OR EMAIL ISNT FILLED OUT
+                this.formMissingData = true;
+                return false;
+            }
+        },
+        getOrient: function () {
+            let sexualOrient = "straight";
+            const equipment_1_male = document.getElementById("equipment-1-male");
+            const equipment_2_male = document.getElementById("equipment-2-male");
+            const equipment_1_female = document.getElementById("equipment-1-female");
+            const equipment_2_female = document.getElementById("equipment-2-female");
+            if (equipment_1_male.checked && equipment_2_male.checked || equipment_1_female.checked && equipment_2_female.checked) {
+                sexualOrient = "gay";
+            }
+            return sexualOrient;
+        },
+        returnFirstName: function (name) {
+            return name.indexOf(" ") >= 0 ? name.split(" ")[0] : name;
+        },
         setData: function() {
-            if (document.getElementById("yourname").value.length > 0 && document.getElementById("youremail").value.length > 0 && document.getElementById("theirname").value.length > 0 && document.getElementById("theiremail").value.length > 0) {
-                this.formFilled = true;
+            if (this.validateSelections() === true) {
                 this.starting = true;
-                if (document.getElementById("their-gender-male").checked && document.getElementById("your-gender-male").checked || document.getElementById("their-gender-female").checked && document.getElementById("your-gender-female").checked) {
-                    this.formData.coupletype = "gay";
-                } else {
-                    this.formData.coupletype = "straight";
-                }
-                if (this.formData.name_1.indexOf(" ") >= 0) {
-                    this.formData.name_1 = this.formData.name_1.split(" ")[0];
-                }
-                if (this.formData.name_2.indexOf(" ") >= 0) {
-                    this.formData.name_2 = this.formData.name_2.split(" ")[0];
-                }
-                let data = {
-                    "uuid": this.uuid,
-                    "name_1": this.formData.name_1,
-                    "email_1": this.formData.email_1,
-                    "gender_1": this.formData.gender_1,
-                    "name_2": this.formData.name_2,
-                    "email_2": this.formData.email_2,
-                    "gender_2": this.formData.gender_2,
-                    "couple_type": this.formData.coupletype,
-                    "question_types": this.formData.question_types,
-                };
-                let th = this;
-                axios.post("https://www.lustamigo.com/directus/public/_/items/responses", data).then(function (response) {
-                    if (response.status === 200) {
-                            const msg = JSON.stringify({
-                                "uuid": th.uuid,
-                                "name1": th.formData.name_1,
-                                "name2": th.formData.name_2,
-                                "name1_email": th.formData.email_1,
-                                "name2_email": th.formData.email_2,
-                                "gender_1": th.formData.gender_1,
-                                "gender_2": th.formData.gender_2,
-                                "couple_type": th.formData.coupletype,
-                                "question_types": th.formData.question_types
-                            });
-                        try {
-                            let xhr = new XMLHttpRequest();
-                            let url = "/sendgrid.php";
-                            xhr.open("POST", url);
-                            xhr.setRequestHeader("Content-type", "application/json");
-                            xhr.onreadystatechange = function () {
-                                if (xhr.readyState === 4 && xhr.status === 200) {
-                                    th.$router.push("/questions?id=" + th.uuid + "&user=1");
-                                }
-                            };
-                            xhr.onerror = function () {
-                                console.error("Cannot Send Initial Email");
-                            }
-                            xhr.send(msg);
-                        } catch (e) {
-                            console.log("PHP File Not Able To Fire");
-                            // th.$router.push("/questions?id=" + th.uuid + "&user=1");
-                        }
-                    }
-                });
-            } else {
-                this.formFilled = false;
+                this.formData.coupletype = this.getOrient();
+                this.formData.name_1 = this.returnFirstName(this.formData.name_1);
+                this.formData.name_2 = this.returnFirstName(this.formData.name_2);
+                console.log(this.formData);
             }
         }
     },
     mounted () {
-        document.getElementById("your-gender-male").checked = true;
-        document.getElementById("their-gender-female").checked = true;
+        //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES
+        document.getElementById("equipment-1-male").checked = true;
+        document.getElementById("equipment-2-female").checked = true;
         document.getElementById("spicy").checked = true;
     },
     head () {
@@ -286,8 +303,6 @@ export default {
 </script>
 
 <style>
-
-
 .example__question {
     background-color: var(--question-color);
     color: #FFF;
@@ -507,7 +522,6 @@ body .pepper__example__img {
 }
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 730px) {
-    
     .enter__info {
         padding: 30px 0;
         width: 100%;

@@ -134,7 +134,8 @@ collections:
         name: "examplequestion"
         widget: object
         fields:
-          - { label: 'Question Text', name: 'questiontext', widget: 'string', required: false}
+          - { label: 'Question Text', name: 'questiontext', widget: 'text', required: false}
+          - { label: 'Question Explaination', name: 'questionexplaination', widget: 'text', required: false}
       - label: "Page Images"
         name: "pageimages"
         widget: "list"
@@ -142,3 +143,36 @@ collections:
           - { label: "Image Name", name: "imagename", widget: "string", default: "Image" }
           - { label: "Alt Text", name: "imagealt", widget: "string", default: "Alt Text", required: false }
           - { label: "Image", name: "img", widget: "image" }
+
+  - name: 'questioncategories'
+    label: 'Question Categories'
+    identifier_field: name
+    format: 'json'
+    folder: 'assets/content/categories'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Categories List Name', name: 'name', widget: 'string' }
+      - label: "Categories"
+        name: "categories"
+        widget: "list"
+        fields:
+          - { label: 'Category Name', name: 'name', widget: 'string' }
+          - { label: "Show This Category", name: "status", widget: "boolean", default: false, required: false }
+          - { label: "Category Image", name: "img", widget: "image" }
+          - { label: "Category Description", name: "categorydescription", widget: "text" }
+          - label: "Questions"
+            name: "questions"
+            widget: "list"
+            fields:
+              - { label: 'Question', name: 'question', widget: 'text' }
+              - { label: "Show This Question", name: "status", widget: "boolean", default: false, required: false }
+              - { label: "Question Description", name: "description", widget: "text", required: false }
+              - label: "Spiciness Level"
+                name: "spicinesslevel"
+                widget: "select"
+                options: ["El Diablo", "Hot", "Medium", "Mild"]
+                default: "Medium"
+              - { label: "Question Image", name: "img", widget: "image", required: false }
