@@ -184,12 +184,13 @@
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "question": "Use nipple clamps on partner"
+          "question": "Use nipple clamps on partner",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "bothpartners": false,
+          "bothpartners": true,
           "question": "Use a dildo"
         },
         {
@@ -201,6 +202,36 @@
             "straight",
             "gay-male"
           ]
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Use a vibrator"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Use Butt Plug"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Erotic Electro-stimulation",
+          "description": "Where a person gets please from a small (or larger) electrical shock on or around genitals. TENS machines are often used for this."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Use Sex Machines",
+          "description": "Reciprocating Tool Adaptors"
         }
       ]
     },
