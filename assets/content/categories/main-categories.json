@@ -1,0 +1,11 @@
+{
+  "categories": [
+    {
+      "status": true,
+      "name": "Essentials",
+      "img": "/img/mexi-cons-pyramid.png",
+      "categorydescription": "Some of the things everyone should talk about"
+    }
+  ],
+  "name": "Main Categories"
+}
