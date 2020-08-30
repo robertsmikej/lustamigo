@@ -23,7 +23,14 @@
       "status": true,
       "name": "Toying Around",
       "img": "/img/mexi-cons-ball-in-a-cup.png",
-      "categorydescription": "Get Your Buzz Buzz On"
+      "categorydescription": "Get Your Buzz Buzz On",
+      "questions": [
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "question": "Use nipple clamps on partner"
+        }
+      ]
     },
     {
       "status": true,
