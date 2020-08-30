@@ -14,12 +14,6 @@
         },
         {
           "status": true,
-          "spicinesslevel": "Medium",
-          "question": "Give/Get a sexy massage",
-          "allgenders": true
-        },
-        {
-          "status": true,
           "spicinesslevel": "Mild",
           "question": "Send Sexy Text Massages with Partner",
           "allgenders": false
@@ -27,7 +21,8 @@
         {
           "status": true,
           "spicinesslevel": "Mild",
-          "question": "Give/Get A Sexy Massage"
+          "question": "Give/Get A Sexy Massage",
+          "bothpartners": true
         },
         {
           "status": true,
@@ -45,12 +40,14 @@
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Use dirtier words during sexy time",
-          "description": "Bitch, Slut, Trump Supporter"
+          "description": "Bitch, Slut, Trump Supporter",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Watch each other masturbate at same time or separately"
+          "question": "Watch each other masturbate at same time or separately",
+          "bothpartners": true
         },
         {
           "status": true,
@@ -61,45 +58,53 @@
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Wake up partner with sex/oral sex"
+          "question": "Wake up partner with sex/oral sex",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Be louder during sex (Both or one of you)",
-          "description": "Channel your inner porn star!"
+          "description": "Channel your inner porn star!",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Be rougher in sex"
+          "question": "Be rougher in sex",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Rub genitals on partner's body"
+          "question": "Rub genitals on partner's body",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Rub genitals on partner's face"
+          "question": "Rub genitals on partner's face",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Face Sitting",
-          "description": "A special treat!"
+          "description": "A special treat!",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
-          "question": "Titty Fuck Female"
+          "question": "Titty Fuck",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Ass Job",
-          "description": "Where the señor humps the butt cheeks of another person."
+          "description": "Where the señor humps the butt cheeks of another person.",
+          "bothpartners": true
         },
         {
           "status": true,
@@ -132,12 +137,14 @@
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "question": "Take Sexy Pictures"
+          "question": "Take Sexy Pictures",
+          "bothpartners": true
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "question": "Take Sexy Videos"
+          "question": "Take Sexy Videos",
+          "bothpartners": true
         },
         {
           "status": true,
@@ -147,7 +154,8 @@
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "question": "Show each other what we like in porn"
+          "question": "Show each other what we like in porn",
+          "bothpartners": true
         },
         {
           "status": true,
