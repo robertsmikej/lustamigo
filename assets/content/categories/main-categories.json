@@ -97,14 +97,21 @@
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Titty Fuck",
-          "bothpartners": true
+          "bothpartners": true,
+          "typeof": [
+            "straight"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Ass Job",
           "description": "Where the señor humps the butt cheeks of another person.",
-          "bothpartners": true
+          "bothpartners": true,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ]
         },
         {
           "status": true,
@@ -116,7 +123,10 @@
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Sumata",
-          "description": "Where woman rubs her genitals on the male's genitals without penetration until release"
+          "description": "Where woman rubs her genitals on the male's genitals without penetration until release",
+          "typeof": [
+            "straight"
+          ]
         },
         {
           "status": true,
@@ -186,7 +196,11 @@
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
-          "question": "Use a cock ring in the bedroom"
+          "question": "Use a cock ring in the bedroom",
+          "typeof": [
+            "straight",
+            "gay-male"
+          ]
         }
       ]
     },
