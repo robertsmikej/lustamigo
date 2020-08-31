@@ -62,7 +62,8 @@
                         <input 
                             type="radio" 
                             id="equipment-1-male" 
-                            name="equipment-1-male" value="Male" 
+                            name="equipment-1"
+                             value="male" 
                             v-model="users.equipment_1" 
                         >
                         <label for="equipment-1-male">
@@ -78,8 +79,8 @@
                         <input
                             type="radio"
                             id="equipment-1-female"
-                            name="equipment-1-female"
-                            value="Female"
+                            name="equipment-1"
+                            value="female"
                             v-model="users.equipment_1"
                         >
                         <label for="equipment-1-female">
@@ -119,7 +120,7 @@
                         <input 
                             type="radio" 
                             id="equipment-2-male" 
-                            name="equipment-2-male"
+                            name="equipment-2"
                             value="male" 
                             v-model="users.equipment_2" 
                         >
@@ -136,7 +137,7 @@
                         <input
                             type="radio"
                             id="equipment-2-female"
-                            name="equipment-2-female"
+                            name="equipment-2"
                             value="female"
                             v-model="users.equipment_2"
                         >
@@ -159,7 +160,7 @@
                             type="radio" 
                             id="spicy" 
                             name="questiontypes" 
-                            value="Spicy" 
+                            value="spicy" 
                             v-model="users.question_types" 
                         >
                         <label for="spicy">
@@ -177,7 +178,7 @@
                             type="radio" 
                             id="tame" 
                             name="questiontypes" 
-                            value="Tame" 
+                            value="tame" 
                             v-model="users.question_types"
                         >
                         <label for="tame">
@@ -226,12 +227,12 @@ export default {
                 uuid: this.$uuid.v1(),
                 name_1: "",
                 email_1: "",
-                equipment_1: "male",
+                equipment_1: "",
                 name_2: "",
                 email_2: "",
-                equipment_2: "female",
+                equipment_2: "",
                 coupletype: "straight",
-                question_types: "Spicy"
+                question_types: "spicy"
             },
             formMissingData: false,
             starting: false
@@ -283,9 +284,13 @@ export default {
     },
     mounted () {
         //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES
-        document.getElementById("equipment-1-male").checked = true;
-        document.getElementById("equipment-2-female").checked = true;
-        document.getElementById("spicy").checked = true;
+        if(Math.floor( Math.random() * 2 )){
+            this.users.equipment_1 = 'female'
+        } else this.users.equipment_1 = 'male';
+        if(Math.floor( Math.random() * 2 )){
+            this.users.equipment_2 = 'male'
+        } else this.users.equipment_2 = 'female';
+         this.users.question_types = 'spicy'
     },
     head () {
         return {
