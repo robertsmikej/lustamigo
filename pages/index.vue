@@ -62,7 +62,7 @@
                         <input 
                             type="radio" 
                             id="equipment-1-male" 
-                            name="equipment-1-male"
+                            name="equipment-1"
                             value="male" 
                             v-model="users.equipment_1" 
                         >
@@ -79,7 +79,7 @@
                         <input
                             type="radio"
                             id="equipment-1-female"
-                            name="equipment-1-female"
+                            name="equipment-1"
                             value="female"
                             v-model="users.equipment_1"
                         >
@@ -120,7 +120,7 @@
                         <input 
                             type="radio" 
                             id="equipment-2-male" 
-                            name="equipment-2-male"
+                            name="equipment-2"
                             value="male" 
                             v-model="users.equipment_2" 
                         >
@@ -137,7 +137,7 @@
                         <input
                             type="radio"
                             id="equipment-2-female"
-                            name="equipment-2-female"
+                            name="equipment-2"
                             value="female"
                             v-model="users.equipment_2"
                         >
@@ -262,10 +262,10 @@ export default {
             users: {
                 uuid: this.$uuid.v1(),
                 name_1: "",
-                equipment_1: "male",
+                equipment_1: "",
                 email_1: "",
                 name_2: "",
-                equipment_2: "female",
+                equipment_2: "",
                 email_2: "",
                 coupletype: "straight",
                 spice_level: 7
@@ -317,9 +317,16 @@ export default {
     },
     mounted () {
         //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES
-        document.getElementById("equipment-1-male").checked = true;
-        document.getElementById("equipment-2-female").checked = true;
-        document.getElementById("spicy").checked = true;
+        if (Math.floor( Math.random() * 2 )) {
+            this.users.equipment_1 = 'female'
+        } else {
+            this.users.equipment_1 = 'male';
+        }
+        if (Math.floor( Math.random() * 2 )) {
+            this.users.equipment_2 = 'male'
+        } else {
+            this.users.equipment_2 = 'female';
+        } 
     },
     head () {
         return {
