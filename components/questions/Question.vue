@@ -39,7 +39,6 @@
             :data-checked="checkAnswer(checked)"
             class="question__answer__cell"
         >
-        {{question}}
             <div class="question__answer__inner">
                 <div class="question__answer">
                     <input 

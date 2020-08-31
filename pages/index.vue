@@ -58,11 +58,12 @@
                         >
                     </div>
                     <div class="info__radio__field">
-                        <p class="form__para">Your Equipment</p>
+                        <p class="form__para">Their Equipment</p>
                         <input 
                             type="radio" 
                             id="equipment-1-male" 
-                            name="equipment-1-male" value="Male" 
+                            name="equipment-1-male"
+                            value="male" 
                             v-model="users.equipment_1" 
                         >
                         <label for="equipment-1-male">
@@ -79,14 +80,14 @@
                             type="radio"
                             id="equipment-1-female"
                             name="equipment-1-female"
-                            value="Female"
+                            value="female"
                             v-model="users.equipment_1"
                         >
                         <label for="equipment-1-female">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
-                                    alt="Female Gender Selection" 
+                                    alt="Female Gender Selection"
                                     class="form__img"
                                 >
                             </div>
@@ -261,13 +262,13 @@ export default {
             users: {
                 uuid: this.$uuid.v1(),
                 name_1: "",
-                email_1: "",
                 equipment_1: "male",
+                email_1: "",
                 name_2: "",
-                email_2: "",
                 equipment_2: "female",
+                email_2: "",
                 coupletype: "straight",
-                spice_level: "Spicy"
+                spice_level: 7
             },
             formMissingData: false,
             starting: false
@@ -290,12 +291,8 @@ export default {
             }
         },
         getOrient: function () {
-            const equipment_1_male = document.getElementById("equipment-1-male");
-            const equipment_2_male = document.getElementById("equipment-2-male");
-            const equipment_1_female = document.getElementById("equipment-1-female");
-            const equipment_2_female = document.getElementById("equipment-2-female");
-            if (equipment_1_male.checked && equipment_2_male.checked || equipment_1_female.checked && equipment_2_female.checked) {
-                if (equipment_1_male.checked && equipment_2_male.checked) {
+            if (this.users.equipment_1 === this.users.equipment_2) {
+                if (this.users.equipment_1 === "male") {
                     return "gay-male";
                 } else {
                     return "gay-female";
@@ -312,6 +309,7 @@ export default {
                 this.users.coupletype = this.getOrient();
                 this.users.name_1 = this.returnFirstName(this.users.name_1);
                 this.users.name_2 = this.returnFirstName(this.users.name_2);
+                this.spice_level = parseInt(this.spice_level);
                 console.log(this.users); //this.users is data to send to database, etc.
 
             }

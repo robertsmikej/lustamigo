@@ -86,7 +86,7 @@ export default {
             const catQuestions = this.category.questions;
             let newQuestionsArr = [];
             const coupletype = this.users.coupletype;
-            const userSpiciness = this.users.spice_level.toLowerCase();
+            const userSpiciness = this.users.spice_level;
             let orientation = catQuestions.filter(function (question) {
                 if (question.typeof && question.typeof.includes(coupletype)) {
                     return question;
@@ -95,26 +95,11 @@ export default {
                 }
             });
 
-            const spicinessLevels = {
-                "mild": [1],
-                "medium": [2, 3, 4],
-                "spicy": [5, 6, 7],
-                "eldiablo": [8, 9, 10]
-            };
+
             let spiciness = orientation.filter(function (question) {
-                for (let l in spicinessLevels) {
-                    let level = spicinessLevels[l];
-                    console.log(question.question);
-                    console.log(level);
-                    console.log(userSpiciness)
-                    if (level.includes(userSpiciness) || userSpiciness === "spicy") {
-                        
-                        
-                        
-                        return question;
-                    } 
-                    
-                }                
+                if (parseInt(question.spicelevel) <= parseInt(userSpiciness)) {
+                    return question; 
+                }
             });
             return spiciness;
         },

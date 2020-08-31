@@ -71,7 +71,6 @@
                     :key="category.name"
                     :category="category"
                     :users="users"
-                    :spicinessLevels="spicinessLevels"
                 ></CategoryCell>
             </div>
             <div
@@ -112,11 +111,11 @@ export default {
             submittedSuccess: false,
             users: {
                 name_1: "Juan",
-                email_1: "",
                 equipment_1: "male",
+                email_1: "",
                 name_2: "Maria",
-                email_2: "",
                 equipment_2: "female",
+                email_2: "",
                 coupletype: "gay-male",
                 spice_level: 7
             },
