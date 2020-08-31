@@ -473,13 +473,192 @@
       "status": true,
       "name": "BDSM",
       "img": "/img/mexi-cons-masked-wrestler.png",
-      "categorydescription": "50 Shades of Gris"
+      "categorydescription": "50 Shades of Gris",
+      "questions": [
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Blindfold partner"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Tie down partner with restraints"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Pull Partner's Hair"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Slap partner's face during sex"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Wear earplugs during sex"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Punch partner during sex",
+          "description": "Right in the kisser!"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Spank partner with hand"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Spank partner with toys ",
+          "description": "(whips/paddles/teen vogue magazines)"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Use a riding crop on partner",
+          "description": "A short flexible whip"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Strike partner with a cane",
+          "description": "Strike partner with a cane"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Put a dog collar/leash on your partner",
+          "description": "Woof!"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Submissiveness"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Worship Your Partner's Body"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Worship Your Partner's Genitals"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Roleplay rape partner",
+          "description": "With a safe word and other precautions taken of course."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Act as a servant to Partner"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Act as a slave for Partner"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Command and deny orgasms"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Use Chastity Belt"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Be suspended in air while having sex with partner.",
+          "description": "Like a Sex Swing, etc."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Wear a ball gag"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Slap/Flick Partner's Genitals"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Hit/Step On Partner's Genitals"
+        }
+      ]
     },
     {
       "status": true,
       "name": "Fetish",
       "img": "/img/mexi-cons-cactus.png",
-      "categorydescription": "What you find really bueno"
+      "categorydescription": "What you find really bueno",
+      "questions": [
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Bite partner"
+        }
+      ]
     },
     {
       "status": true,
