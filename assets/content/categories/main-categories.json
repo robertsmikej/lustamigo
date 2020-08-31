@@ -10,88 +10,102 @@
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Longer Foreplay Times With Other Person",
-          "description": "You'd like to spend a long time exploring each others bodies and the small things that you love"
+          "description": "You'd like to spend a long time exploring each others bodies and the small things that you love",
+          "spicelevel": "1"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Send Sexy Text Massages with Partner",
-          "allgenders": false
+          "allgenders": false,
+          "spicelevel": "2"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Give/Get A Sexy Massage",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "2"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "French Kissing",
-          "description": "Put your tongue in someone's mouth. Like some sort of animal."
+          "description": "Put your tongue in someone's mouth. Like some sort of animal.",
+          "spicelevel": "1"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Dry Hump A Bit",
-          "description": "Humping with clothes on. Like a pilgrim!"
+          "description": "Humping with clothes on. Like a pilgrim!",
+          "spicelevel": "1"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Use dirtier words during sexy time",
           "description": "Bitch, Slut, Trump Supporter",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Watch each other masturbate at same time or separately",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Mutually masturbate",
-          "description": "The ol' Dutch Rudder!"
+          "description": "The ol' Dutch Rudder!",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Wake up partner with sex/oral sex",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Be louder during sex (Both or one of you)",
           "description": "Channel your inner porn star!",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Be rougher in sex",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Rub genitals on partner's body",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Rub genitals on partner's face",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Face Sitting",
           "description": "A special treat!",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -100,7 +114,8 @@
           "bothpartners": true,
           "typeof": [
             "straight"
-          ]
+          ],
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -111,13 +126,15 @@
           "typeof": [
             "straight",
             "gay-male"
-          ]
+          ],
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Panty Job",
-          "description": "Having sex with someone while they're wearing panties"
+          "description": "Having sex with someone while they're wearing panties",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -126,61 +143,61 @@
           "description": "Where woman rubs her genitals on the male's genitals without penetration until release",
           "typeof": [
             "straight"
-          ]
+          ],
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
-          "question": "Go to a Strip Club"
+          "question": "Go to a Strip Club",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Nipple Play!",
-          "description": "Bite Em'."
+          "description": "Bite Em'.",
+          "spicelevel": "2"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
-          "question": "Have Phone Sex"
+          "question": "Have Phone Sex",
+          "spicelevel": "1"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Take Sexy Pictures",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Take Sexy Videos",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
-          "question": "Watch some porn together"
+          "question": "Watch some porn together",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Show each other what we like in porn",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Re-enact a porn scene you both like",
-          "description": "Channel your inner Ron Jeremy"
-        },
-        {
-          "status": true,
-          "spicinesslevel": "Medium",
-          "bothpartners": false,
-          "typeof": [
-            "gay-female"
-          ],
-          "question": "Lesbian Text Question"
+          "description": "Channel your inner Ron Jeremy",
+          "spicelevel": "5"
         }
       ]
     },
@@ -194,13 +211,15 @@
           "status": true,
           "spicinesslevel": "Hot",
           "question": "Use nipple clamps on partner",
-          "bothpartners": true
+          "bothpartners": true,
+          "spicelevel": "6"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
-          "question": "Use a dildo"
+          "question": "Use a dildo",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -210,21 +229,24 @@
           "typeof": [
             "straight",
             "gay-male"
-          ]
+          ],
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Use a vibrator"
+          "question": "Use a vibrator",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Use Butt Plug"
+          "question": "Use Butt Plug",
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -232,7 +254,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Erotic Electro-stimulation",
-          "description": "Where a person gets please from a small (or larger) electrical shock on or around genitals. TENS machines are often used for this."
+          "description": "Where a person gets please from a small (or larger) electrical shock on or around genitals. TENS machines are often used for this.",
+          "spicelevel": "9"
         },
         {
           "status": true,
@@ -240,7 +263,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Use Sex Machines",
-          "description": "Reciprocating Tool Adaptors"
+          "description": "Reciprocating Tool Adaptors",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -251,7 +275,8 @@
             "gay-male"
           ],
           "question": "Mold partner's penis into a dildo",
-          "description": "Mold A silicone version of his penis"
+          "description": "Mold A silicone version of his penis",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -262,7 +287,8 @@
             "gay-female"
           ],
           "question": "Use a remote control vibrator",
-          "description": "Usually vibrator goes into panties and can be controlled remotely by remote control. Great for discreet fun in public!"
+          "description": "Usually vibrator goes into panties and can be controlled remotely by remote control. Great for discreet fun in public!",
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -273,7 +299,8 @@
             "gay-female"
           ],
           "question": "Clit Sucking Toys",
-          "description": "Toys which suck on the clit. They're the new rage!"
+          "description": "Toys which suck on the clit. They're the new rage!",
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -283,7 +310,8 @@
             "straight",
             "gay-male"
           ],
-          "question": "Use a Fleshlight on male"
+          "question": "Use a Fleshlight on male",
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -294,7 +322,8 @@
             "gay-female"
           ],
           "question": "Female uses strap-on on partner",
-          "description": "Pegging is when you a woman uses a strap on and does things to their partner's bungus"
+          "description": "Pegging is when you a woman uses a strap on and does things to their partner's bungus",
+          "spicelevel": "8"
         }
       ]
     },
@@ -309,14 +338,16 @@
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Anally Finger Partner"
+          "question": "Anally Finger Partner",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Use a Butt Plug"
+          "question": "Use a Butt Plug",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -328,7 +359,8 @@
             "gay-female"
           ],
           "question": "Anal Sex",
-          "description": "Just the tip? Or the hole thing?"
+          "description": "Just the tip? Or the hole thing?",
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -336,7 +368,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Peg partner with a strap-on",
-          "description": "Pegging is usually when a woman uses a strap on and does things to the male bungus, but it's available to any one with a butthole/vagina!"
+          "description": "Pegging is usually when a woman uses a strap on and does things to the male bungus, but it's available to any one with a butthole/vagina!",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -344,7 +377,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Lick partner's ass (Rimming)",
-          "description": "Anilingus is the oral and anal sex act in which a person stimulates the anus of another by using the mouth, including lips, tongue, or teeth."
+          "description": "Anilingus is the oral and anal sex act in which a person stimulates the anus of another by using the mouth, including lips, tongue, or teeth.",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -355,7 +389,8 @@
             "gay-female"
           ],
           "question": "Ass to Vagina? A2V",
-          "description": "Move from Anal to Vagina during sex with Penis"
+          "description": "Move from Anal to Vagina during sex with Penis",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -366,28 +401,32 @@
             "gay-male"
           ],
           "question": "Ass to Mouth? A2M",
-          "description": "Move from Anal sex to blowjob"
+          "description": "Move from Anal sex to blowjob",
+          "spicelevel": "8"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": true,
           "typeof": null,
-          "question": "Anal Fisting!"
+          "question": "Anal Fisting!",
+          "spicelevel": "9"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": true,
           "typeof": null,
-          "question": "Double penetrate partner with toys and partner's penis/a dildo"
+          "question": "Double penetrate partner with toys and partner's penis/a dildo",
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Use Anal Beads"
+          "question": "Use Anal Beads",
+          "spicelevel": "5"
         },
         {
           "status": true,
@@ -397,7 +436,8 @@
             "straight",
             "gay-male"
           ],
-          "question": "Tickle Partner's Prostate with Fingers/Toys"
+          "question": "Tickle Partner's Prostate with Fingers/Toys",
+          "spicelevel": "4"
         }
       ]
     },
@@ -413,7 +453,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Go Down On Partner",
-          "description": "With the mouth, and tongues and stuff."
+          "description": "With the mouth, and tongues and stuff.",
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -423,7 +464,8 @@
             "straight",
             "gay-female"
           ],
-          "question": "Eating that Vagina to kissing"
+          "question": "Eating that Vagina to kissing",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -433,7 +475,8 @@
             "straight",
             "gay-male"
           ],
-          "question": "Penis mouth play to kissing"
+          "question": "Penis mouth play to kissing",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -441,7 +484,8 @@
           "bothpartners": false,
           "typeof": null,
           "question": "69 Each Other",
-          "description": "Turn around and give each other oral. You know what this is."
+          "description": "Turn around and give each other oral. You know what this is.",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -452,7 +496,8 @@
             "gay-male"
           ],
           "question": "Lick male's balls",
-          "description": "Really get in there!"
+          "description": "Really get in there!",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -463,7 +508,8 @@
             "gay-male"
           ],
           "question": "Suck on male's balls",
-          "description": "Pop! Pop!"
+          "description": "Pop! Pop!",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -474,7 +520,8 @@
             "gay-male"
           ],
           "question": "Face Fuck Partner",
-          "description": "Where the male aggressively has sex with a partner's mouth"
+          "description": "Where the male aggressively has sex with a partner's mouth",
+          "spicelevel": "6"
         }
       ]
     },
@@ -489,35 +536,32 @@
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Blindfold partner"
+          "question": "Blindfold partner",
+          "spicelevel": "1"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Tie down partner with restraints"
+          "question": "Tie down partner with restraints",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Pull Partner's Hair"
+          "question": "Pulling Hair",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Slap partner's face during sex"
-        },
-        {
-          "status": true,
-          "spicinesslevel": "Hot",
-          "bothpartners": false,
-          "typeof": null,
-          "question": "Wear earplugs during sex"
+          "question": "Slap partner's face during sex",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -525,14 +569,24 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Punch partner during sex",
-          "description": "Right in the kisser!"
+          "description": "Right in the kisser!",
+          "spicelevel": "7"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Wear earplugs during sex",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Spank partner with hand"
+          "question": "Spank partner with hand",
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -540,7 +594,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Spank partner with toys ",
-          "description": "(whips/paddles/teen vogue magazines)"
+          "description": "(whips/paddles/teen vogue magazines)",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -548,7 +603,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Use a riding crop on partner",
-          "description": "A short flexible whip"
+          "description": "A short flexible whip",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -556,7 +612,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Strike partner with a cane",
-          "description": "Strike partner with a cane"
+          "description": "Strike partner with a cane",
+          "spicelevel": "9"
         },
         {
           "status": true,
@@ -564,28 +621,32 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Put a dog collar/leash on your partner",
-          "description": "Woof!"
+          "description": "Woof!",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Submissiveness"
+          "question": "Submissiveness",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Worship Your Partner's Body"
+          "question": "Worship Your Bodies",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": true,
           "typeof": null,
-          "question": "Worship Your Partner's Genitals"
+          "question": "Worship Your Genitals",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -593,35 +654,40 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Roleplay rape partner",
-          "description": "With a safe word and other precautions taken of course."
+          "description": "With a safe word and other precautions taken of course.",
+          "spicelevel": "9"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Act as a servant to Partner"
+          "question": "Act as a servant",
+          "spicelevel": "6"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": false,
           "typeof": null,
-          "question": "Act as a slave for Partner"
+          "question": "Act as a slave",
+          "spicelevel": "6"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Command and deny orgasms"
+          "question": "Command and deny orgasms",
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Use Chastity Belt"
+          "question": "Use Chastity Belt",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -629,28 +695,32 @@
           "bothpartners": false,
           "typeof": null,
           "question": "Be suspended in air while having sex with partner.",
-          "description": "Like a Sex Swing, etc."
+          "description": "Like a Sex Swing, etc.",
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Wear a ball gag"
+          "question": "Wear a ball gag",
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": true,
           "typeof": null,
-          "question": "Slap/Flick Partner's Genitals"
+          "question": "Slap/Flick Partner's Genitals",
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": true,
           "typeof": null,
-          "question": "Hit/Step On Partner's Genitals"
+          "question": "Hit/Step On Partner's Genitals",
+          "spicelevel": "8"
         }
       ]
     },
@@ -665,7 +735,8 @@
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Bite partner"
+          "question": "Bite partner",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -673,7 +744,8 @@
           "bothpartners": false,
           "typeof": null,
           "question": "Foot Jobs",
-          "description": "It's like Jazzercise"
+          "description": "It's like Jazzercise",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -681,7 +753,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Golden Showers",
-          "description": "Pee Pee"
+          "description": "Pee Pee",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -689,7 +762,8 @@
           "bothpartners": false,
           "typeof": null,
           "question": "Brown Showers",
-          "description": "It's exactly what you think it might be"
+          "description": "It's exactly what you think it might be",
+          "spicelevel": "8"
         },
         {
           "status": true,
@@ -700,7 +774,8 @@
             "gay-male"
           ],
           "question": "Swap cummies with each other",
-          "description": "In the mouths"
+          "description": "In the mouths",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -709,7 +784,8 @@
           "typeof": [
             "straight"
           ],
-          "question": "Lick semen out of Female's vagina/anus after sex"
+          "question": "Lick semen out of Female's vagina/anus after sex",
+          "spicelevel": "7"
         },
         {
           "status": true,
@@ -719,7 +795,8 @@
             "straight",
             "gay-female"
           ],
-          "question": "Squirting"
+          "question": "Squirting",
+          "spicelevel": "4"
         },
         {
           "status": true,
@@ -729,7 +806,8 @@
             "straight",
             "gay-female"
           ],
-          "question": "Fist Female"
+          "question": "Fist Female",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -739,14 +817,16 @@
             "straight",
             "gay-male"
           ],
-          "question": "Fist Male"
+          "question": "Fist Male",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "bothpartners": false,
           "typeof": null,
-          "question": "Wear costumes during sex"
+          "question": "Wear costumes during sex",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -754,7 +834,8 @@
           "bothpartners": true,
           "typeof": null,
           "question": "Shave Partner",
-          "description": "Down there..."
+          "description": "Down there...",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -764,7 +845,8 @@
             "straight",
             "gay-male"
           ],
-          "question": "Swallow Male's Cum"
+          "question": "Swallow Male's Cum",
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -773,7 +855,8 @@
           "typeof": [
             "straight"
           ],
-          "question": "Cum over Female's Chest"
+          "question": "Cum over Female's Chest",
+          "spicelevel": "2"
         },
         {
           "status": true,
@@ -782,14 +865,16 @@
           "typeof": [
             "straight"
           ],
-          "question": "Cum on Female's Face"
+          "question": "Cum on Female's Face",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": true,
           "typeof": null,
-          "question": "Crossdress with each other"
+          "question": "Crossdress with each other",
+          "spicelevel": "7"
         }
       ]
     },
@@ -804,21 +889,24 @@
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Watch other couples have sex in person"
+          "question": "Watch other couples have sex in person",
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Let another person/couples watch us have sex"
+          "question": "Let another person/couples watch us have sex",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have sex at same time/place with other couples in room without swapping"
+          "question": "Have sex at same time/place with other couples in room without swapping",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -829,70 +917,80 @@
             "gay-male"
           ],
           "question": "Bukkake partner with other men",
-          "description": "Where several men erupt semen on a another person"
+          "description": "Where several men erupt semen on a another person",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": false,
           "typeof": null,
-          "question": "Double penetrate partner with an extra man"
+          "question": "Double penetrate partner with an extra man",
+          "spicelevel": "6"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": false,
           "typeof": null,
-          "question": "Triple penetrate partner with an extra 2 men"
+          "question": "Triple penetrate partner with an extra 2 men",
+          "spicelevel": "7"
         },
         {
           "status": true,
           "spicinesslevel": "Hot",
           "bothpartners": false,
           "typeof": null,
-          "question": "Include another person in sex"
+          "question": "Include another person in sex",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": false,
           "typeof": null,
-          "question": "Include two more people in sex"
+          "question": "Include two more people in sex",
+          "spicelevel": "6"
         },
         {
           "status": true,
           "spicinesslevel": "El Diablo",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have a large orgy (more than 4 people)"
+          "question": "Have a large orgy (more than 4 people)",
+          "spicelevel": "8"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have Sex With Other Couples"
+          "question": "Have Sex With Other Couples",
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": true,
           "typeof": null,
-          "question": "Post pics/videos of partner on the internet"
+          "question": "Post pics/videos of partner on the internet",
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have sex in a place where you might get caught"
+          "question": "Have sex in a place where you might get caught",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have sex in a car"
+          "question": "Have sex in a car",
+          "spicelevel": "3"
         },
         {
           "status": true,
@@ -900,35 +998,40 @@
           "bothpartners": false,
           "typeof": null,
           "question": "Have sex in the woods or in a park",
-          "description": "Do you want ants? Because this is how you get ants."
+          "description": "Do you want ants? Because this is how you get ants.",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have sex in work environment"
+          "question": "Have sex in work environment",
+          "spicelevel": "3"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Have sex in front of a window"
+          "question": "Have sex in front of a window",
+          "spicelevel": "4"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Go to a Sex or Swingers Club"
+          "question": "Go to a Sex or Swingers Club",
+          "spicelevel": "5"
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "bothpartners": false,
           "typeof": null,
-          "question": "Go to a Nudist Resort"
+          "question": "Go to a Nudist Resort",
+          "spicelevel": "6"
         },
         {
           "status": true,
@@ -936,7 +1039,8 @@
           "bothpartners": false,
           "typeof": null,
           "question": "Roleplay your fantasies",
-          "description": "Teacher, Cop, Doctor, etc."
+          "description": "Teacher, Cop, Doctor, etc.",
+          "spicelevel": "3"
         }
       ]
     }
