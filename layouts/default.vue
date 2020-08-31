@@ -129,6 +129,7 @@ p, label {
 }
 .small__para {
     font-size: .8em;
+    margin: 0 auto 10px;
 }
 ul {
     margin: 10px 0;

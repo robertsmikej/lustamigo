@@ -70,7 +70,8 @@
 export default {
     data() {
         return {
-            questionsAnswered: {}
+            questionsAnswered: {},
+            
         }
     },
     props: {
@@ -85,17 +86,37 @@ export default {
             const catQuestions = this.category.questions;
             let newQuestionsArr = [];
             const coupletype = this.users.coupletype;
-            console.log(catQuestions);
-            console.log(this.users.coupletype);
+            const userSpiciness = this.users.spice_level.toLowerCase();
             let orientation = catQuestions.filter(function (question) {
                 if (question.typeof && question.typeof.includes(coupletype)) {
                     return question;
                 } else if (!question.typeof) {
                     return question;
                 }
-                
             });
-            console.log(orientation);
+
+            const spicinessLevels = {
+                "mild": [1],
+                "medium": [2, 3, 4],
+                "spicy": [5, 6, 7],
+                "eldiablo": [8, 9, 10]
+            };
+            let spiciness = orientation.filter(function (question) {
+                for (let l in spicinessLevels) {
+                    let level = spicinessLevels[l];
+                    console.log(question.question);
+                    console.log(level);
+                    console.log(userSpiciness)
+                    if (level.includes(userSpiciness) || userSpiciness === "spicy") {
+                        
+                        
+                        
+                        return question;
+                    } 
+                    
+                }                
+            });
+            return spiciness;
         },
         basicQuestions: function () {
             let basics = {};
@@ -111,6 +132,9 @@ export default {
         }
     },
     methods: {
+        getSpicy: function (questionlevel, userlevel) {
+            
+        },
         checkObj: function (obj) {
             if (obj) {
                 return Object.entries(obj).length

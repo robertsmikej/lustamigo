@@ -157,10 +157,28 @@
                     <div class="info__radio__field">
                         <input 
                             type="radio" 
+                            id="eldiablo" 
+                            name="spice_level" 
+                            value="10" 
+                            v-model="users.spice_level" 
+                        >
+                        <label for="eldiablo">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Booze')[0].img" 
+                                    alt="Advanced Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">El Diablo</p>
+                            <p class="small__para">All the fun stuff.</p>
+                        </label>
+                        <input 
+                            type="radio" 
                             id="spicy" 
-                            name="questiontypes" 
-                            value="Spicy" 
-                            v-model="users.question_types" 
+                            name="spice_level" 
+                            value="7" 
+                            v-model="users.spice_level" 
                         >
                         <label for="spicy">
                             <div class="form__img__container">
@@ -171,16 +189,34 @@
                                 >
                             </div>
                             <p class="form__para">Spicy</p>
-                            <p class="small__para">You'll see all the fun stuff</p>
+                            <p class="small__para">Most of the fun stuff.</p>
                         </label>
                         <input 
                             type="radio" 
-                            id="tame" 
-                            name="questiontypes" 
-                            value="Tame" 
-                            v-model="users.question_types"
+                            id="medium" 
+                            name="spice_level" 
+                            value="4" 
+                            v-model="users.spice_level"
                         >
-                        <label for="tame">
+                        <label for="medium">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Taco')[0].img" 
+                                    alt="Basic Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">Medium</p>
+                            <p class="small__para">More than the basics.</p>
+                        </label>
+                        <input 
+                            type="radio" 
+                            id="mild" 
+                            name="spice_level" 
+                            value="1" 
+                            v-model="users.spice_level"
+                        >
+                        <label for="mild">
                             <div class="form__img__container">
                                 <img
                                     :src="getImage('Strawberry Ice Cream')[0].img" 
@@ -189,7 +225,7 @@
                                 >
                             </div>
                             <p class="form__para">Mild</p>
-                            <p class="small__para">Just the basics, nice &amp; easy</p>
+                            <p class="small__para">Just the basics.</p>
                         </label>
                     </div>
                 </div>
@@ -231,7 +267,7 @@ export default {
                 email_2: "",
                 equipment_2: "female",
                 coupletype: "straight",
-                question_types: "Spicy"
+                spice_level: "Spicy"
             },
             formMissingData: false,
             starting: false
@@ -395,7 +431,7 @@ body .pepper__example__img {
 .enter__info {
     padding: 70px 0;
     width: 100%;
-    max-width: 860px;
+    max-width: 960px;
 }
 .enter__info h2 {
     color: var(--red);
@@ -468,15 +504,16 @@ body .pepper__example__img {
     left: -100000px;
 }
 .info__radio__field label {
-    width: 49%;
+    flex: 1 1 0;
     transition: all .5s;
     border-radius: 10px;
     cursor: pointer;
-    padding: 0 10px;
+    padding: 0 8px;
+    margin: 4px;
     display: flex;
     flex-direction: column;
     align-content: center;
-    justify-content: center;
+    justify-content: flex-start;
     color: #FFF;
 }
 .info__radio__field label:hover {
@@ -491,7 +528,8 @@ body .pepper__example__img {
 }
 .form__img__container {
     padding: 40px 20px 30px;
-    max-height: 90%;
+    height: 200px;
+    max-height: 200px;
     flex: 1;
     display: flex;
     flex-direction: row;
@@ -499,7 +537,8 @@ body .pepper__example__img {
     justify-content: center;
 }
 .form__img {
-    max-width: 90%;
+    max-width: 160px;
+    max-height: 160px;
     object-fit: contain;
 }
 .form__para {
