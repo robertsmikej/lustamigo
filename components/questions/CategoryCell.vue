@@ -94,37 +94,15 @@ export default {
                     return question;
                 }
             });
-
-
             let spiciness = orientation.filter(function (question) {
                 if (parseInt(question.spicelevel) <= parseInt(userSpiciness)) {
                     return question; 
                 }
             });
             return spiciness;
-        },
-        basicQuestions: function () {
-            let basics = {};
-            let ques = this.questions;
-            for (let q in ques) {
-                let thisques = this.questions[q];
-                let type = thisques.question_type;
-                if (type == "regular" || type == "tame") {
-                    basics[q] = thisques;
-                }
-            }
-            return basics;
         }
     },
     methods: {
-        getSpicy: function (questionlevel, userlevel) {
-            
-        },
-        checkObj: function (obj) {
-            if (obj) {
-                return Object.entries(obj).length
-            }
-        },
         getAnswer: function (ques) {
             let quest = ques.question.toLowerCase().replace(/ /g, "_");
             if (this.response) {

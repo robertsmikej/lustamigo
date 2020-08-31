@@ -4,7 +4,7 @@
             <p 
                 v-if="question.question"
             >
-                {{ this.initializeQuestion(question) }}
+                {{ question.question }}
             </p>
             <div 
                 v-if="question.description"
@@ -96,29 +96,27 @@
                 v-if="question.bothpartners" 
                 class="question__answer__both__partners"
             >
-                <p>Only Do To: </p>
+                <p>I Only Want To Do This To: </p>
                 <div class="question__answer question__answer__partner__cell">
                     <input 
-                        :id="question.bothpartners + users.user_1"
-                        :name="question.bothpartners + users.user_1"
+                        :id="question.question + users.name_1"
                         type="checkbox"
-                        :value="question.bothpartners + users.user_2"
+                        :value="users.name_1"
                     >
                     <label
-                        :for="question.question + '-notinterested'"
+                        :for="question.question + users.name_1"
                     >
                         {{ users.name_1 }}
                     </label>
                 </div>
                 <div class="question__answer question__answer__partner__cell">
                     <input
-                        :id="question.bothpartners + users.user_2"
-                        :name="question.bothpartners + users.user_2"
+                        :id="question.question + users.name_2"
                         type="checkbox"
-                        :value="question.bothpartners + users.user_2"
+                        :value="users.name_2"
                     >
                     <label 
-                        :for="question.question + '-maybe'"
+                        :for="question.question + users.name_2"
                     >
                         {{ users.name_2 }}
                     </label>
@@ -365,13 +363,23 @@ export default {
 .qa__cell .question__answer__both__partners .question__answer:nth-of-type(2) {
     border: none;
 }
+
 .question__answer label:hover {
     background: var(--light-blue2);
     color: #FFF;       
 }
+
 .qa__cell:nth-of-type(odd) label:hover {
     color: #FFF;
 }
+.question__answer__both__partners label:hover {
+    background: inherit;
+    color: inherit;     
+}
+.qa__cell:nth-of-type(odd) .question__answer__both__partners label:hover {
+    color: var(--gun-grey);     
+}
+
 .qa__cell input[type="radio"] {
     display: none;
 }
@@ -580,7 +588,7 @@ export default {
     }
     .qa__text__cell {
         width: 100%;
-        padding: 8px 5px 0;
+        padding: 8px 5px 6px;
     }
     .qa__text__cell p {
         text-align: center;
@@ -596,6 +604,7 @@ export default {
         width: 100%;
         justify-content: space-between;
         padding: 0;
+        flex: 1 1 auto;
     }
     .qa__cell:nth-of-type(even) .question__answer__cell {
         border-top: 1px solid #FFF;

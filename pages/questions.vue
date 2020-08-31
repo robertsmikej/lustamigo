@@ -1,5 +1,5 @@
 <template>
-    <div class="questions">
+    <div class="container">
         <div class="questions__inner">
             <div
                 v-show="this.allDone === false"
@@ -13,7 +13,7 @@
                     <p>As soon as you and {{ users.name_2 }} are done with the questions, we'll email you both with the results and you can get to making some bedroom guacamole.</p>
                 </div>
                 <div
-                    v-show="this.justQuestions === true"
+                    v-if="this.justQuestions === true"
                     class="half__header__inner"
                 >
                     <h1>Just Want To Peek At The Questions?</h1>
@@ -38,7 +38,93 @@
                     <p>Give us just a momento to get your results and we'll send you to the right page.</p>
                 </div>
             </div>
-            <div class="instructions__outer">
+            <form 
+                v-show="this.justQuestions === true"
+                class="enter__info__fields"
+            >
+                <div class="info__section">
+                    <h2 class="form__spacer">Types of Questions</h2>
+                    <p>What type of questions do you want to see?</p>
+                    <div class="info__radio__field">
+                        <input 
+                            type="radio" 
+                            id="eldiablo" 
+                            name="spice_level" 
+                            value="10" 
+                            v-model="users.spice_level" 
+                        >
+                        <label for="eldiablo">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Booze')[0].img" 
+                                    alt="Advanced Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">El Diablo</p>
+                            <p class="small__para">All the fun stuff.</p>
+                        </label>
+                        <input 
+                            type="radio" 
+                            id="spicy" 
+                            name="spice_level" 
+                            value="7" 
+                            v-model="users.spice_level" 
+                        >
+                        <label for="spicy">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Scorpion')[0].img" 
+                                    alt="Advanced Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">Spicy</p>
+                            <p class="small__para">Most of the fun stuff.</p>
+                        </label>
+                        <input 
+                            type="radio" 
+                            id="medium" 
+                            name="spice_level" 
+                            value="5" 
+                            v-model="users.spice_level"
+                        >
+                        <label for="medium">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Taco')[0].img" 
+                                    alt="Basic Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">Medium</p>
+                            <p class="small__para">More than the basics.</p>
+                        </label>
+                        <input 
+                            type="radio" 
+                            id="mild" 
+                            name="spice_level" 
+                            value="3" 
+                            v-model="users.spice_level"
+                        >
+                        <label for="mild">
+                            <div class="form__img__container">
+                                <img
+                                    :src="getImage('Strawberry Ice Cream')[0].img" 
+                                    alt="Basic Questions Selection"
+                                    class="form__img"
+                                >
+                            </div>
+                            <p class="form__para">Mild</p>
+                            <p class="small__para">Just the basics.</p>
+                        </label>
+                    </div>
+                </div>
+            </form>
+            <div
+                v-show="this.justQuestions === false"
+                class="instructions__outer"
+            >
                 <h3>Intructions For Use:</h3>
                 <ul class="instruction__list">
                     <li>Go through the questions below and click one of the available answers:
@@ -65,6 +151,7 @@
             
             <div 
                 v-show="this.allDone === false || this.onePersonDone === true || this.justQuestions === true"
+                :key="this.users.spice_level"
             >
                 <CategoryCell 
                     v-for="category in categories"
@@ -104,7 +191,7 @@ export default {
     data () {
         return {
             starting: false,
-            justQuestions: true,
+            justQuestions: false,
             allDone: false,
             onePersonDone: false,
             thisPersonDone: false,
@@ -182,7 +269,7 @@ export default {
         }
     },
     mounted() {
-        
+
     },
     head () {
         return {
@@ -217,6 +304,7 @@ export default {
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
+    align-items: center;
     padding-bottom: 100px;
 }
 .instructions__outer {

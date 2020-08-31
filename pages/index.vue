@@ -17,7 +17,9 @@
             </div>
             <div class="padded__section">
                 <div class="pepper__section">
+                    <h2>The Sexy Pepper!</h2>
                     <span class="pepper__example question__special">
+                        
                         <img 
                             :src="getImage('Pepper')[0].img" 
                             alt="This is Mucho Hot!" 
@@ -196,7 +198,7 @@
                             type="radio" 
                             id="medium" 
                             name="spice_level" 
-                            value="4" 
+                            value="5" 
                             v-model="users.spice_level"
                         >
                         <label for="medium">
@@ -214,7 +216,7 @@
                             type="radio" 
                             id="mild" 
                             name="spice_level" 
-                            value="1" 
+                            value="3" 
                             v-model="users.spice_level"
                         >
                         <label for="mild">
@@ -433,127 +435,8 @@ body .pepper__example__img {
     text-transform: capitalize;
 }
 
-.enter__info {
-    padding: 70px 0;
-    width: 100%;
-    max-width: 960px;
-}
-.enter__info h2 {
-    color: var(--red);
-    margin-top: 24px;
-}
-.info__para {
-    max-width: 860px;
-    margin: 10px auto 10px;
-    position: relative;
-}
-.enter__info__fields {
-    width: 100%;
-    /* max-width: 860px; */
-    padding: 30px 0;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
-    margin: 50px auto 0;
-}
-.info__section {
-    padding: 20px 40px 60px;
-    width: 100%;
-    /* max-width: 860px; */
-    margin: 0px auto 40px;
-}
-.info__section:nth-of-type(odd) {
-    background: var(--light-blue);
-}
-.info__section:nth-of-type(even) {
-    background: var(--guac-green);
-}
-.enter__info__fields label {
-    margin: 5px 0;
-    font-size: 1.6em;
-    color: #FFF;
-}
-.enter__info__fields input {
-    width: 100%;
-    padding: 10px;
-    font-size: 1.5em;
-    line-height: 1.4em;
-    font-family: 'Neucha', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-    text-align: center;
-    color: var(--dark-blue);
-}
-.info__text__field {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    align-content: center;
-    justify-content: center;
-    margin: 0px 0 20px;
-}
-.form__spacer {
-    margin-top: 0px;
-}
-.info__radio__field {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: space-between;
-    margin: 20px 0 0;
-}
-.info__radio__field input {
-    position: absolute;
-    left: -100000px;
-}
-.info__radio__field label {
-    flex: 1 1 0;
-    transition: all .5s;
-    border-radius: 10px;
-    cursor: pointer;
-    padding: 0 8px;
-    margin: 4px;
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: flex-start;
-    color: #FFF;
-}
-.info__radio__field label:hover {
-    background: var(--yellow);
-}
-.info__radio__field input[type="radio"]:checked + label {
-    background: var(--yellow);
-}
-/* .info__radio__field input[type="radio"]:checked + label .form__para, */
-.info__radio__field input[type="radio"]:checked + label .small__para {
-    color: var(--blue);
-}
-.form__img__container {
-    padding: 40px 20px 30px;
-    height: 200px;
-    max-height: 200px;
-    flex: 1;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-}
-.form__img {
-    max-width: 160px;
-    max-height: 160px;
-    object-fit: contain;
-}
-.form__para {
-    width: 100%;
-    margin: 0px;
-    z-index: 1;
-    font-size: 1.6em;
-    color: #FFF;
-    transition: all .6s;
-}
+
+
 .small__para {
     transition: all .6s;
 }
@@ -566,64 +449,5 @@ body .pepper__example__img {
     color: var(--dark-red);
     font-size: 1.5em;
 }
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 730px) {
-    .enter__info {
-        padding: 30px 0;
-        width: 100%;
-    }
-    .enter__info h2, .enter__info p {
-        padding: 0 2px;
-    }
-    .info__para {
-        margin: 0 0 14px;
-        align-self: center;
-    }
-    body .pepper__example {
-        height: 36px;
-        width: 30px;
-        max-width: 30px;
-    }
-    body .pepper__example__img {
-        top: 2px;
-        left: 0px;
-        height: 100%;
-    }
-    .example__question .question__answer__cell {
-        border-left: none;
-    }
-    .enter__info__fields {
-        padding: 0px 0;
-        margin-top: 40px;
-    }
-    .info__section {
-        padding: 40px 20px;
-    }
-    .form__img {
-        max-width: 100%;
-    }
-    .enter__info__fields input {
-        border: 2px solid var(--gun-grey);
-        border-radius: 8px;
-    }
-    .small__para {
-        text-align: center;
-    }
-    .form__img__container {
-        padding: 30px 10px 30px;
-        max-height: 70%;
-    }
-    body .disclaimer__para {
-        padding: 0 10px;
-    }
-}
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 480px) {
-    .info__section {
-        padding: 40px 14px;
-    }
-    .info__radio__field label {
-        padding: 0 6px;
-    }
-}
+
 </style>
