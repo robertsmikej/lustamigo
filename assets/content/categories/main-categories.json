@@ -172,6 +172,15 @@
           "spicinesslevel": "Hot",
           "question": "Re-enact a porn scene you both like",
           "description": "Channel your inner Ron Jeremy"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": [
+            "gay-female"
+          ],
+          "question": "Lesbian Text Question"
         }
       ]
     },
