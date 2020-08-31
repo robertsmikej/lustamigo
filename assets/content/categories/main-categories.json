@@ -788,13 +788,148 @@
       "status": true,
       "name": "Group Fun",
       "img": "/img/mexi-cons-beer-growler.png",
-      "categorydescription": "More fun for your fiestas!"
-    },
-    {
-      "status": true,
-      "name": "Dress Up / Role Play",
-      "img": "/img/mexi-cons-sombrero.png",
-      "categorydescription": "What do you mean I'm under arrest, Officer?"
+      "categorydescription": "More fun for your fiestas!",
+      "questions": [
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Watch other couples have sex in person"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Let another person/couples watch us have sex"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex at same time/place with other couples in room without swapping"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": [
+            "straight",
+            "gay-male"
+          ],
+          "question": "Bukkake partner with other men",
+          "description": "Where several men erupt semen on a another person"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Double penetrate partner with an extra man"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Triple penetrate partner with an extra 2 men"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Hot",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Include another person in sex"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Include two more people in sex"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "El Diablo",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have a large orgy (more than 4 people)"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have Sex With Other Couples"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": true,
+          "typeof": null,
+          "question": "Post pics/videos of partner on the internet"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex in a place where you might get caught"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex in a car"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex in the woods or in a park",
+          "description": "Do you want ants? Because this is how you get ants."
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex in work environment"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Have sex in front of a window"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Go to a Sex or Swingers Club"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Go to a Nudist Resort"
+        },
+        {
+          "status": true,
+          "spicinesslevel": "Medium",
+          "bothpartners": false,
+          "typeof": null,
+          "question": "Roleplay your fantasies",
+          "description": "Teacher, Cop, Doctor, etc."
+        }
+      ]
     }
   ],
   "name": "Main Categories"
