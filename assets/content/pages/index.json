@@ -39,6 +39,11 @@
       "imagename": "Strawberry Ice Cream",
       "imagealt": "Dripping Sweet Sweet Juicy Juice",
       "img": "/img/mexi-cons-strawberry-shaved-ice-trimmed.png"
+    },
+    {
+      "imagename": "Booze",
+      "imagealt": "Bottle Of XXX Booze",
+      "img": "/img/mexi-cons-beer-growler.png"
     }
   ],
   "examplequestion": {
