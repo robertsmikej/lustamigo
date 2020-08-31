@@ -103,21 +103,21 @@
 export default {
     data () {
         return {
-            showContent: false,
             starting: false,
-            justQuestions: false,
+            justQuestions: true,
             allDone: false,
             onePersonDone: false,
             thisPersonDone: false,
             submittedSuccess: false,
-            questionType: "Tame",
             users: {
                 name_1: "Juan",
+                email_1: "",
                 equipment_1: "male",
                 name_2: "Maria",
+                email_2: "",
                 equipment_2: "female",
-                email_1: false,
-                email_2: false
+                coupletype: "straight",
+                question_types: "Spicy"
             },
             user: 0,
             userDone: 0
@@ -294,7 +294,12 @@ export default {
 li.instructions__list--nowrap {
     flex-wrap: nowrap;
 }
-
+.submission__container {
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 730px) {
     .half__header__inner {

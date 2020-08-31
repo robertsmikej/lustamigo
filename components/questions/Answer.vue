@@ -171,9 +171,6 @@ export default {
     [data-response-value="maybe"] {
         background-color: var(--light-orange);
     }
-    .question__answer {
-        width: 140px;
-    }
     .answer__cell .answers__cell p {
         color: #FFF;
     }

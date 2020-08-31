@@ -12,10 +12,7 @@
                     :hotness="getImage('Pepper')[0].img"
                     :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination}" 
                     :example="true" 
-                    :name_1="'Juan'" 
-                    :name_2="'Maria'" 
-                    :gender_1="'Male'" 
-                    :gender_2="'Female'"
+                    :users="users" 
                 />
             </div>
             <div class="padded__section">
@@ -48,7 +45,7 @@
                             type="name"
                             name="name1"
                             id="name1"
-                            v-model="formData.name_1"
+                            v-model="users.name_1"
                         >
                     </div>
                     <div class="info__text__field">
@@ -57,7 +54,7 @@
                             type="email"
                             name="email1"
                             id="email1"
-                            v-model="formData.email_1"
+                            v-model="users.email_1"
                         >
                     </div>
                     <div class="info__radio__field">
@@ -66,7 +63,7 @@
                             type="radio" 
                             id="equipment-1-male" 
                             name="equipment-1-male" value="Male" 
-                            v-model="formData.equipment_1" 
+                            v-model="users.equipment_1" 
                         >
                         <label for="equipment-1-male">
                             <div class="form__img__container">
@@ -83,7 +80,7 @@
                             id="equipment-1-female"
                             name="equipment-1-female"
                             value="Female"
-                            v-model="formData.equipment_1"
+                            v-model="users.equipment_1"
                         >
                         <label for="equipment-1-female">
                             <div class="form__img__container">
@@ -105,7 +102,7 @@
                             type="name"
                             name="name2"
                             id="name2"
-                            v-model="formData.name_2"
+                            v-model="users.name_2"
                         >
                     </div>
                     <div class="info__text__field">
@@ -114,7 +111,7 @@
                             type="email"
                             name="email2"
                             id="email2"
-                            v-model="formData.email_2"
+                            v-model="users.email_2"
                         >
                     </div>
                     <div class="info__radio__field">
@@ -122,8 +119,9 @@
                         <input 
                             type="radio" 
                             id="equipment-2-male" 
-                            name="equipment-2-male" value="Male" 
-                            v-model="formData.equipment_2" 
+                            name="equipment-2-male"
+                            value="male" 
+                            v-model="users.equipment_2" 
                         >
                         <label for="equipment-2-male">
                             <div class="form__img__container">
@@ -139,8 +137,8 @@
                             type="radio"
                             id="equipment-2-female"
                             name="equipment-2-female"
-                            value="Female"
-                            v-model="formData.equipment_2"
+                            value="female"
+                            v-model="users.equipment_2"
                         >
                         <label for="equipment-2-female">
                             <div class="form__img__container">
@@ -162,7 +160,7 @@
                             id="spicy" 
                             name="questiontypes" 
                             value="Spicy" 
-                            v-model="formData.question_types" 
+                            v-model="users.question_types" 
                         >
                         <label for="spicy">
                             <div class="form__img__container">
@@ -180,7 +178,7 @@
                             id="tame" 
                             name="questiontypes" 
                             value="Tame" 
-                            v-model="formData.question_types"
+                            v-model="users.question_types"
                         >
                         <label for="tame">
                             <div class="form__img__container">
@@ -224,15 +222,15 @@ export default {
     data () {
         return {
             devMode: true,
-            formData: {
+            users: {
                 uuid: this.$uuid.v1(),
                 name_1: "",
                 email_1: "",
-                equipment_1: "Male",
+                equipment_1: "male",
                 name_2: "",
                 email_2: "",
-                equipment_2: "Female",
-                coupletype: "",
+                equipment_2: "female",
+                coupletype: "straight",
                 question_types: "Spicy"
             },
             formMissingData: false,
@@ -256,26 +254,30 @@ export default {
             }
         },
         getOrient: function () {
-            let sexualOrient = "straight";
             const equipment_1_male = document.getElementById("equipment-1-male");
             const equipment_2_male = document.getElementById("equipment-2-male");
             const equipment_1_female = document.getElementById("equipment-1-female");
             const equipment_2_female = document.getElementById("equipment-2-female");
             if (equipment_1_male.checked && equipment_2_male.checked || equipment_1_female.checked && equipment_2_female.checked) {
-                sexualOrient = "gay";
+                if (equipment_1_male.checked && equipment_2_male.checked) {
+                    return "gay-male";
+                } else {
+                    return "gay-female";
+                }
             }
-            return sexualOrient;
+            return "straight";
         },
         returnFirstName: function (name) {
             return name.indexOf(" ") >= 0 ? name.split(" ")[0] : name;
         },
         setData: function() {
-            if (this.validateSelections() === true) {
+            if (this.validateSelections()) {
                 this.starting = true;
-                this.formData.coupletype = this.getOrient();
-                this.formData.name_1 = this.returnFirstName(this.formData.name_1);
-                this.formData.name_2 = this.returnFirstName(this.formData.name_2);
-                console.log(this.formData);
+                this.users.coupletype = this.getOrient();
+                this.users.name_1 = this.returnFirstName(this.users.name_1);
+                this.users.name_2 = this.returnFirstName(this.users.name_2);
+                console.log(this.users); //this.users is data to send to database, etc.
+
             }
         }
     },

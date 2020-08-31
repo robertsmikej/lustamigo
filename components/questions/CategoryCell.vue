@@ -11,14 +11,11 @@
             <h2 class="category__name">{{ category.name }}</h2>
             <p class="category__para">{{ category.categorydescription }}</p>
         </div>
-        <div
-            v-if="alldone === false"
-            class="category__questions"
-        >
+        <div class="category__questions">
             <div class="question__cell__outer">
                 <div 
-                    v-for="question in category.questions" 
-                    :key="question.question" 
+                    v-for="question in filteredQuestions" 
+                    :key="question.question"
                     class="qa__cell question__cell"
                 >
                     <Question 
@@ -84,6 +81,22 @@ export default {
         currentUserDone: Boolean
     },
     computed: {
+        filteredQuestions: function () {
+            const catQuestions = this.category.questions;
+            let newQuestionsArr = [];
+            const coupletype = this.users.coupletype;
+            console.log(catQuestions);
+            console.log(this.users.coupletype);
+            let orientation = catQuestions.filter(function (question) {
+                if (question.typeof && question.typeof.includes(coupletype)) {
+                    return question;
+                } else if (!question.typeof) {
+                    return question;
+                }
+                
+            });
+            console.log(orientation);
+        },
         basicQuestions: function () {
             let basics = {};
             let ques = this.questions;
@@ -148,8 +161,8 @@ export default {
     .category__cell {
         max-width: 900px;
         width: 100%;
-        margin: 10px auto 40px;
-        padding: 20px 20px 60px;
+        margin: 10px auto 20px;
+        padding: 20px 20px 30px;
         display: flex;
         flex-direction: column;
         flex-wrap: nowrap;

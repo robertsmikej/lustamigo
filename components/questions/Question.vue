@@ -1,45 +1,45 @@
 <template>
     <div class="qa__cell__inner">
-        <div class="qa__cell__inner--1">
-            <div class="qa__text__cell">
-                <p 
-                    v-if="question.question"
-                >
-                    {{ this.initializeQuestion(question) }}
-                </p>
-                <div 
-                    v-if="question.description"
-                    @click="toggleExplainButton" 
-                    class="qa__text__explain__icon"
-                >
-                    <span>?</span>
-                </div>
-                <div 
-                    :data-checked="checkHotness(checked)"
-                    class="question__special"
-                >
-                    <input 
-                        :id="question.question + '-checked'"
-                        :checked="checkHotness(checked)"
-                        type="checkbox" 
-                        name="muchohot" 
-                    >
-                    <label
-                        :for="question.question + '-checked'"
-                        class="special__icon__label"
-                    >
-                        <img 
-                            :src="getImage('Pepper')[0].img"
-                            alt="This is Mucho Hot!" 
-                            class="special__icon"
-                        >
-                    </label>
-                </div>
-            </div>
-            <div
-                :data-checked="checkAnswer(checked)"
-                class="question__answer__cell"
+        <div class="qa__text__cell">
+            <p 
+                v-if="question.question"
             >
+                {{ this.initializeQuestion(question) }}
+            </p>
+            <div 
+                v-if="question.description"
+                @click="toggleExplainButton" 
+                class="qa__text__explain__icon"
+            >
+                <span>?</span>
+            </div>
+            <div 
+                :data-checked="checkHotness(checked)"
+                class="question__special"
+            >
+                <input 
+                    :id="question.question + '-checked'"
+                    :checked="checkHotness(checked)"
+                    type="checkbox" 
+                    name="muchohot" 
+                >
+                <label
+                    :for="question.question + '-checked'"
+                    class="special__icon__label"
+                >
+                    <img 
+                        :src="getImage('Pepper')[0].img"
+                        alt="This is Mucho Hot!" 
+                        class="special__icon"
+                    >
+                </label>
+            </div>
+        </div>
+        <div
+            :data-checked="checkAnswer(checked)"
+            class="question__answer__cell"
+        >
+            <div class="question__answer__inner">
                 <div class="question__answer">
                     <input 
                         :id="question.question + '-notinterested'"
@@ -89,6 +89,38 @@
                         :for="question.question + '-interested'"
                     >
                         ¡Sí por favor!
+                    </label>
+                </div>
+            </div>
+            <div
+                v-if="question.bothpartners" 
+                class="question__answer__both__partners"
+            >
+                <p>Only Do To: </p>
+                <div class="question__answer question__answer__partner__cell">
+                    <input 
+                        :id="question.bothpartners + users.user_1"
+                        :name="question.bothpartners + users.user_1"
+                        type="checkbox"
+                        :value="question.bothpartners + users.user_2"
+                    >
+                    <label
+                        :for="question.question + '-notinterested'"
+                    >
+                        {{ users.name_1 }}
+                    </label>
+                </div>
+                <div class="question__answer question__answer__partner__cell">
+                    <input
+                        :id="question.bothpartners + users.user_2"
+                        :name="question.bothpartners + users.user_2"
+                        type="checkbox"
+                        :value="question.bothpartners + users.user_2"
+                    >
+                    <label 
+                        :for="question.question + '-maybe'"
+                    >
+                        {{ users.name_2 }}
                     </label>
                 </div>
             </div>
@@ -214,22 +246,15 @@ export default {
 .qa__cell__inner {
     width: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-}
-.qa__cell__inner--1 {
-    width: 100%;
-    margin: 0;
     padding: 0 0 0 0px;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     align-content: center;
     justify-content: space-between;
 }
 .qa__text__cell {
-    flex: 1 1 auto;
+    flex: 1 1 460px;
     position: relative;
     padding: 0 0 0 10px;
     display: flex;
@@ -240,6 +265,7 @@ export default {
 .qa__text__cell p {
     text-align: left;
     text-transform: capitalize;
+    align-self: center;
 }
 .qa__text__explain__icon {
     align-self: center;
@@ -268,11 +294,31 @@ export default {
     display: block;
 }
 .question__answer__cell {
+    flex: 0 1 380px;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
     border-left: 1px solid var(--gun-grey);
+}
+.question__answer__inner {
+    width: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+}
+.question__answer__both__partners {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-content: flex-start;
+    justify-content: space-around;
+    border-top: 1px solid var(--gun-grey);
+
 }
 .question__answer  {
     flex: 1 1 auto;
@@ -288,9 +334,10 @@ export default {
     font-size: 1.3em;
 }
 .question__answer label {
-    height: 100%;
     width: 100%;
-    padding: 0 8px;
+    height: 100%;
+    padding: 8px;
+    margin: 0;
     display: flex;
     flex-direction: row;
     align-content: center;
@@ -302,6 +349,11 @@ export default {
     transition: background-color .5s;
     white-space: nowrap;
 }
+.question__answer__both__partners {
+    
+}
+
+
 .qa__cell:nth-of-type(odd) .question__answer:nth-of-type(2) {
     border-left: 1px solid var(--gun-grey);
     border-right: 1px solid var(--gun-grey);
@@ -309,6 +361,9 @@ export default {
 .qa__cell:nth-of-type(even) .question__answer:nth-of-type(2) {
     border-left: 1px solid var(--gun-grey);
     border-right: 1px solid var(--gun-grey);
+}
+.qa__cell .question__answer__both__partners .question__answer:nth-of-type(2) {
+    border: none;
 }
 .question__answer label:hover {
     background: var(--light-blue2);
@@ -320,6 +375,9 @@ export default {
 .qa__cell input[type="radio"] {
     display: none;
 }
+.question__answer__partner__cell input[type="checkbox"] {
+    display: block;
+}
 .question__answer__cell input[type="radio"]:checked + label {
     background: var(--dark-orange);
     color: white;
@@ -328,6 +386,16 @@ export default {
     background: var(--red);
     color: white;
 }
+
+.question__answer__partner__cell {
+    flex: 0 1 auto;
+}
+.question__answer__both__partners p {
+    font-size: 1em;
+    line-height: 1em;
+    padding: 2px 4px 0;
+}
+
 .question__special {
     width: 50px;
     min-width: 50px;

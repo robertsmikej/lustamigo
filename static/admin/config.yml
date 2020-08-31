@@ -176,4 +176,12 @@ collections:
                 options: ["El Diablo", "Hot", "Medium", "Mild"]
                 default: "Medium"
               - { label: "Ask Both Partners", name: "bothpartners", widget: "boolean", default: false, required: false }
+              - label: "Type Of"
+                name: "typeof"
+                widget: "select"
+                multiple: true
+                options: ["straight", "gay-male", "gay-female"]
+                default: ["straight"]
+                required: false
+                hint: "None is equal to All Groups being selected"
               - { label: "Question Image", name: "img", widget: "image", required: false }
