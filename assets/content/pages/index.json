@@ -44,6 +44,11 @@
       "imagename": "Booze",
       "imagealt": "Bottle Of XXX Booze",
       "img": "/img/mexi-cons-beer-growler.png"
+    },
+    {
+      "imagename": "Taco",
+      "imagealt": "A Lovely Pink Taco",
+      "img": "/img/mexi-cons-taco.png"
     }
   ],
   "examplequestion": {
