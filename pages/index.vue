@@ -318,26 +318,24 @@ export default {
 
                 this.submitToServer().then(response => { //SUBMIT TO POSTMARK
                     const body = response.json();
+                    console.log(body);
                     if (Number(response.status) !== 200) {
                         console.log('Error submitting the form.')
                     } else {
                         console.log('Form was submitted!')
-                        this.$router.push('/questions')
+                        // this.$router.push('/questions')
                     }
                 });
             }
         },
         submitToServer() { //SUBMIT TO POSTMARK
             let emailObj = JSON.parse(JSON.stringify(this.users));
-            console.log(emailObj);
-            emailObj.to = this.users.email_1;
-            emailObj.HtmlBody = "<strong>Hello</strong> dear Lust Amigo user.",
-            emailObj.TextBody = "Hello from Postmark!",
-            emailObj.MessageStream = "outbound"
+            console.log(JSON.stringify(emailObj));
+            const firstEmailURL = "/.netlify/functions/send-initial-email-1"
             return new Promise((resolve, reject) => {
-                fetch(`./functions/send-initial-email/send-initial-email.js`, {
+                fetch(firstEmailURL, {
                     method: "POST",
-                    body: JSON.stringify(this.users)
+                    body: JSON.stringify(emailObj)
                 }).then(response => {
                     resolve(response);
                 }).catch(err => {
