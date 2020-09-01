@@ -485,7 +485,7 @@ a {
     }
     p, label {
         font-size: 1.1em;
-        line-height: 1.2em;
+        line-height: 1.4em;
         font-weight: 400;
         margin: 11px 0 10px;
     }
