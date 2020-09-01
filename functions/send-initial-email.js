@@ -1,5 +1,5 @@
 const postmark = require("postmark"); // require mail service, postmark in this case
-const client = new postmark.Client(`${POSTMARK_API}`); // your postmark api key
+const client = new postmark.Client("196074f2-f17a-491d-b568-5f21e898d0aa"); // your postmark api key
 const headers = {
     "Access-Control-Allow-Origin": "*", // better change this for production
     "Access-Control-Allow-Methods": "POST",
@@ -8,7 +8,8 @@ const headers = {
 
 exports.handler = function (event, context, callback) {
 
-    
+    console.log(context);
+    console.log(payload);
     // only allow POST requests
     if (event.httpMethod !== "POST") {
         return callback(null, {
@@ -39,7 +40,7 @@ exports.handler = function (event, context, callback) {
     }
 
     // finally everything is fine and we can send the mail
-    
+    console.log(payload);
     return client.sendEmail({
         "From": "amigo@lustamigo.com",
         "To": payload.to,
@@ -49,29 +50,26 @@ exports.handler = function (event, context, callback) {
             Hey,
             ${payload.name} sent a new message from your website!
             ${payload.message}
-        `
+        `,
+        "MessageStream": "outbound"
     }, (err, result) => {
     // if there happenend an error on the postmark side we send a 500 error to the client
-        console.log("error occoured 1");
-        console.log(err);
-        if (err) {
-            console.log(payload);
-            return callback(null, {
-                statusCode: 500,
-                body: JSON.stringify({
-                    message: "Internal Server Error: " + err,
-                })
-            });
-        } else {
-            console.log(payload);
-        }
-        // if everything was fine we send status code 200
+    console.log(err);
+    if (err) {
         return callback(null, {
-            statusCode: 200,
-            headers,
+            statusCode: 500,
             body: JSON.stringify({
-                message: "Message sent successfully!",
-            }),
+                message: "Internal Server Error: " + err,
+            })
         });
+    }
+    // if everything was fine we send status code 200
+    return callback(null, {
+        statusCode: 200,
+        headers,
+        body: JSON.stringify({
+            message: "Message sent successfully!",
+        }),
     });
+  });
 }
