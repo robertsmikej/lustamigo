@@ -280,6 +280,14 @@ a {
     font-size: 1.6em;
     color: #FFF;
 }
+.equipment__label {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    font-size: 1.6em;
+    line-height: 1.4em;
+    color: #FFF;
+}
 .enter__info__fields input {
     width: 100%;
     padding: 10px;
@@ -485,10 +493,14 @@ a {
         margin-top: 20px;
     }
     .info__section {
-        padding: 20px 10px 40px;
+        padding: 20px 6px 40px;
     }
     .info__radio__field label {
-        padding: 0 2px;
+        padding: 0 4px;
+        margin: 4px 2px;
+    }
+    .info__radio__field p {
+        padding: 0 4px;
     }
     .form__para {
         font-size: 1em;
@@ -497,7 +509,7 @@ a {
         padding: 0;
     }
     .small__para {
-        font-size: .7em;
+        font-size: .6em;
     }
 }
 </style>

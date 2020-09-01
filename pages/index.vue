@@ -60,7 +60,7 @@
                         >
                     </div>
                     <div class="info__radio__field">
-                        <p class="form__para">Their Equipment</p>
+                        <p class="equipment__label">Their Equipment</p>
                         <input 
                             type="radio" 
                             id="equipment-1-male" 
@@ -118,7 +118,7 @@
                         >
                     </div>
                     <div class="info__radio__field">
-                        <p class="form__para">Their Equipment</p>
+                        <p class="equipment__label">Their Equipment</p>
                         <input 
                             type="radio" 
                             id="equipment-2-male" 
