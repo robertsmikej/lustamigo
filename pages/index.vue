@@ -248,6 +248,8 @@
 </template>
 
 <script>
+var postmark = require("postmark");
+
 export default {
     watchQuery: true,
     computed: {
@@ -312,10 +314,37 @@ export default {
                 this.users.name_1 = this.returnFirstName(this.users.name_1);
                 this.users.name_2 = this.returnFirstName(this.users.name_2);
                 this.spice_level = parseInt(this.spice_level);
-                console.log(this.users); //this.users is data to send to database, etc.
 
+
+                this.submitToServer().then(response => { //SUBMIT TO POSTMARK
+                    const body = response.json();
+                    if (Number(response.status) !== 200) {
+                        console.log('Error submitting the form.')
+                    } else {
+                        console.log('Form was submitted!')
+                        this.$router.push('/questions')
+                    }
+                });
             }
-        }
+        },
+        submitToServer() { //SUBMIT TO POSTMARK
+            let emailObj = JSON.parse(JSON.stringify(this.users));
+            console.log(emailObj);
+            emailObj.to = this.users.email_1;
+            emailObj.HtmlBody = "<strong>Hello</strong> dear Lust Amigo user.",
+            emailObj.TextBody = "Hello from Postmark!",
+            emailObj.MessageStream = "outbound"
+            return new Promise((resolve, reject) => {
+                fetch(`./functions/send-initial-email/send-initial-email.js`, {
+                    method: "POST",
+                    body: JSON.stringify(this.users)
+                }).then(response => {
+                    resolve(response);
+                }).catch(err => {
+                    reject(err);
+                });
+            })
+        },
     },
     mounted () {
         //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES

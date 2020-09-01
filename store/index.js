@@ -35,6 +35,13 @@ export const mutations = {
         state.pages = newObj;
     },
     setCategories(state, data) {
+        for (let cat in data[0].categories) {
+            let category = data[0].categories[cat];
+            for (let ques in category.questions) {
+                let question = category.questions[ques];
+                question.slugged = question.question.toLowerCase().replace(/\W/g, '-').replace(/--/g, '-');
+            }
+        }
         state.categories = data[0].categories;
     }
 };
