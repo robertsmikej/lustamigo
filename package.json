@@ -10,7 +10,10 @@
   },
   "dependencies": {
     "@nuxtjs/markdownit": "^1.2.10",
+    "dotenv": "^8.2.0",
+    "mailgun-js": "^0.22.0",
     "nuxt": "^2.14.0",
+    "postmark": "^2.5.5",
     "vue-uuid": "^2.0.2"
   },
   "devDependencies": {}
