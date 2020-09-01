@@ -330,13 +330,8 @@ export default {
         },
         submitToServer() { //SUBMIT TO POSTMARK
             let emailObj = JSON.parse(JSON.stringify(this.users));
-            
-            emailObj.to = this.users.email_1;
-            emailObj.HtmlBody = "<strong>Hello</strong> dear Lust Amigo user.";
-            emailObj.TextBody = "Hello from Postmark!";
-            emailObj.MessageStream = "outbound";
             console.log(JSON.stringify(emailObj));
-            const firstEmailURL = "/.netlify/functions/send-initial-email"
+            const firstEmailURL = "/.netlify/functions/send-initial-email-1"
             return new Promise((resolve, reject) => {
                 fetch(firstEmailURL, {
                     method: "POST",
