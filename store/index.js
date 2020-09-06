@@ -42,46 +42,20 @@ export const mutations = {
         state.pages = newObj;
     },
     setCategories(state, data) {
-        for (let cat in data[0].categories) {
-            const category = data[0].categories[cat];
-            const categoryShortened = slugSomethingLarge(category.name);
-            for (let ques in category.questions) {
-                const question = category.questions[ques];
-                const questionShortened = slugSomething(question.question);
-                // console.log(categoryShortened);
-                question.slugged = categoryShortened + questionShortened;
-                question.category = category.name;
-            }
+        // for (let cat in data[0].categories) {
+        //     const category = data[0].categories[cat];
+        //     const categoryShortened = slugSomethingLarge(category.name);
+        //     for (let ques in category.questions) {
+        //         const question = category.questions[ques];
+        //         const questionShortened = slugSomething(question.question);
+        //         // console.log(categoryShortened);
+        //         question.slugged = categoryShortened + questionShortened;
+        //         question.category = category.name;
+        //     }
 
             
-            let duplicateSlugsList = category.questions.filter(word => word.length > 6);
-            
-            console.log(duplicateSlugsList);
-
-            // let duplicateSlugsTrimmed = duplicateSlugsList.filter(function (e) {
-            //     console.log(e);
-            //     lookup[e.id]
-            // });
-            
-            // console.log(duplicateSlugsTrimmed);
-
-
-            // let allCategorySlugs = category.questions.map(function(question){ 
-            //     return question.slugged
-            // });
-            // console.log(allCategorySlugs);
-
-
-            // let duplicateSlugs = allCategorySlugs.some(function(slug, index){
-            //     if (allCategorySlugs.indexOf(slug) != index) {
-                    
-            //         console.log(index);
-            //         console.log(slug);
-            //         return true
-            //     }
-            // });
-            // console.log(duplicateSlugs);
-        }
+        //     let duplicateSlugsList = category.questions.filter(word => word.length > 6);
+        // }
         state.categories = data[0].categories;
     }
 };

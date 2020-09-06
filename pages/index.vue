@@ -264,7 +264,7 @@ export default {
         return {
             devMode: true,
             users: {
-                uuid: this.$uuid.v1(),
+                uuid: "1",
                 name_1: "",
                 equipment_1: "",
                 email_1: "",
@@ -309,6 +309,7 @@ export default {
         },
         setData: function() {
             if (this.validateSelections()) {
+                this.users.uuid = this.$uuid.v1().replace(/-/g, "");
                 this.starting = true;
                 this.users.coupletype = this.getOrient();
                 this.users.name_1 = this.returnFirstName(this.users.name_1);
