@@ -13,16 +13,16 @@
                 <div class="nav__side nav__side--left nav__mobile">
                     <nuxt-link to="/questions" class="nav__link">See Questions</nuxt-link>
                 </div>
-                <!-- <div class="nav__side nav__side--right nav__mobile">
+                <div class="nav__side nav__side--right nav__mobile">
                     <nuxt-link to="/contact" class="nav__link">Contact Us</nuxt-link>
-                </div> -->
+                </div>
             </div>
             <div class="nav__side nav__side--left nav__desktop">
                 <nuxt-link to="/questions" class="nav__link">See Questions</nuxt-link>
             </div>
-            <!-- <div class="nav__side nav__side--right nav__desktop">
+            <div class="nav__side nav__side--right nav__desktop">
                 <nuxt-link to="/contact" class="nav__link">Contact Us</nuxt-link>
-            </div> -->
+            </div>
             <nuxt-link to="/" class="nav__logo__link">
                 <img :src="sitewide.logo" alt="Lust Amigo Logo" class="nav__logo">
             </nuxt-link>

@@ -1,6 +1,7 @@
 <template>
     <div class="qa__cell__inner">
         <div class="qa__text__cell">
+            {{question.slugged}}
             <p 
                 v-if="question.question"
             >
@@ -346,9 +347,6 @@ export default {
     cursor: pointer;
     transition: background-color .5s;
     white-space: nowrap;
-}
-.question__answer__both__partners {
-    
 }
 
 

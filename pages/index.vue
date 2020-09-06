@@ -315,27 +315,50 @@ export default {
                 this.users.name_2 = this.returnFirstName(this.users.name_2);
                 this.spice_level = parseInt(this.spice_level);
 
-
-                this.submitToServer().then(response => { //SUBMIT TO POSTMARK
-                    const body = response.json();
-                    console.log(body);
+                this.submitInitialToDatabase().then(response => { //SUBMIT TO FAUNA
+                    const dataReturn = response.json();
                     if (Number(response.status) !== 200) {
-                        console.log('Error submitting the form.')
+                        console.log('Error submitting - database')
                     } else {
-                        console.log('Form was submitted!')
+                        console.log('Database successfully submitted')
                         // this.$router.push('/questions')
                     }
                 });
+                // this.sendFirstEmail().then(response => { //SUBMIT TO POSTMARK
+                //     const body = response.json();
+                //     console.log(body);
+                //     if (Number(response.status) !== 200) {
+                //         console.log('Error submitting - emails')
+                //     } else {
+                //         console.log('Emails successfully submitted')
+                //     }
+                // });
             }
         },
-        submitToServer() { //SUBMIT TO POSTMARK
-            let emailObj = JSON.parse(JSON.stringify(this.users));
-            console.log(JSON.stringify(emailObj));
+        submitInitialToDatabase: function() { //SUBMIT INITIAL TO FAUNA
+            let userDataObj = JSON.parse(JSON.stringify(this.users));
+            console.log(JSON.stringify(userDataObj));
+            const initialDatabaseURL = "/.netlify/functions/send-initial-database"
+            console.log("submitting to database");
+            return new Promise((resolve, reject) => {
+                fetch(initialDatabaseURL, {
+                    method: "POST",
+                    body: JSON.stringify(userDataObj)
+                }).then(response => {
+                    resolve(response);
+                }).catch(err => {
+                    reject(err);
+                });
+            })
+        },
+        sendFirstEmail: function() { //SUBMIT TO POSTMARK
+            let userDataObj = JSON.parse(JSON.stringify(this.users));
+            console.log(JSON.stringify(userDataObj));
             const firstEmailURL = "/.netlify/functions/send-initial-email-1"
             return new Promise((resolve, reject) => {
                 fetch(firstEmailURL, {
                     method: "POST",
-                    body: JSON.stringify(emailObj)
+                    body: JSON.stringify(userDataObj)
                 }).then(response => {
                     resolve(response);
                 }).catch(err => {
@@ -355,7 +378,15 @@ export default {
             this.users.equipment_2 = 'male'
         } else {
             this.users.equipment_2 = 'female';
-        } 
+        }
+        if (this.devMode) {
+            this.users.name_1 = "Mike";
+            this.users.email_1 = "amigo@lustamigo.com"
+            this.users.equipment_1 = "male"
+            this.users.name_2 = "Audrey";
+            this.users.email_2 = "amigo@lustamigo.com"
+            this.users.equipment_2 = "female"
+        }
     },
     head () {
         return {

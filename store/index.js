@@ -17,6 +17,13 @@ function sortItems(data) {
     return newdata;
 }
 
+function slugSomething(text) {
+    return text.toLowerCase().replace(/\W/g, '-').replace(/--/g, '-').match(/\b(\w)/g).join('')
+}
+function slugSomethingLarge(text) {
+    return text.toLowerCase().replace(/\W/g, '-').replace(/--/g, '-').substring(0,3);
+}
+
 export const mutations = {
     setSitewide(state, data) {
         state.sitewide = data;
@@ -36,11 +43,44 @@ export const mutations = {
     },
     setCategories(state, data) {
         for (let cat in data[0].categories) {
-            let category = data[0].categories[cat];
+            const category = data[0].categories[cat];
+            const categoryShortened = slugSomethingLarge(category.name);
             for (let ques in category.questions) {
-                let question = category.questions[ques];
-                question.slugged = question.question.toLowerCase().replace(/\W/g, '-').replace(/--/g, '-');
+                const question = category.questions[ques];
+                const questionShortened = slugSomething(question.question);
+                // console.log(categoryShortened);
+                question.slugged = categoryShortened + questionShortened;
+                question.category = category.name;
             }
+
+            
+            let duplicateSlugsList = category.questions.filter(word => word.length > 6);
+            
+            console.log(duplicateSlugsList);
+
+            // let duplicateSlugsTrimmed = duplicateSlugsList.filter(function (e) {
+            //     console.log(e);
+            //     lookup[e.id]
+            // });
+            
+            // console.log(duplicateSlugsTrimmed);
+
+
+            // let allCategorySlugs = category.questions.map(function(question){ 
+            //     return question.slugged
+            // });
+            // console.log(allCategorySlugs);
+
+
+            // let duplicateSlugs = allCategorySlugs.some(function(slug, index){
+            //     if (allCategorySlugs.indexOf(slug) != index) {
+                    
+            //         console.log(index);
+            //         console.log(slug);
+            //         return true
+            //     }
+            // });
+            // console.log(duplicateSlugs);
         }
         state.categories = data[0].categories;
     }
