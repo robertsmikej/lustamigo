@@ -190,6 +190,7 @@
 export default {
     data () {
         return {
+            devmode: true,
             starting: false,
             justQuestions: false,
             allDone: false,
@@ -200,11 +201,13 @@ export default {
                 name_1: "Juan",
                 equipment_1: "male",
                 email_1: "",
+                user_1_responses: {},
                 name_2: "Maria",
                 equipment_2: "female",
                 email_2: "",
+                user_2_responses: {},
                 coupletype: "gay-male",
-                spice_level: 7
+                spice_level: 4
             },
             user: 0,
             userDone: 0
@@ -269,7 +272,10 @@ export default {
         }
     },
     mounted() {
-
+        if (this.devmode) {
+            this.justQuestions = false;
+            this.users.spice_level = 10;
+        }
     },
     head () {
         return {

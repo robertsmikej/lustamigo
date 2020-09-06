@@ -1,5 +1,5 @@
 const postmark = require("postmark"); // require mail service, postmark in this case
-const client = new postmark.Client("196074f2-f17a-491d-b568-5f21e898d0aa"); // your postmark api key
+const client = new postmark.Client(process.env.POSTMARK_API); // your postmark api key
 const headers = {
     "Access-Control-Allow-Origin": "*", // better change this for production
     "Access-Control-Allow-Methods": "POST",
@@ -51,9 +51,10 @@ exports.handler = function (event, context, callback) {
         } else {
             client.sendEmail({ // If everything is good, we can send the first email
                 "From": "amigo@lustamigo.com",
-                "To": payload.email_1,
+                "To": payload.email_2,
                 "ReplyTo": "amigo@lustamigo.com",
                 "Subject": `${payload.name_1} wants to take you on a journey`,
+                "HtmlBody": "<html><body><strong>Hello</strong> dear Postmark user.</body></html>",
                 "TextBody": `
                 Hola ${payload.name_2}!
                 ${payload.name_1} wants to find out what you have in common with The Lust Amigo!
