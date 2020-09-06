@@ -9,7 +9,7 @@ exports.handler = (event, context, callback) => {
     const data = JSON.parse(event.body);
     console.log("Function database invoked", data);
     /* construct the fauna query */
-    return client.query(q.Create(q.Ref(q.Collection('userdata'), data.uuid), data)).then((response) => {
+    return client.query(q.Create(q.Ref(q.Collection('userdata'), q.NewId()), data)).then((response) => {
         console.log("success", response);
         /* Success! return the response with statusCode 200 */
         return callback(null, {
