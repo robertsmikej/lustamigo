@@ -6,13 +6,17 @@ const client = new faunadb.Client({
 
 exports.handler = (event, context, callback) => {
     /* Construct the fauna query */
-    const userData = JSON.parse(event.body);
+
+    const data = JSON.parse(event.body);
+    // console.log(data);
+
     return client.query(
-        q.Create(
+        q.Get(
             q.Ref(
-                q.Collection('userdata'), userData.uuid), {data: JSON.parse(event.body)})).then((response) => {
+                q.Collection('userdata'), data.uuid))).then((response) => {
                 /* Success! return the response with statusCode 200 */
-                console.log(response);
+                // console.log('user data');
+                // console.log(response);
                 return callback(null, {
                     statusCode: 200,
                     body: JSON.stringify(response)

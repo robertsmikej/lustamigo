@@ -272,7 +272,8 @@ export default {
                 equipment_2: "",
                 email_2: "",
                 coupletype: "straight",
-                spice_level: 7
+                spice_level: 7,
+                questions: []
             },
             formMissingData: false,
             starting: false
@@ -309,38 +310,36 @@ export default {
         },
         setData: function() {
             if (this.validateSelections()) {
-                this.users.uuid = this.$uuid.v1().replace(/-/g, "");
                 this.starting = true;
+                this.users.uuid = new Date().getTime() + Math.floor(Math.random() * 100) + 1;
                 this.users.coupletype = this.getOrient();
                 this.users.name_1 = this.returnFirstName(this.users.name_1);
                 this.users.name_2 = this.returnFirstName(this.users.name_2);
                 this.spice_level = parseInt(this.spice_level);
-
                 this.submitInitialToDatabase().then(response => { //SUBMIT TO FAUNA
                     const dataReturn = response.json();
                     if (Number(response.status) !== 200) {
                         console.log('Error submitting - database')
                     } else {
                         console.log('Database successfully submitted')
-                        // this.$router.push('/questions')
+                        console.log("email sending now");
+                    // this.sendFirstEmail().then(response => { //SUBMIT TO POSTMARK
+                    //     const body = response.json();
+                    //     console.log(body);
+                    //     if (Number(response.status) !== 200) {
+                    //         console.log('Error submitting - emails');
+                    //     } else {
+                    //         console.log('Emails successfully submitted');
+                    //     }
+                    // });
+                        this.$router.push('/questions?uuid=' + this.users.uuid + "-1");
                     }
                 });
-                // this.sendFirstEmail().then(response => { //SUBMIT TO POSTMARK
-                //     const body = response.json();
-                //     console.log(body);
-                //     if (Number(response.status) !== 200) {
-                //         console.log('Error submitting - emails')
-                //     } else {
-                //         console.log('Emails successfully submitted')
-                //     }
-                // });
             }
         },
         submitInitialToDatabase: function() { //SUBMIT INITIAL TO FAUNA
             let userDataObj = JSON.parse(JSON.stringify(this.users));
-            console.log(JSON.stringify(userDataObj));
             const initialDatabaseURL = "/.netlify/functions/send-initial-database"
-            console.log("submitting to database");
             return new Promise((resolve, reject) => {
                 fetch(initialDatabaseURL, {
                     method: "POST",
@@ -354,7 +353,7 @@ export default {
         },
         sendFirstEmail: function() { //SUBMIT TO POSTMARK
             let userDataObj = JSON.parse(JSON.stringify(this.users));
-            console.log(JSON.stringify(userDataObj));
+            // console.log(JSON.stringify(userDataObj));
             const firstEmailURL = "/.netlify/functions/send-initial-email-1"
             return new Promise((resolve, reject) => {
                 fetch(firstEmailURL, {

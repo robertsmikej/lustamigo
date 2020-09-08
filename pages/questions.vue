@@ -1,17 +1,11 @@
 <template>
     <div class="container">
         <div class="questions__inner">
+            <!-- CURRENT USER IS NOT DONE -->
             <div
-                v-show="this.allDone === false"
+                v-show="!this.currentUserDone"
                 class="half__header"
             >
-                <div
-                    v-show="this.thisPersonDone === false && this.justQuestions === false"
-                    class="half__header__inner"
-                >
-                    <h1>Let's Do This, {{ users.name_1 }}!</h1>
-                    <p>As soon as you and {{ users.name_2 }} are done with the questions, we'll email you both with the results and you can get to making some bedroom guacamole.</p>
-                </div>
                 <div
                     v-if="this.justQuestions === true"
                     class="half__header__inner"
@@ -19,23 +13,34 @@
                     <h1>Just Want To Peek At The Questions?</h1>
                     <p>That's awesome! Be sure to sign up to take the quiz with your partner, you'll get better use out of the Lust Amigo's magic that way. Have fun!</p>
                 </div>
-            </div>
-            <div class="half__header">
                 <div
-                    v-show="this.thisPersonDone === true"
+                    v-show="!this.currentUserDone && !this.allDone && !this.justQuestions"
                     class="half__header__inner"
                 >
-                    <h1>You're already done, {{ users.name_1 }}!</h1>
-                    <p class="para__slighty__larger">We'll let you know as soon as your partner get theirs done. Tell {{ users.name_2 }} to hurry up!</p>
-                    <p>In the mean time, feel free to go through and redo your answers before {{ users.name_2 }} finishes.</p>
-                    <p><u>Note: If you decide to change your answers and your partner finishes before you are done revising, they will see your first answers until they are updated.</u></p>
+                    <h1
+                        v-show="user_name.length >= 2"
+                    >
+                        Let's Do This, {{ user_name }}!
+                    </h1>
+                    <p>As soon as you and {{ partner_name }} are done with the questions, we'll email you both with the results and you can get to making some bedroom guacamole.</p>
+                </div>
+            </div>
+            <!-- CURRENT USER IS COMPLETE -->
+            <div class="half__header">
+                <div
+                    v-show="this.currentUserDone === true && this.allDone === false"
+                    class="half__header__inner"
+                >
+                    <h1>You're done, {{ user_name }}!</h1>
+                    <p class="para__slighty__larger">We'll let you know as soon as your partner get theirs done too. Tell {{ partner_name }} to hurry up!</p>
+                    <p>In the mean time, feel free to go through and check or redo your answers before {{ partner_name }} finishes. You won't be able to update them once {{ partner_name }} submits theirs!</p>
                 </div>
                 <div
                     v-show="this.allDone === true"
                     class="half__header__inner"
                 >
-                    <h1>{{ users.name_1 }}, You're Both Already Done!</h1>
-                    <p>Give us just a momento to get your results and we'll send you to the right page.</p>
+                    <h1>Hey {{ user_name }}, You're Both Done!</h1>
+                    <p>Give us just a momento and we'll email you a link to see your results!</p>
                 </div>
             </div>
             <form 
@@ -150,25 +155,37 @@
             </div>
             
             <div 
-                v-show="this.allDone === false || this.onePersonDone === true || this.justQuestions === true"
+                v-show="
+                    this.allDone === false ||
+                    this.onePersonDone === true ||
+                    this.justQuestions === true
+                "
                 :key="this.users.spice_level"
+                class="page__questions"
             >
                 <CategoryCell 
                     v-for="category in categories"
                     :key="category.name"
                     :category="category"
                     :users="users"
+                    :currentUser="currentUser"
                 ></CategoryCell>
             </div>
             <div
-                v-show="this.justQuestions === false || this.onePersonDone === true"
+                v-show="
+                    this.justQuestions === false ||
+                    this.onePersonDone === true
+                "
                 class="submission__container"
             >
                 <button
                     @click.stop.prevent="setAnswerData()"
+                    v-show="this.allDone === false"
                     class="submit__button" 
                 >
-                    <span v-if="this.starting === false">Submit My Answers!</span>
+
+                    <span v-if="!this.starting && !this.currentUserDone">Submit My Answers!</span>
+                    <span v-if="!this.starting && this.currentUserDone">Submit Again!</span>
                     <span v-if="this.starting">Submitting...</span>
                 </button>
                 <div
@@ -177,7 +194,7 @@
                 >
                     <div class="submitted__inner">
                         <h2>Questions Submitted Successfully!</h2>
-                        <p>As soon as we hear from {{ users.name_2 }} we'll reach out, quick as a rattlesnake!</p>
+                        <p>As soon as we hear from {{ partner_name }} we'll reach out, quick as a rattlesnake!</p>
                     </div>
                 </div>
             </div>
@@ -190,27 +207,32 @@
 export default {
     data () {
         return {
-            devmode: true,
+            devmode: false,
             starting: false,
             justQuestions: false,
             allDone: false,
+            currentUserDone: false,
             onePersonDone: false,
-            thisPersonDone: false,
             submittedSuccess: false,
+            databaseExists: false,
             users: {
+                uuid: "",
                 name_1: "Juan",
                 equipment_1: "male",
                 email_1: "",
-                user_1_responses: {},
+                user_1_data_submitted: false,
                 name_2: "Maria",
                 equipment_2: "female",
                 email_2: "",
-                user_2_responses: {},
+                user_2_data_submitted: false,
                 coupletype: "gay-male",
-                spice_level: 4
+                spice_level: 4,
+                questions: []
             },
-            user: 0,
-            userDone: 0
+            user_name: "",
+            partner_name: "",
+            currentUser: 0,
+            
         }
     },
     computed: {
@@ -225,56 +247,193 @@ export default {
         }
     },
     methods: {
-        getImage: function(name) {
+        getImage: function(name) { //GET IMAGE FROM LIST OF SITE IMAGES FROM NETLIFYCMS
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
         },
-        setAnswerData: function() { //COMBINE ANSWER DATA AND SEND TO DIRECTUS
-            let send = {};
-            let radios = document.querySelectorAll("input[type=radio]:checked");
-            let th = this;
-            this.starting = true;
-            if (radios.length > 0) {
-                radios.forEach(function (radio) {
-                    let question = radio.getAttribute("name");
-                    let answer = radio.getAttribute("value");
-                    let checkbox = radio.parentNode.parentNode.parentNode.querySelector("input[type=checkbox]");
-                    let hotnessChecked = null;
-                    if (answer.toLowerCase().indexOf("not_interested") === -1) {
-                        if (checkbox.checked && answer.toLowerCase().indexOf("interested") >= 0) {
-                            hotnessChecked = true;
-                        }
-                        if (th.user == 1) {
-                            send[question] = {
-                                "user1": {
-                                    "user": th.user,
-                                    "question": question,
-                                    "value": answer,
-                                    "hotness": hotnessChecked,
-                                }
-                            }
-                        } else if (th.user == 2) {
-                            send[question] = {
-                                "user2" : {
-                                    "user": th.user,
-                                    "question": question,
-                                    "value": answer,
-                                    "hotness": hotnessChecked
-                                }
-                            }
-                        }
+        justShowQuestions: function () { //SET PAGE TO JUST SHOW QUESTIONS, NO SUBMIT BUTTON, ETC.
+            this.justQuestions = true;
+            this.allDone = false;
+            this.onePersonDone = false;
+            this.currentUserDone = false;
+        },
+        
+
+        //INITIAL DATABASE CHECK FUNCTIONS
+        checkDatabase: function () { //CHECK DB FOR USER DATA AND EXISTANCE
+            const databaseFunction = "/.netlify/functions/check-database";
+            const data = {
+                uuid: this.users.uuid,
+                user: this.user
+            };
+            return new Promise((resolve, reject) => {
+                fetch(databaseFunction, {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                }).then(async response => {
+                    return response.json();
+                }).then(data => {
+                    // console.log(data);
+                    if (data.name !== "NotFound") { //CHECKS TO SEE IF DATA OR USER EXISTS IN DATABASE
+                        this.databaseExists = true;
+                        this.setDataFromDatabase(data);
+                    } else { //IF NO USER DATA IN DATABASE THEN JUST QUESTIONS ARE SHOWN
+                        this.justShowQuestions();
                     }
+                    resolve(data);
+                }).catch(err => {
+                    reject(err);
                 });
+            })
+        },
+        setDataFromDatabase: function (d) { //INITIAL DATA SET WITH DATA FROM FAUNADB
+            const dbData = d.data;
+            for (let datapoint in dbData) {
+                this.users[datapoint] = dbData[datapoint];
+            }
+            this.user_name = this.currentUser === 1 ? dbData["name_1"] : dbData["name_2"];
+            this.partner_name = this.currentUser === 1 ? dbData["name_2"] : dbData["name_1"];
+            this.checkDoneStatuses(dbData);
+        },
+        checkDoneStatuses: function (dbData) {
+            if (
+                this.currentUser === 1 && dbData.user_1_data_submitted && !dbData.user_2_data_submitted
+            ) {
+                this.onePersonDone = true;
+                this.currentUserDone = true;
+                this.alreadyAnswered();
+            } else if (
+                this.currentUser === 2 && dbData.user_2_data_submitted && !dbData.user_1_data_submitted
+            ) {
+                this.onePersonDone = true;
+                this.currentUserDone = true;
+                this.alreadyAnswered();
+            }
+            if (dbData["user_1_data_submitted"] && dbData["user_2_data_submitted"]) {
+                this.currentUserDone = false;
+                this.onePersonDone = false;
+                this.allDone = true;
+                this.$router.push("/results?uuid=" + this.users.uuid + "-" + this.currentUser);
             }
         },
-        currentUserDone: function (question) {
-            this.user == this.userDone ? true : false;
-        }
+        alreadyAnswered: function () {
+            this.users.questions.forEach(dq => {
+                let textQuestion = dq.question;
+                let dataAnswers = dq.answers[this.currentUser];
+                for (let i = 0; i < this.categories.length; i++) {
+                    let category = this.categories[i];
+                    for (let j = 0; j < category.questions.length; j++) {
+                        let catQuestion = category.questions[j];
+                        if (catQuestion.question === textQuestion) {
+                            let checkedObj = {
+                                category: parseInt(i),
+                                question: parseInt(j),
+                                answer: parseInt(dataAnswers.answer),
+                                superhot: dataAnswers.superhot,
+                                singleout: parseInt(dataAnswers.singleout)
+                            }
+                            this.$store.commit("checkedQuestion", checkedObj);
+                        }
+                    }
+                }
+            });
+        },
+
+
+        //WHEN USER CLICKS ON SUBMIT BUTTON
+        setAnswerData: function() { //COMBINE ANSWER DATA
+            if (this.databaseExists) {
+                let questionsObj = {};
+                let questionsArr = [];
+                let radios = document.querySelector(".page__questions").querySelectorAll("input[type=radio]:checked.question__answer__radio");
+                this.starting = true;
+                if (radios.length > 0) {
+                    radios.forEach((radio, index) => {
+                        let question = radio.getAttribute("name");
+                        let answer = parseInt(radio.getAttribute("value"));
+                        let hotnessCheck = radio.closest(".qa__cell__inner").querySelector("input[name='muchohot']").checked;
+                        let category = radio.closest(".category__cell").getAttribute("data-category-type");
+                        if (answer !== 0) {
+                            let singleOut = parseInt(this.checkSingledOut(radio));
+                            let alreadyExists = this.users.questions.filter(ques => {
+                                return ques.question === question
+                            })[0];
+                            if (alreadyExists) {
+                                alreadyExists.answers[this.currentUser] = {
+                                    "answer": answer,
+                                    "superhot": hotnessCheck,
+                                    "singleout": singleOut
+                                }
+                            } else {
+                                let quesObj = {
+                                    "category": category,
+                                    "question": question,
+                                    answers: {
+                                        [this.currentUser]: {
+                                            "answer": answer,
+                                            "superhot": hotnessCheck,
+                                            "singleout": singleOut
+                                        }
+                                    }
+                                }
+                                this.users.questions.push(quesObj);
+                            }
+                        }
+                    });
+                }
+                this.setUserSubmittedBool();
+                this.sendQuestionsToDB();
+            }
+        },
+        checkSingledOut: function (radio) { //CHECK IF CURRENT USER ONLY WANTS TO DO THING WITH SPECIFIC PARTNER
+            let singleDiv = radio.closest(".qa__cell__inner").querySelector(".question__answer__both__partners");
+            if (singleDiv) {
+                let singleOutCheckboxes = singleDiv.querySelectorAll('input:checked');
+                if (singleOutCheckboxes.length === 1) {
+                    // console.log(singleOutCheckboxes[0].value);
+                    return singleOutCheckboxes[0].value;
+                }
+            }
+            return 0;
+        },
+        setUserSubmittedBool: function () { //SET STATUS OF IF USER HAS COMPLETED QUESTIONS BEFORE
+            if (this.currentUser === 1) {
+                this.users.user_1_data_submitted = true;
+            } else if (this.currentUser === 2) {
+                this.users.user_2_data_submitted = true;
+            }
+        },
+        sendQuestionsToDB: function () { //SEND QUESTION DATA TO DATABASE
+            const userDataObj = JSON.parse(JSON.stringify(this.users));
+            const questionsFunction = "/.netlify/functions/send-questions";
+            return new Promise((resolve, reject) => {
+                fetch(questionsFunction, {
+                    method: "POST",
+                    body: JSON.stringify(userDataObj)
+                }).then(async response => {
+                    return response.json();
+                }).then(data => {
+                    // console.log(data);
+                    this.submittedSuccess = true;
+                    resolve(data);
+                }).catch(err => {
+                    reject(err);
+                });
+            })
+        },
+        
     },
     mounted() {
         if (this.devmode) {
             this.justQuestions = false;
             this.users.spice_level = 10;
+        }
+        if (this.$route.query && this.$route.query.uuid) { //IF THERE IS DATA IN THE QUERY FIELDS OF THE URL TO SHOW USER DATA
+            this.users.uuid = this.$route.query.uuid.split("-")[0];
+            this.currentUser = parseInt(this.$route.query.uuid.split("-")[1]);
+            this.checkDatabase(); //CALL DATABSE WITH URL INFO
+        } else {
+            this.justShowQuestions(); //JUST SHOW QUESTIONS - PEOPLE NOT 'LOGGED IN' THAT JUST WANT TO SEE THE QUESTIONS
         }
     },
     head () {
@@ -393,6 +552,10 @@ li.instructions__list--nowrap {
     bottom: 0;
     left: 0;
     width: 100%;
+}
+.submitted__success {
+    background: #FFF;
+    padding: 6px;
 }
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 730px) {

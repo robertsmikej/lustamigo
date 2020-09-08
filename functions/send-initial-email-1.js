@@ -1,5 +1,5 @@
-const postmark = require("postmark"); // require mail service, postmark in this case
-const client = new postmark.Client(process.env.POSTMARK_API); // your postmark api key
+const postmark = require("postmark");
+const client = new postmark.Client(process.env.POSTMARK_API);
 const headers = {
     "Access-Control-Allow-Origin": "*", // better change this for production
     "Access-Control-Allow-Methods": "POST",

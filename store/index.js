@@ -42,21 +42,25 @@ export const mutations = {
         state.pages = newObj;
     },
     setCategories(state, data) {
-        // for (let cat in data[0].categories) {
-        //     const category = data[0].categories[cat];
-        //     const categoryShortened = slugSomethingLarge(category.name);
-        //     for (let ques in category.questions) {
-        //         const question = category.questions[ques];
-        //         const questionShortened = slugSomething(question.question);
-        //         // console.log(categoryShortened);
-        //         question.slugged = categoryShortened + questionShortened;
-        //         question.category = category.name;
-        //     }
+        for (let cat in data[0].categories) {
+            const category = data[0].categories[cat];
+            for (let ques in category.questions) {
+                category.questions[ques]["checked"] = -1;
 
-            
-        //     let duplicateSlugsList = category.questions.filter(word => word.length > 6);
-        // }
+            }
+        }
         state.categories = data[0].categories;
+    },
+    checkedQuestion(state, dataObj) {
+        // console.log(state);  
+        console.log(dataObj);
+
+        state.categories[dataObj.category].questions[dataObj.question].checked = parseInt(dataObj.answer);
+        if (dataObj.singleout > 0) {
+            state.categories[dataObj.category].questions[dataObj.question].singleout = dataObj.singleout;
+            console.log(dataObj.singleout);
+            console.log(state.categories[dataObj.category].questions[dataObj.question]);
+        }
     }
 };
 

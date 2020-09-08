@@ -1,5 +1,8 @@
 <template>
-    <div class="category__cell">
+    <div 
+        :data-category-type="category.name"
+        class="category__cell"
+    >
         <div>
             <div class="category__img__container">
                 <img 
@@ -11,7 +14,10 @@
             <h2 class="category__name">{{ category.name }}</h2>
             <p class="category__para">{{ category.categorydescription }}</p>
         </div>
-        <div class="category__questions">
+        <div
+            v-if="!alldone"
+            class="category__questions"
+        >
             <div class="question__cell__outer">
                 <div 
                     v-for="question in filteredQuestions" 
@@ -22,9 +28,9 @@
                         v-if="question.status" 
                         :question="question" 
                         :users="users" 
-                        :userDone="userDone" 
-                        :currentUserDone="currentUserDone" 
-                        :checked="userDoneQuestions(question)"
+                        :userDone="userDone"
+                        :currentUser="currentUser"
+                        :data-question="question.question"
                     >
                     </Question>
                 </div>
@@ -34,6 +40,7 @@
             v-if="alldone"
             class="category__questions"
         >
+        
             <div class="answer__key__cell answer__cell qa__cell">
                 <div class="answer__text__cell"></div>
                 <div class="answer__key__names__cell answers__cell">
@@ -42,23 +49,17 @@
                 </div>
             </div>
             <div 
-                v-for="question in questions"
-                :key="question.question" 
+                v-for="answer in category.questions"
+                :key="answer.question"
+                class="qa__cell answer__container__cell"
             >
-                <div 
-                    v-if="getAnswer(question)"
-                    style="width:100%;"
-                    class="qa__cell answer__cell"
-                >
-                    <Answer
-                        :response="getAnswer(question)" 
-                        :question="question"
-                        :users="users" 
-                        :userDone="userDone"
-                        :currentUserDone="currentUserDone"
-                        :checked="userDoneQuestions(question)"
-                    />
-                </div>
+                <Answer
+                    :answer="answer" 
+                    :users="users" 
+                    :userDone="userDone"
+                    :currentUser="currentUser"
+                    :data-answer="answer.question"
+                />
             </div>
         </div>
 
@@ -79,12 +80,12 @@ export default {
         users: Object,
         alldone: Boolean,
         userDone: Number,
-        currentUserDone: Boolean
+        currentUser: Number,
+        responseData: Object
     },
     computed: {
         filteredQuestions: function () {
             const catQuestions = this.category.questions;
-            let newQuestionsArr = [];
             const coupletype = this.users.coupletype;
             const userSpiciness = this.users.spice_level;
             let orientation = catQuestions.filter(function (question) {
@@ -103,42 +104,7 @@ export default {
         }
     },
     methods: {
-        getAnswer: function (ques) {
-            let quest = ques.question.toLowerCase().replace(/ /g, "_");
-            if (this.response) {
-                let respkeys = Object.keys(this.response);
-                if (respkeys.length > 0) {
-                    if (respkeys.indexOf(quest) >= 0) {
-                        return this.response[quest];
-                    }
-                }
-            }
-            return false;
-        },
-        userDoneQuestions: function (q) {
-            if (this.currentUserDone) {
-                let response = {};
-                if (this.user == 1) {
-                    response = JSON.parse(this.response_1);
-                } else if (this.user == 2) {
-                    response = JSON.parse(this.response_2);
-                }
-                let ques = q.question.toLowerCase().replace(/ /g, "_");
-                if (ques in response) {
-                    if (this.user == 1) {
-                        return {
-                            answer: response[ques].user1.value,
-                            hotness: response[ques].user1.hotness
-                        }
-                    } else {
-                        return {
-                            answer: response[ques].user2.value,
-                            hotness: response[ques].user2.hotness
-                        }
-                    }
-                }
-            }
-        }
+
     }
 }
 </script>
