@@ -15,6 +15,7 @@
     "mailgun-js": "^0.22.0",
     "nuxt": "^2.14.0",
     "postmark": "^2.5.5",
+    "vue-scrollto": "^2.18.2",
     "vue-uuid": "^2.0.2"
   },
   "devDependencies": {}

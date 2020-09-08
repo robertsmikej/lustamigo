@@ -28,7 +28,8 @@ export default {
 
     ],
     modules: [
-        '@nuxtjs/markdownit'
+        '@nuxtjs/markdownit',
+        ['vue-scrollto/nuxt', { duration: 300 }],
     ],
     markdownit: {
         injected: true

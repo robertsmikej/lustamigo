@@ -46,20 +46,18 @@ export const mutations = {
             const category = data[0].categories[cat];
             for (let ques in category.questions) {
                 category.questions[ques]["checked"] = -1;
-
+                category.questions[ques]["superhot"] = false;
             }
         }
         state.categories = data[0].categories;
     },
     checkedQuestion(state, dataObj) {
-        // console.log(state);  
-        console.log(dataObj);
-
         state.categories[dataObj.category].questions[dataObj.question].checked = parseInt(dataObj.answer);
         if (dataObj.singleout > 0) {
             state.categories[dataObj.category].questions[dataObj.question].singleout = dataObj.singleout;
-            console.log(dataObj.singleout);
-            console.log(state.categories[dataObj.category].questions[dataObj.question]);
+        }
+        if (dataObj.superhot) {
+            state.categories[dataObj.category].questions[dataObj.question].superhot = true;
         }
     }
 };

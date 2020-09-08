@@ -136,8 +136,8 @@ ul {
     margin: 10px 0;
 }
 li {
-    font-size: 1.3em;
-    line-height: 1.3em;
+    font-size: 1.2em;
+    line-height: 1.2em;
     font-weight: 500;
     margin: 10px 0;
 }
@@ -296,6 +296,7 @@ a {
     font-family: 'Neucha', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     text-align: center;
     color: var(--dark-blue);
+    border-style: solid;
 }
 .info__text__field {
     width: 100%;
@@ -377,7 +378,8 @@ a {
     justify-content: center;
     max-width: 1100px;
     border: 1px solid var(--gun-grey);
-    border-top: none;
+    /* border-top: none; */
+    margin: 16px 0;
 }
 .answer__container__cell {
     border-right: none;
@@ -525,13 +527,11 @@ a {
 .qa__cell:nth-of-type(odd) label:hover {
     color: #FFF;
 }
-.question__answer__both__partners label:hover {
+body .question__answer__both__partners label:hover {
     background: inherit;
-    color: inherit;     
+    color: inherit !important;     
 }
-.qa__cell:nth-of-type(odd) .question__answer__both__partners label:hover {
-    color: var(--gun-grey);     
-}
+
 
 
 .question__answer__partner__cell input[type="checkbox"] {
@@ -545,6 +545,21 @@ a {
     background: var(--red);
     color: white;
 }
+
+.question__answer__partner__cell input[type="radio"]:checked + label {
+    background: var(--light-blue2);;
+    border: none;
+    font-weight: 700;
+    color: #FFF;
+}
+/* .question__answer__both__partners input[type="radio"]:checked label:hover {
+    color: #FFF;   
+}
+
+.question__answer__both__partners input[type="radio"]:checked + label:hover {
+    color: #FFF;     
+} */
+
 
 .question__answer__partner__cell {
     flex: 0 1 auto;
@@ -589,81 +604,59 @@ a {
     transform: rotate(0) scale(1);
     transform-origin: center center;
     width: 100%;
-    max-height: 34px;
+    max-height: 33px;
     object-fit: contain;
 }
 .qa__cell input[type="checkbox"]:checked + label img {
-    animation: spicyshaker .9s;
-    animation-iteration-count: 1;
+    animation: spicyshaker 3s;
+    animation-iteration-count: infinite;
     animation-fill-mode: forwards;
     animation-direction: normal;
 }
 @keyframes spicyshaker {
     0% {
-        -webkit-transform: rotate(0) scale(1);
-        -webkit-filter: grayscale(.5);
         transform: rotate(0) scale(1);
         filter: grayscale(.5);
     }
     10% {
-        -webkit-transform: rotate(15deg) scale(1.04);
-        -webkit-filter: grayscale(.5);
-        transform: rotate(15deg) scale(1.04);
+        transform: rotate(15deg) scale(1.03);
         filter: grayscale(.5);
     }
     20% {
-        -webkit-transform: rotate(-15deg) scale(1.06);
-        -webkit-filter: grayscale(.45);
         transform: rotate(-15deg) scale(1.06);
         filter: grayscale(.45);
     }
     30% {
-        -webkit-transform: rotate(15deg) scale(1.06);
-        -webkit-filter: grayscale(.4);
         transform: rotate(15deg) scale(1.06);
         filter: grayscale(.4);
     }
     40% {
-        -webkit-transform: rotate(-15deg) scale(1.08);
-        -webkit-filter: grayscale(.2);
-        transform: rotate(-15deg) scale(1.08);
+        transform: rotate(-15deg) scale(1.09);
         filter: grayscale(.2);
     }
     50% {
-        -webkit-transform: rotate(15deg) scale(1.10);
-        -webkit-filter: grayscale(.2);
-        transform: rotate(15deg) scale(1.10);
+        transform: rotate(15deg) scale(1.13);
         filter: grayscale(.2);
     }
     60% {
-        -webkit-transform: rotate(-15deg) scale(1.13);
-        -webkit-filter: grayscale(0);
         transform: rotate(-15deg) scale(1.13);
-        filter: grayscale(0);
+        filter: grayscale(.3);
     }
     70% {
-        -webkit-transform: rotate(15deg) scale(1.145);
-        -webkit-filter: grayscale(0);
-        transform: rotate(15deg) scale(1.13);
-        filter: grayscale(0);
+        transform: rotate(15deg) scale(1.09);
+        filter: grayscale(.3);
     }
     80% {
-        -webkit-transform: rotate(-15deg) scale(1.145);
-        -webkit-filter: grayscale(0);
-        transform: rotate(-15deg) scale(1.145);
-        filter: grayscale(0);
+        transform: rotate(-15deg) scale(1.06);
+        filter: grayscale(.45);
     }
     90% {
-        -webkit-transform: rotate(15deg) scale(1.15);
-        -webkit-filter: grayscale(0);
-        transform: rotate(15deg) scale(1.15);
-        filter: grayscale(0);
+        transform: rotate(15deg) scale(1.03);
+        filter: grayscale(.55);
     }
     100% {
-        -webkit-transform: rotate(0) scale(1.165);
-        -webkit-filter: grayscale(0);
-        transform: rotate(0deg) scale(1.155);
-        filter: grayscale(0);
+        transform: rotate(0deg) scale(1);
+        filter: grayscale(.5);
     }
 }
 

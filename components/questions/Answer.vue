@@ -18,7 +18,7 @@
                 <div class="question__answer answer__cell">
                     <div class="answer__cell__inner">
                         <p>{{ translateResponse(answer.answers["1"]) }}</p>
-                        <img 
+                        <img  
                             v-if="answer.answers['1'].superhot" 
                             :src="getImage('Pepper')[0].img"
                             alt="This Question Was Hot!" 
@@ -112,16 +112,12 @@ export default {
             change.classList.remove("qa__text__explain__text--show");
         },
         translateResponse: function (answer) {
-            return this.answerKey[answer.answer];
+            if (answer && answer.answer) {
+                return this.answerKey[answer.answer];
+            }
         },
         translateName: function (namenumber) {
-            console.log(namenumber);
-            console.log(this.users);
-            if (namenumber === 1) {
-                return this.users.name_1;
-            } else {
-                return this.users.name_2;
-            }
+            return namenumber === 1 ? this.users.name_1 : this.users.name_2;
         }
     }
 }

@@ -119,27 +119,18 @@ export default {
                     delete newCat.questions;
                     newCat.questions = [];
                     this.users.responseCategories[answer.category] = newCat;
-                    console.log(this.users.responseCategories);
                 }
-                // console.log(categoriesObj[answer.category]);
-                // console.log(answer);
                 for (let i = 0; i < this.categories.length; i++) {
                     let category = this.categories[i];
                     for (let j = 0; j < category.questions.length; j++) {
                         let catQuestion = category.questions[j];
-                        if (catQuestion.question === answer.question) {
-                            console.log(answer);
-                            console.log(catQuestion);
+                        if (catQuestion.question === answer.question && Object.keys(answer.answers).length > 1) {
                             let newQues = Object.assign(answer, catQuestion);
                             this.users.responseCategories[answer.category].questions.push(newQues);
                         }
                     }
                 }
-                
-                
-                
             }
-            // this.reponseCategories = categoriesObj;
         },
         alreadyAnswered: function () {
             for (let q in this.users.questions) {

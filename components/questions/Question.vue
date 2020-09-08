@@ -14,12 +14,11 @@
                 <span>?</span>
             </div>
             <div 
-                :data-checked="checkHotness(checked)"
                 class="question__special"
             >
                 <input 
                     :id="question.question + '-checked'"
-                    :checked="checkHotness(checked)"
+                    :checked="question.superhot"
                     type="checkbox" 
                     name="muchohot" 
                 >
@@ -162,9 +161,6 @@ export default {
         getImage: function(name) {
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
-        },
-        checkHotness: function (hotness) {
-            return hotness ? hotness.hotness : false;
         },
         toggleExplainButton: function (event) {
             let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");

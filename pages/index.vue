@@ -42,20 +42,22 @@
                 <div class="info__section">
                     <h2>You</h2>
                     <div class="info__text__field">
-                        <label for="name1">Your First Name</label>
+                        <label for="name_1">Your First Name</label>
+                        <p class="info__text__error__para">Please Put Your First Name Here!</p>
                         <input 
                             type="name"
-                            name="name1"
-                            id="name1"
+                            name="name_1"
+                            id="name_1"
                             v-model="users.name_1"
                         >
                     </div>
                     <div class="info__text__field">
-                        <label for="email1">Your Email Address</label>
+                        <label for="email_1">Your Email Address</label>
+                        <p class="info__text__error__para">Please Put Your Email Address Here!</p>
                         <input 
                             type="email"
-                            name="email1"
-                            id="email1"
+                            name="email_1"
+                            id="email_1"
                             v-model="users.email_1"
                         >
                     </div>
@@ -63,12 +65,12 @@
                         <p class="equipment__label">Their Equipment</p>
                         <input 
                             type="radio" 
-                            id="equipment-1-male" 
-                            name="equipment-1"
+                            id="equipment_1_male" 
+                            name="equipment_1"
                             value="male" 
                             v-model="users.equipment_1" 
                         >
-                        <label for="equipment-1-male">
+                        <label for="equipment_1_male">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -80,12 +82,12 @@
                         </label>
                         <input
                             type="radio"
-                            id="equipment-1-female"
-                            name="equipment-1"
+                            id="equipment_1_female"
+                            name="equipment_1"
                             value="female"
                             v-model="users.equipment_1"
                         >
-                        <label for="equipment-1-female">
+                        <label for="equipment_1_female">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
@@ -100,20 +102,22 @@
                 <div class="info__section">
                     <h2 class="form__spacer">Them</h2>
                     <div class="info__text__field">
-                        <label for="name2">Their First Name</label>
+                        <label for="name_2">Their First Name</label>
+                        <p class="info__text__error__para">Please Put Your Partner's First Name Here!</p>
                         <input 
                             type="name"
-                            name="name2"
-                            id="name2"
+                            name="name_2"
+                            id="name_2"
                             v-model="users.name_2"
                         >
                     </div>
                     <div class="info__text__field">
-                        <label for="email2">Their Email Address</label>
+                        <label for="email_2">Their Email Address</label>
+                        <p class="info__text__error__para">Please Put Your Partner's Email Address Here!</p>
                         <input 
                             type="email"
-                            name="email2"
-                            id="email2"
+                            name="email_2"
+                            id="email_2"
                             v-model="users.email_2"
                         >
                     </div>
@@ -121,12 +125,12 @@
                         <p class="equipment__label">Their Equipment</p>
                         <input 
                             type="radio" 
-                            id="equipment-2-male" 
-                            name="equipment-2"
+                            id="equipment_2_male" 
+                            name="equipment_2"
                             value="male" 
                             v-model="users.equipment_2" 
                         >
-                        <label for="equipment-2-male">
+                        <label for="equipment_2_male">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -138,12 +142,12 @@
                         </label>
                         <input
                             type="radio"
-                            id="equipment-2-female"
-                            name="equipment-2"
+                            id="equipment_2_female"
+                            name="equipment_2"
                             value="female"
                             v-model="users.equipment_2"
                         >
-                        <label for="equipment-2-female">
+                        <label for="equipment_2_female">
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
@@ -242,7 +246,7 @@
                 <span v-if="this.starting === false">Start The Quiz</span>
                 <span v-if="this.starting">Starting...</span>
             </button>
-            <p class="info__para disclaimer__para">We take your privacy seriously, and apart from anonymous statistics, we don’t share information with anyone else, and <u>never</u> anything personally identifiable.</p>
+            <p class="info__para disclaimer__para">We take your privacy seriously, and apart from anonymous statistics, we don’t (and won't) share information with anyone else, and <u>never</u> anything personally identifiable.</p>
         </div>
     </section>
 </template>
@@ -262,7 +266,7 @@ export default {
     },
     data () {
         return {
-            devMode: true,
+            devMode: false,
             users: {
                 uuid: "1",
                 name_1: "",
@@ -288,10 +292,20 @@ export default {
             const inputs = document.querySelector(".enter__info__fields").getElementsByTagName("input");
             const empties = Array.from(inputs).filter(input => input.value.length === 0)
             // const empties
-            if (empties.length > 0 || this.devMode) {//NAMES AND EMAILS ARE FILLED OUT
+            if (empties.length === 0) {//NAMES AND EMAILS ARE FILLED OUT
                 return true;
             } else {//AT LEAST ONE NAME OR EMAIL ISNT FILLED OUT
                 this.formMissingData = true;
+                Array.from(inputs).forEach(input => {
+                    input.classList.remove("boxGlow");
+                });
+                empties.forEach((empty, index) => {
+                    if (index === 0) {
+                        this.$scrollTo(empty, 300, {offset: -240});
+                        empty.focus();
+                    }
+                    empty.closest(".info__text__field").querySelector(".info__text__error__para").style.display = "block";
+                });
                 return false;
             }
         },
@@ -319,20 +333,14 @@ export default {
                 this.submitInitialToDatabase().then(response => { //SUBMIT TO FAUNA
                     const dataReturn = response.json();
                     if (Number(response.status) !== 200) {
-                        console.log('Error submitting - database')
+                        console.error('Error submitting - database')
                     } else {
-                        console.log('Database successfully submitted')
-                        console.log("email sending now");
-                    // this.sendFirstEmail().then(response => { //SUBMIT TO POSTMARK
-                    //     const body = response.json();
-                    //     console.log(body);
-                    //     if (Number(response.status) !== 200) {
-                    //         console.log('Error submitting - emails');
-                    //     } else {
-                    //         console.log('Emails successfully submitted');
-                    //     }
-                    // });
-                        this.$router.push('/questions?uuid=' + this.users.uuid + "-1");
+                        console.info('Database successfully submitted and Email Sending Now')
+                        if (!this.devMode) {
+                            this.$router.push('/questions?uuid=' + this.users.uuid + "-1");
+                        } else {
+                            console.info("Turn DevMode Off To Go To Next Page");
+                        }
                     }
                 });
             }
@@ -380,12 +388,10 @@ export default {
             this.users.equipment_2 = 'female';
         }
         if (this.devMode) {
-            this.users.name_1 = "Mike";
-            this.users.email_1 = "amigo@lustamigo.com"
-            this.users.equipment_1 = "male"
+            this.users.name_1 = "";
+            this.users.email_1 = ""
             this.users.name_2 = "Audrey";
             this.users.email_2 = "amigo@lustamigo.com"
-            this.users.equipment_2 = "female"
         }
     },
     head () {
@@ -506,6 +512,12 @@ body .pepper__example__img {
 .missing__info__para {
     color: var(--dark-red);
     font-size: 1.5em;
+}
+.info__text__error__para {
+    color: var(--dark-red);
+    font-size: 1em;
+    margin: 0 auto 2px;
+    display: none;
 }
 
 </style>

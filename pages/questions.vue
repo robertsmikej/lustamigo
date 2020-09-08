@@ -33,7 +33,8 @@
                 >
                     <h1>You're done, {{ user_name }}!</h1>
                     <p class="para__slighty__larger">We'll let you know as soon as your partner get theirs done too. Tell {{ partner_name }} to hurry up!</p>
-                    <p>In the mean time, feel free to go through and check or redo your answers before {{ partner_name }} finishes. You won't be able to update them once {{ partner_name }} submits theirs!</p>
+                    <p>In the mean time, feel free to go through and check or redo your answers before {{ partner_name }} finishes.</p>
+                    <p>You won't be able to update them once {{ partner_name }} submits theirs!</p>
                 </div>
                 <div
                     v-show="this.allDone === true"
@@ -413,7 +414,7 @@ export default {
                 }).then(async response => {
                     return response.json();
                 }).then(data => {
-                    // console.log(data);
+                    console.log(data);
                     this.submittedSuccess = true;
                     resolve(data);
                 }).catch(err => {
@@ -499,15 +500,15 @@ export default {
     font-size: .8em;
     width: 46%;
     text-align: center;
-    margin: 10px 10px;
+    margin: 6px 10px;
     background-color: var(--green);
-    padding: 10px;
+    padding: 2px 14px;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    min-height: 125px;
+    min-height: 115px;
     /* color: var(--green); */
 }
 .list__limited__width {

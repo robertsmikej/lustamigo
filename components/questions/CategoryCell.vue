@@ -40,7 +40,6 @@
             v-if="alldone"
             class="category__questions"
         >
-        
             <div class="answer__key__cell answer__cell qa__cell">
                 <div class="answer__text__cell"></div>
                 <div class="answer__key__names__cell answers__cell">
@@ -48,7 +47,7 @@
                     <h5>{{ users.name_2 }}</h5>
                 </div>
             </div>
-            <div 
+            <div
                 v-for="answer in category.questions"
                 :key="answer.question"
                 class="qa__cell answer__container__cell"
@@ -142,7 +141,7 @@ export default {
     .category__questions {
         margin: 10px 0;
         background-color: #FFF;
-        border-top: 1px solid var(--gun-grey);
+        /* border-top: 1px solid var(--gun-grey); */
     }
     .product__cells__outer {
         margin: 30px auto 0;

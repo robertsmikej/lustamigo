@@ -17,7 +17,7 @@
                 <h1>{{ dataObj.heroBanner.header_1 }}</h1>
                 <p>{{ dataObj.heroBanner.para }}</p>
                 <a 
-                    href="#get__started" 
+                    v-scroll-to="{el: '#get__started',offset: -120}"
                     class="get__started__button"
                 >
                     Let's Do It!
