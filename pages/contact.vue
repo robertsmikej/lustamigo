@@ -72,8 +72,12 @@ export default {
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "Do you have any questions for the Lust Amigo? He's here to help!",
-                    hid: 'robots', name: 'robots', content: 'index, follow'
+                    content: "Do you have any questions for the Lust Amigo? He's here to help!"                
+                },
+                {
+                    hid: 'robots', 
+                    name: 'robots', 
+                    content: 'index, follow'
                 }
             ]
         }

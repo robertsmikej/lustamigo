@@ -478,8 +478,12 @@ export default {
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "Answer some fun questions about your sexy fantasies and become closer with your partner.  The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner.",
-                    hid: 'robots', name: 'robots', content: 'index, follow'
+                    content: "Answer some fun questions about your sexy fantasies and become closer with your partner.  The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner."
+                },
+                {
+                    hid: 'robots', 
+                    name: 'robots', 
+                    content: 'index, follow'
                 }
             ]
         }

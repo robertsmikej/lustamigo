@@ -421,8 +421,12 @@ export default {
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner.",
-                    hid: 'robots', name: 'robots', content: 'index, follow'
+                    content: "The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner."
+                },
+                {
+                    hid: 'robots', 
+                    name: 'robots', 
+                    content: 'index, follow'
                 }
             ],
             script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
