@@ -417,11 +417,37 @@ export default {
                     console.log(data);
                     this.submittedSuccess = true;
                     resolve(data);
+                    if (this.users.user_1_data_submitted && this.users.user_2_data_submitted) {
+                        console.info('Database successfully submitted, both have completed, and Final Email Sending Now');
+                        this.sendFinalEmail().then(response => {
+                            const emailReturn = response.json();
+                            if (Number(response.status) !== 200) {
+                                console.error('Error sending emails');
+                            } else {
+                                this.$router.push("/results?uuid=" + this.users.uuid + "-" + this.currentUser);
+                            }
+                        });
+                        
+                    }
                 }).catch(err => {
                     reject(err);
                 });
             })
         },
+        sendFinalEmail: function () {
+            let userDataObj = JSON.parse(JSON.stringify(this.users));
+            const finalEmailURL = "/.netlify/functions/send-completed-email"
+            return new Promise((resolve, reject) => {
+                fetch(finalEmailURL, {
+                    method: "POST",
+                    body: JSON.stringify(userDataObj)
+                }).then(response => {
+                    resolve(response);
+                }).catch(err => {
+                    reject(err);
+                });
+            })
+        }
         
     },
     mounted() {

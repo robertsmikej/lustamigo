@@ -336,11 +336,18 @@ export default {
                         console.error('Error submitting - database')
                     } else {
                         console.info('Database successfully submitted and Email Sending Now')
-                        if (!this.devMode) {
-                            this.$router.push('/questions?uuid=' + this.users.uuid + "-1");
-                        } else {
-                            console.info("Turn DevMode Off To Go To Next Page");
-                        }
+                        this.sendFirstEmail().then(response => {
+                            const emailReturn = response.json();
+                            if (Number(response.status) !== 200) {
+                                console.error('Error submitting - database')
+                            } else {
+                                if (!this.devMode) {
+                                    this.$router.push('/questions?uuid=' + this.users.uuid + "-1");
+                                } else {
+                                    console.info("Turn DevMode Off To Go To Next Page");
+                                } 
+                            }
+                        });
                     }
                 });
             }
@@ -361,7 +368,6 @@ export default {
         },
         sendFirstEmail: function() { //SUBMIT TO POSTMARK
             let userDataObj = JSON.parse(JSON.stringify(this.users));
-            // console.log(JSON.stringify(userDataObj));
             const firstEmailURL = "/.netlify/functions/send-initial-email-1"
             return new Promise((resolve, reject) => {
                 fetch(firstEmailURL, {
