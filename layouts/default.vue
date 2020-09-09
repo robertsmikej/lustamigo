@@ -340,6 +340,9 @@ a {
     justify-content: flex-start;
     color: #FFF;
 }
+label.info__radio__field--equipment {
+    flex: 1 0 46%;
+}
 .info__radio__field label:hover {
     background: var(--yellow);
 }

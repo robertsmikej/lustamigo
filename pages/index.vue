@@ -61,8 +61,9 @@
                             v-model="users.email_1"
                         >
                     </div>
+                    <p class="equipment__label">Their Equipment</p>
                     <div class="info__radio__field">
-                        <p class="equipment__label">Their Equipment</p>
+                        
                         <input 
                             type="radio" 
                             id="equipment_1_male" 
@@ -70,7 +71,10 @@
                             value="male" 
                             v-model="users.equipment_1" 
                         >
-                        <label for="equipment_1_male">
+                        <label 
+                            for="equipment_1_male"
+                            class="info__radio__field--equipment"
+                        >
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -87,7 +91,10 @@
                             value="female"
                             v-model="users.equipment_1"
                         >
-                        <label for="equipment_1_female">
+                        <label
+                            for="equipment_1_female"
+                            class="info__radio__field--equipment"
+                        >
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
@@ -121,8 +128,9 @@
                             v-model="users.email_2"
                         >
                     </div>
+                    <p class="equipment__label">Their Equipment</p>
                     <div class="info__radio__field">
-                        <p class="equipment__label">Their Equipment</p>
+                        
                         <input 
                             type="radio" 
                             id="equipment_2_male" 
@@ -130,7 +138,10 @@
                             value="male" 
                             v-model="users.equipment_2" 
                         >
-                        <label for="equipment_2_male">
+                        <label 
+                            for="equipment_2_male"
+                            class="info__radio__field--equipment"
+                        >
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Pepper')[0].img" 
@@ -147,7 +158,10 @@
                             value="female"
                             v-model="users.equipment_2"
                         >
-                        <label for="equipment_2_female">
+                        <label
+                            for="equipment_2_female"
+                            class="info__radio__field--equipment"
+                        >
                             <div class="form__img__container">
                                 <img 
                                     :src="getImage('Avocado')[0].img" 
