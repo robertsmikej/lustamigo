@@ -11,10 +11,22 @@
                     X
                 </div>
                 <div class="nav__side nav__side--left nav__mobile">
-                    <nuxt-link to="/questions" class="nav__link">See Questions</nuxt-link>
+                    <nuxt-link
+                        to="/questions"
+                        class="nav__link"
+                        @click.native="toggleMobileNav"
+                    >
+                        See Questions
+                    </nuxt-link>
                 </div>
                 <div class="nav__side nav__side--right nav__mobile">
-                    <nuxt-link to="/contact" class="nav__link">Contact Us</nuxt-link>
+                    <nuxt-link
+                        to="/contact"
+                        class="nav__link"
+                        @click.native="toggleMobileNav"
+                    >
+                        Contact Us
+                    </nuxt-link>
                 </div>
             </div>
             <div class="nav__side nav__side--left nav__desktop">

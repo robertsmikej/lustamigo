@@ -173,10 +173,7 @@
                 ></CategoryCell>
             </div>
             <div
-                v-show="
-                    this.justQuestions === false ||
-                    this.onePersonDone === true
-                "
+                v-if="this.justQuestions === false || this.onePersonDone === true"
                 class="submission__container"
             >
                 <button
@@ -198,6 +195,17 @@
                         <p>As soon as we hear from {{ partner_name }} we'll reach out, quick as a rattlesnake!</p>
                     </div>
                 </div>
+            </div>
+            <div
+                v-if="this.justQuestions"
+                class="submission__container"
+            >
+                <nuxt-link 
+                    to="/"
+                    class="submit__button" 
+                >
+                    <span>Go Home and Sign Up</span>
+                </nuxt-link>
             </div>
         </div>
     </div>
@@ -259,7 +267,6 @@ export default {
             this.currentUserDone = false;
         },
         
-
         //INITIAL DATABASE CHECK FUNCTIONS
         checkDatabase: function () { //CHECK DB FOR USER DATA AND EXISTANCE
             const databaseFunction = "/.netlify/functions/check-database";

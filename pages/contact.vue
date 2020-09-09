@@ -2,11 +2,17 @@
     <div class="contact">
         <div class="half__header">
             <div class="half__header__inner">
-                <h1>Contact Us</h1>
+                <h1>Contact The Lust Amigo</h1>
                 <p>Want to reach out and tell us something? Have a suggestion to make our site better? Please let us know and we'll do our best to get back quickly.</p>
             </div>
         </div>
-        <form id="contact__form" class="contact__form" action="" method="post" @submit.prevent="handleSubmit" v-if="this.sent === false">
+        <form 
+            class="contact__form" 
+            netlify
+            name="Contact"
+            data-netlify-recaptcha="true"
+            v-if="this.sent === false"
+        >
             <fieldset>
                 <p>Your Name</p>
                 <input aria-label="Full Name" placeholder="Eg. Maria Manchild" type="text" v-model="formData.name" required autofocus>
@@ -16,11 +22,17 @@
                 <input aria-label="Email Address" placeholder="Eg. lustylarry@gmail.com" type="email" v-model="formData.email" required>
             </fieldset>
             <fieldset>
-                <p>How Can We Help You?</p>
+                <p>How Can I Help?</p>
                 <textarea aria-label="Message To Us" rows="4" v-model="formData.message" required></textarea>
             </fieldset>
             <fieldset>
-                <button class="submit__button contact__submit js__contact__submit" data-submit="Sending">Send Message</button>
+                <div data-netlify-recaptcha="true"></div>
+                <button 
+                    data-submit="Sending"
+                    class="submit__button contact__submit js__contact__submit"
+                >
+                    Send Message
+                </button>
             </fieldset>
         </form>
         <div class="contact__sent" v-if="this.sent">
@@ -80,12 +92,12 @@ export default {
 .contact__form p {
     text-align: center;
     margin: 5px 0;
-    font-size: 1.6em;
+    font-size: 1.3em;
 }
 .contact__form input, textarea {
     width: 100%;
     padding: 10px;
-    font-size: 1.5em;
+    font-size: 1.2em;
     line-height: 1.4em;
     font-family: 'Neucha', 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     color: var(--dark-blue);
