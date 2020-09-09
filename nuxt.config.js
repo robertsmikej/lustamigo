@@ -30,7 +30,12 @@ export default {
     modules: [
         '@nuxtjs/markdownit',
         ['vue-scrollto/nuxt', { duration: 300 }],
+        '@nuxtjs/gtm',
     ],
+    gtm: {
+        id: 'GTM-T6TRWR7',
+        pageTracking: true
+    },
     markdownit: {
         injected: true
     },

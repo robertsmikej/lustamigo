@@ -9,6 +9,7 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "@nuxtjs/gtm": "^2.3.2",
     "@nuxtjs/markdownit": "^1.2.10",
     "dotenv": "^8.2.0",
     "faunadb": "^3.0.1",
