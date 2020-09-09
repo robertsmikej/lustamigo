@@ -292,6 +292,7 @@ export default {
             for (let datapoint in dbData) {
                 this.users[datapoint] = dbData[datapoint];
             }
+            console.log(dbData);
             this.user_name = this.currentUser === 1 ? dbData["name_1"] : dbData["name_2"];
             this.partner_name = this.currentUser === 1 ? dbData["name_2"] : dbData["name_1"];
             this.checkDoneStatuses(dbData);
