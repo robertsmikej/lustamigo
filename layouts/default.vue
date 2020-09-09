@@ -826,7 +826,7 @@ body .question__answer__both__partners label:hover {
     }
 
     .question__answer__inner {
-        flex: 0;
+        flex: 1;
     }
     .question__answer__cell {
         height: auto;

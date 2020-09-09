@@ -212,7 +212,7 @@ a.nav__link {
         padding: 0 2px;
     }
     .nav__side {
-        flex: 0;
+        flex: 0 1 auto;
         width: auto;
         margin: 10px 0;
         font-size: 1.4em;

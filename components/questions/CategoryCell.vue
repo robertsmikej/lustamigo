@@ -149,9 +149,13 @@ export default {
     }    
     /* ------------------ MEDIA QUERY ------------------ */
     @media screen and (max-width: 730px) {
+        
         .category__cell {
             padding: 0;
             margin-top: 0;
+        }
+        .category__img {
+            max-width: 180px;
         }
         .product__cells__outer {
             margin: 10px auto 0;
