@@ -3,6 +3,9 @@ import Vue from 'vue';
 import Nav from '../components/sitewide/Nav.vue';
 Vue.component('Nav', Nav);
 
+import Footer from '../components/sitewide/Footer.vue';
+Vue.component('Footer', Footer);
+
 import CategoryCell from '../components/questions/CategoryCell.vue';
 Vue.component('CategoryCell', CategoryCell);
 

@@ -114,6 +114,7 @@ export default {
             if (bothAnswered.length > 1) {
                 for (let a in dbData.questions) {
                     let answer = dbData.questions[a];
+                    
                     if (!this.users.responseCategories.hasOwnProperty(answer.category)) {
                         let cat = this.categories.filter(category => {
                             return category.name === answer.category

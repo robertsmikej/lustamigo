@@ -1,6 +1,7 @@
 <template>
     <div 
         :data-category-type="category.name"
+        v-if="category.questions.length > 0"
         class="category__cell"
     >
         <div>

@@ -2,6 +2,7 @@
     <div>
         <Nav :sitewide="sitewide" :nav="nav"/>
         <Nuxt />
+        <Footer/>
     </div>
 </template>
 
@@ -250,7 +251,7 @@ a {
 }
 .enter__info h2 {
     color: var(--red);
-    margin-top: 24px;
+    margin-top: 28px;
 }
 .info__para {
     max-width: 860px;
