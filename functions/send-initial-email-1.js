@@ -30,21 +30,20 @@ exports.handler = function (event, context, callback) {
     }
 
 
-    return client.sendEmailWithTemplate({ // If everything is good, we can send the first email
+    return client.sendEmailWithTemplate({ // USER 2
         "From": "amigo@lustamigo.com",
-        "To": payload.email_2,
-        "TemplateAlias": "initial_email_2",
+        "To": payload.email_1,
+        "TemplateAlias": "initial_email_1",
         "TemplateModel": {
             "name_1": payload.name_1,
             "name_2": payload.name_2,
             "product_url": "https://www.lustamigo.com",
             "product_name": "The Lust Amigo",
-            "action_url": "https://www.lustamigo.com/questions?uuid=" + payload.uuid + "-2",
+            "action_url": "https://www.lustamigo.com/questions?uuid=" + payload.uuid + "-1",
             "support_email": "amigo@lustamigo.com",
             "company_name": "The Lust Amigo",
             "company_address": "USA",
-            "sender_name": "The Lust Amigo",
-            "uuid": payload.uuid
+            "sender_name": "The Lust Amigo"
         }
     }, (err, result) => {
         if (err) { // if there happenend an error on the postmark side we send a 500 error to the client
@@ -55,21 +54,20 @@ exports.handler = function (event, context, callback) {
                 })
             });
         } else {
-            client.sendEmailWithTemplate({ // If everything is good, we can send the first email
+            client.sendEmailWithTemplate({ // USER 1
                 "From": "amigo@lustamigo.com",
-                "To": payload.email_1,
-                "TemplateAlias": "initial_email_1",
+                "To": payload.email_2,
+                "TemplateAlias": "initial_email_2",
                 "TemplateModel": {
                     "name_1": payload.name_1,
                     "name_2": payload.name_2,
                     "product_url": "https://www.lustamigo.com",
                     "product_name": "The Lust Amigo",
-                    "action_url": "https://www.lustamigo.com/questions?uuid=" + payload.uuid + "-1",
+                    "action_url": "https://www.lustamigo.com/questions?uuid=" + payload.uuid + "-2",
                     "support_email": "amigo@lustamigo.com",
                     "company_name": "The Lust Amigo",
                     "company_address": "USA",
-                    "sender_name": "The Lust Amigo",
-                    "uuid": payload.uuid
+                    "sender_name": "The Lust Amigo"
                 }
             }, (err, result) => {
                 if (err) {
