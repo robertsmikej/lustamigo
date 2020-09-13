@@ -170,11 +170,6 @@ collections:
               - { label: 'Question', name: 'question', widget: 'text' }
               - { label: "Show This Question", name: "status", widget: "boolean", default: false, required: false }
               - { label: "Question Description", name: "description", widget: "text", required: false }
-              - label: "Spiciness Level"
-                name: "spicinesslevel"
-                widget: "select"
-                options: ["El Diablo", "Hot", "Medium", "Mild"]
-                default: "Medium"
               - { label: "Ask Both Partners", name: "bothpartners", widget: "boolean", default: false, required: false }
               - label: "Spice Level"
                 name: "spicelevel"
@@ -191,3 +186,42 @@ collections:
                 required: false
                 hint: "None is equal to All Groups being selected"
               - { label: "Question Image", name: "img", widget: "image", required: false }
+
+  - name: 'products'
+    label: 'Products'
+    identifier_field: name
+    format: 'json'
+    folder: 'assets/content/products'
+    create: true
+    slug: '{{slug}}'
+    editor:
+      preview: false
+    fields:
+      - { label: 'Products List Name', name: 'name', widget: 'string' }
+      - label: "Products"
+        name: "productslist"
+        widget: "list"
+        fields:
+          - { label: 'Product Name', name: 'name', widget: 'string' }
+          - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
+          - { label: "Product Image -  Desktop", name: "desktopimg", widget: "image", required: false }
+          - { label: "Product Image -  Mobile", name: "mobileimg", widget: "image", required: false }
+          - { label: "Product Description", name: "categorydescription", widget: "text", required: false }
+          - label: "Used On"
+            name: "typeof"
+            widget: "select"
+            multiple: true
+            options: ["male", "female"]
+            default: ["both"]
+            required: false
+            hint: "What sex is this product used on?"
+          - label: "Price Range"
+            name: "pricerange"
+            widget: "select"
+            multiple: false
+            options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+            default: ["both"]
+            required: false
+            hint: "On a scale of 1-10, how expensive is this generally?"
+          - { label: "Special Notes", name: "note", widget: "text", required: false }
+          

@@ -422,7 +422,6 @@ export default {
                 }).then(async response => {
                     return response.json();
                 }).then(data => {
-                    console.log(data);
                     this.submittedSuccess = true;
                     resolve(data);
                     if (this.users.user_1_data_submitted && this.users.user_2_data_submitted) {
@@ -591,6 +590,7 @@ li.instructions__list--nowrap {
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: 3;
 }
 .submitted__success {
     background: #FFF;

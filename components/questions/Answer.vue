@@ -17,9 +17,9 @@
             <div class="question__answer__inner">
                 <div class="question__answer answer__cell">
                     <div class="answer__cell__inner">
-                        <p>{{ translateResponse(answer.answers["1"]) }}</p>
+                        <p>{{ translateResponse(answer.answers["1"]) || 'N/A' }}</p>
                         <img  
-                            v-if="answer.answers['1'].superhot" 
+                            v-if="answer.answers['1'] && answer.answers['1'].superhot" 
                             :src="getImage('Pepper')[0].img"
                             alt="This Question Was Hot!" 
                             class="answer__hot__img"
@@ -34,16 +34,16 @@
                 </div>
                 <div class="question__answer answer__cell">
                     <div class="answer__cell__inner">
-                        <p>{{ translateResponse(answer.answers["2"]) }}</p>
+                        <p>{{ translateResponse(answer.answers["2"]) || 'N/A' }}</p>
                         <img 
-                            v-if="answer.answers['2'].superhot" 
+                            v-if="answer.answers['2'] && answer.answers['2'].superhot" 
                             :src="getImage('Pepper')[0].img"
                             alt="This Question Was Hot!" 
                             class="answer__hot__img"
                         >
                     </div>
                     <div 
-                        v-if="answer.answers['2'].singleout != 0"
+                        v-if="answer.answers['2'] && answer.answers['2'].singleout != 0"
                         class="answer__cell__inner answer__cell__inner--secondary"
                     >
                         <p>Only Do To: {{ translateName(answer.answers['2'].singleout) }}</p>

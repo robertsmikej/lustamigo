@@ -13,7 +13,6 @@
     "@nuxtjs/markdownit": "^1.2.10",
     "dotenv": "^8.2.0",
     "faunadb": "^3.0.1",
-    "mailgun-js": "^0.22.0",
     "nuxt": "^2.14.0",
     "postmark": "^2.5.5",
     "vue-scrollto": "^2.18.2",

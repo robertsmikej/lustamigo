@@ -40,9 +40,11 @@ export default {
                 email_2: "",
                 user_2_data_submitted: false,
                 coupletype: "gay-male",
-                spice_level: 4,
+                spice_level: 7,
                 questions: {},
-                responseCategories: {}
+                responseCategories: {},
+                showAll: false,
+                whoAnswered: 0
             },
             user_name: "",
             partner_name: "",
@@ -65,8 +67,6 @@ export default {
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
         },
-        
-
         //INITIAL DATABASE CHECK FUNCTIONS
         checkDatabase: function () { //CHECK DB FOR USER DATA AND EXISTANCE
             const databaseFunction = "/.netlify/functions/check-database";
@@ -104,32 +104,40 @@ export default {
             this.allDone = true;
             this.setAnswers(dbData);
         },
-
-
         //AGGREGATE ANSWERS
         setAnswers: function(dbData) {
-            // let categoriesObj = {};
-            for (let a in dbData.questions) {
-                let answer = dbData.questions[a];
-                if (!this.users.responseCategories.hasOwnProperty(answer.category)) {
-                    let cat = this.categories.filter(category => {
-                        return category.name === answer.category
-                    })[0];
-                    let newCat = Object.assign({}, cat);
-                    delete newCat.questions;
-                    newCat.questions = [];
-                    this.users.responseCategories[answer.category] = newCat;
-                }
-                for (let i = 0; i < this.categories.length; i++) {
-                    let category = this.categories[i];
-                    for (let j = 0; j < category.questions.length; j++) {
-                        let catQuestion = category.questions[j];
-                        if (catQuestion.question === answer.question && Object.keys(answer.answers).length > 1) {
-                            let newQues = Object.assign(answer, catQuestion);
-                            this.users.responseCategories[answer.category].questions.push(newQues);
+            let whoAnswered;
+            let bothAnswered = dbData.questions.filter(question => {
+                this.users.whoAnswered = parseInt(Object.keys(question.answers)[0]);
+                return Object.keys(question.answers).length > 1;
+            });
+            if (bothAnswered.length > 1) {
+                for (let a in dbData.questions) {
+                    let answer = dbData.questions[a];
+                    if (!this.users.responseCategories.hasOwnProperty(answer.category)) {
+                        let cat = this.categories.filter(category => {
+                            return category.name === answer.category
+                        })[0];
+                        let newCat = Object.assign({}, cat);
+                        delete newCat.questions;
+                        newCat.questions = [];
+                        this.users.responseCategories[answer.category] = newCat;
+                    }
+                    for (let i = 0; i < this.categories.length; i++) {
+                        let category = this.categories[i];
+                        for (let j = 0; j < category.questions.length; j++) {
+                            let catQuestion = category.questions[j];
+                            if (catQuestion.question === answer.question && Object.keys(answer.answers).length > 1 || this.showAll) {
+                                let newQues = Object.assign(answer, catQuestion);
+                                this.users.responseCategories[answer.category].questions.push(newQues);
+                            }
                         }
                     }
                 }
+            } else {
+                this.allDone = false;
+                console.info("Both Users Haven't Answered Questions Yet. User " + this.users.whoAnswered + " Has Answered Already. Waiting On Other User.")
+                this.$router.push("/questions?uuid=" + this.users.uuid + "-" + this.currentUser);
             }
         },
         alreadyAnswered: function () {
@@ -154,9 +162,6 @@ export default {
             }
         },
 
-
-        
-        
         redirectHome: function () {
             this.$router.push("/");
         }
