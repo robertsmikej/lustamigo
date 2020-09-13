@@ -14,5 +14,12 @@
   "logo": "/img/lust-amigo.png",
   "footer": {
     "logo": "/img/lust-amigo-small.png"
-  }
+  },
+  "siteimages": [
+    {
+      "imagename": "Main Logo",
+      "imagealt": "The Lust Amigo Logo",
+      "img": "/img/lust-amigo.png"
+    }
+  ]
 }
