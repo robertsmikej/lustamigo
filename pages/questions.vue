@@ -306,13 +306,8 @@ export default {
         },
         checkDoneStatuses: function (dbData) {
             if (
-                this.currentUser === 1 && dbData.user_1_data_submitted && !dbData.user_2_data_submitted
-            ) {
-                this.onePersonDone = true;
-                this.currentUserDone = true;
-                this.alreadyAnswered();
-            } else if (
-                this.currentUser === 2 && dbData.user_2_data_submitted && !dbData.user_1_data_submitted
+                (this.currentUser === 1 && dbData.user_1_data_submitted && !dbData.user_2_data_submitted) ||
+                (this.currentUser === 2 && dbData.user_2_data_submitted && !dbData.user_1_data_submitted)
             ) {
                 this.onePersonDone = true;
                 this.currentUserDone = true;
