@@ -8,6 +8,14 @@
                     class="footer__logo"
                 >
                 <h6>The Lust Amigo</h6>
+                
+            </div>
+            <div class="footer__grid__cell">
+                <h6>Site Links</h6>
+                <ul>
+                    <nuxt-link to="/questions">See The Questions</nuxt-link>
+                    <nuxt-link to="/contact">Contact Us</nuxt-link>
+                </ul>
             </div>
             <div class="footer__grid__cell">
                 <div class="footer__sign__up__container">
@@ -112,6 +120,7 @@ footer {
     flex: 0 1 auto;
     margin: 10px;
     padding: 0 10px;
+    color: #FFF;
 }
 .footer__logo {
     margin: 10px auto;
@@ -125,6 +134,14 @@ footer {
     line-height: 1em;
     text-align: center;
     margin: 40px auto 10px;
+}
+.footer__grid__cell a {
+    color: #FFF;
+    text-decoration: none;
+    margin: 6px 0;
+}
+.footer__grid__cell ul {
+    padding: 0 10px;
 }
 .footer__sign__up__container {
     text-align: right;

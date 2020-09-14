@@ -7,23 +7,41 @@
             </div>
         </div>
         <form 
-            class="contact__form" 
-            netlify
-            name="Contact"
-            data-netlify-recaptcha="true"
             v-if="this.sent === false"
+            netlify
+            data-netlify-recaptcha="true"
+            name="Contact"
+            class="contact__form" 
         >
             <fieldset>
                 <p>Your Name</p>
-                <input aria-label="Full Name" placeholder="Eg. Maria Manchild" type="text" v-model="formData.name" required autofocus>
+                <input 
+                    v-model="formData.name"
+                    aria-label="Full Name" 
+                    placeholder="Eg. Maria Manchild" 
+                    type="text"
+                    required
+                    autofocus
+                >
             </fieldset>
             <fieldset>
                 <p>Your Email Address</p>
-                <input aria-label="Email Address" placeholder="Eg. lustylarry@gmail.com" type="email" v-model="formData.email" required>
+                <input
+                    v-model="formData.email"
+                    aria-label="Email Address"
+                    placeholder="Eg. lustylarry@gmail.com"
+                    type="email"
+                    required
+                >
             </fieldset>
             <fieldset>
                 <p>How Can I Help?</p>
-                <textarea aria-label="Message To Us" rows="4" v-model="formData.message" required></textarea>
+                <textarea
+                    v-model="formData.message"
+                    aria-label="Message To Us"
+                    rows="4"
+                    required
+                ></textarea>
             </fieldset>
             <fieldset>
                 <div data-netlify-recaptcha="true"></div>
@@ -35,7 +53,10 @@
                 </button>
             </fieldset>
         </form>
-        <div class="contact__sent" v-if="this.sent">
+        <div
+            v-if="this.sent"
+            class="contact__sent"
+        >
             <h2>Message Sent!</h2>
             <p>Gracias, and we'll be in touch soon!</p>
         </div>
