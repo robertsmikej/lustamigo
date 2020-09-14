@@ -20,7 +20,7 @@
                     aria-label="Full Name" 
                     placeholder="Eg. Maria Manchild" 
                     type="text"
-                    required
+                    name="Name"
                     autofocus
                 >
             </fieldset>
@@ -31,7 +31,7 @@
                     aria-label="Email Address"
                     placeholder="Eg. lustylarry@gmail.com"
                     type="email"
-                    required
+                    name="Email Address"
                 >
             </fieldset>
             <fieldset>
@@ -40,7 +40,7 @@
                     v-model="formData.message"
                     aria-label="Message To Us"
                     rows="4"
-                    required
+                    name="Message"
                 ></textarea>
             </fieldset>
             <fieldset>

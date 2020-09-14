@@ -75,7 +75,8 @@ export default {
             return images.filter(img => img.imagename === name);
         },
         subscribeToNewsletter: function() { //SUBMIT TO POSTMARK
-            let footerObj = JSON.parse(JSON.stringify(this.footer));
+            const footerObj = JSON.parse(JSON.stringify(this.footer));
+            console.log(footerObj)
             const firstEmailURL = "/.netlify/functions/signup-newsletter"
             return new Promise((resolve, reject) => {
                 fetch(firstEmailURL, {

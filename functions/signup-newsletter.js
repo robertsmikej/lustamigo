@@ -18,7 +18,7 @@ exports.handler = function (event, context, callback) {
 
     const payload = JSON.parse(event.body); // Parse the body to JSON so we can use it in JS
     
-    if (!payload.email_address || !payload.email_1) { // Validate the form
+    if (!payload.email_address) { // Validate the form
         return callback(null, {
             statusCode: 422,
             headers,
