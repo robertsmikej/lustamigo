@@ -30,7 +30,7 @@
                         </div>
                     </span>
                     <p class="info__para">
-                        You can also click the sexy pepper icon next to each question to mark things that you think are especially caliente!.  
+                        Click the sexy pepper icon next to each question to mark things that you think are especially caliente! 
                     </p>
                 </div>
             </div>
@@ -276,6 +276,9 @@ export default {
         },
         pageData: function () {
             return this.$store.state.pages.index
+        },
+        products: function () {
+            return this.$store.state.products
         }
     },
     data () {

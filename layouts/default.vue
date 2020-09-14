@@ -154,6 +154,26 @@ a {
 .padded__section {
     padding: 0 20px;
 }
+.padded__section p a {
+    background-color: var(--blue);
+    padding: 10px 10px 6px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    color: #FFF;
+    text-transform: uppercase;
+    line-height: 1.1em;
+    font-size: 1em;
+    width: 260px;
+    margin: 20px auto 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+}
 
 .button--green {
     display: inline-block;

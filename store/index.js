@@ -2,7 +2,8 @@ export const state = () => ({
     sitewide: {},
     nav: [],
     pages: {},
-    categories: {}
+    categories: {},
+    products: {}
 });
 
 function sortItems(data) {
@@ -59,6 +60,9 @@ export const mutations = {
         if (dataObj.superhot) {
             state.categories[dataObj.category].questions[dataObj.question].superhot = true;
         }
+    },
+    setProducts(state,data) {
+        state.products = data;
     }
 };
 
@@ -66,7 +70,8 @@ export const getters = {
     sitewide: state => state.sitewide,
     nav: state => state.nav,
     pages: state => state.pages,
-    categories: state => state.categories
+    categories: state => state.categories,
+    products: state => state.products
 };
 
 export const actions = {
@@ -102,6 +107,14 @@ export const actions = {
             return res;
         });
         await commit('setCategories', d);
+
+        var products = await require.context('~/assets/content/products/', false, /\.json$/);
+        var d = products.keys().map(key => {
+            let res = products(key);
+            res.slug = key.slice(2, -5);
+            return res;
+        });
+        await commit('setProducts', d);
 
         // var datas = await require.context('~/assets/content/questions/', false, /\.json$/);
         // var d = datas.keys().map(key => {

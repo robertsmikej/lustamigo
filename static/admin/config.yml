@@ -5,6 +5,8 @@ backend:
 media_folder: static/img
 public_folder: /img
 
+local_backend: true
+
 collections:
   - name: 'sitewide'
     label: 'Sitewide'
@@ -210,11 +212,12 @@ collections:
         widget: "list"
         fields:
           - { label: 'Product Name', name: 'name', widget: 'string' }
+          - { label: 'Brand Name', name: 'brandname', widget: 'string' }
           - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
-          - { label: "Product Image -  Desktop", name: "desktopimg", widget: "image", required: false }
-          - { label: "Product Image -  Mobile", name: "mobileimg", widget: "image", required: false }
+          - { label: "Product Image", name: "img", widget: "image", required: false }
+          - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
           - { label: "Product Description", name: "description", widget: "text", required: false }
-          - { label: "Product URL", name: "url", widget: "text", required: false }
+          - { label: "Product URL", name: "url", widget: "string", required: false }
           - label: "Used On"
             name: "typeof"
             widget: "select"

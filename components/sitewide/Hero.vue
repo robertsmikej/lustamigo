@@ -16,12 +16,14 @@
             <div class="header__side">
                 <h1>{{ dataObj.heroBanner.header_1 }}</h1>
                 <p>{{ dataObj.heroBanner.para }}</p>
-                <a 
-                    v-scroll-to="{el: '#get__started',offset: -120}"
-                    class="get__started__button"
-                >
-                    Let's Do It!
-                </a>
+                <div class="hero__buttons">
+                    <a 
+                        v-scroll-to="{el: '#get__started',offset: -120}"
+                        class="hero__button"
+                    >
+                        Let's Do It!
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -104,7 +106,17 @@ export default {
     max-width: 440px;
     text-shadow: 2px 2px 1px #FFF;
 }
-.get__started__button {
+.hero__buttons {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
+}
+.hero__button {
     background-color: var(--green);
     padding: 10px 10px 6px;
     display: flex;
@@ -114,15 +126,18 @@ export default {
     justify-content: center;
     color: #FFF;
     text-transform: uppercase;
-    line-height: 1.5em;
-    font-size: 1.5em;
-    width: 180px;
-    margin: 30px auto 10px;
+    line-height: 1.3em;
+    font-size: 1.4em;
+    width: 210px;
+    margin: 30px 10px 10px;
     font-weight: 600;
     letter-spacing: 2px;
     border-radius: 5px;
     cursor: pointer;
     text-decoration: none;
+}
+.hero__button:nth-of-type(2) {
+    background-color: var(--blue);
 }
 .header__cactus__container {
     margin-right: 30px;
@@ -180,7 +195,7 @@ export default {
     .header p {
         margin: 10px auto 0px;
     }
-    .get__started__button {
+    .hero__button {
         font-size: 1.3em;
     }
     .header__man__container {

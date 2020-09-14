@@ -253,6 +253,9 @@ export default {
         },
         categories: function () {
             return this.$store.state.categories
+        },
+        products: function () {
+            return this.$store.state.products
         }
     },
     methods: {
