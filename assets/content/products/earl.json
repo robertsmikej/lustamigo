@@ -1,13 +1,22 @@
 {
-    "name": "Earl",
-    "tagline": "A Butt Plug for the Discerning Idiot",
-    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=29",
-    "typeof": [
-      "both"
-    ],
-    "brandname": "Lelo",
-    "status": true,
-    "pricerange": "10",
-    "importance": "2",
-    "description": "Quite simply the most distinguished gentlemen’s plug in the world, perfect for personal indulgence and shared pleasure, EARL™ is available in 24-karat gold or Stainless Steel."
+  "name": "Earl",
+  "tagline": "A Butt Plug for the Discerning Idiot",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=29",
+  "typeof": [
+    "both"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "10",
+  "importance": "2",
+  "description": "Quite simply the most distinguished gentlemen’s plug in the world, perfect for personal indulgence and shared pleasure, EARL™ is available in 24-karat gold or Stainless Steel.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": "square",
+        "name": "Earl - Front",
+        "img": "/img/lelo_earl.jpg"
+      }
+    ]
   }
+}
