@@ -18,7 +18,12 @@
       {
         "type": "banner",
         "img": "/img/text-chemisty-970x250.jpg",
-        "name": "Text Him This To Make Him Love You"
+        "name": "Text Him This To Make Him Love You - Banner"
+      },
+      {
+        "type": "side-tall",
+        "img": "/img/text-chemisty-160x600.jpg",
+        "name": "Text Him This To Make Him Love You - Side Banner"
       }
     ]
   }
