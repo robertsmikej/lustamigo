@@ -100,7 +100,7 @@ export default {
 <style>
 footer {
     width: 100%;
-    margin: 40px auto 0;
+    margin: 80px auto 0;
     padding: 20px 20px 40px;
     background-color: var(--light-blue2);
 }

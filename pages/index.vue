@@ -2,265 +2,306 @@
     <section class="container">
         <Hero :dataObj="pageData"/>
         <span id="get__started"></span>
-        <div class="enter__info">
-            <div
-                v-html="$md.render(pageData.contentSection1.content_1)"
-                class="padded__section"
-            ></div>
-            <div class="qa__cell example__question">
-                <Question
-                    :hotness="getImage('Pepper')[0].img"
-                    :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination}" 
-                    :example="true" 
-                    :users="users" 
-                />
+        
+        <div class="page__content page__content--nowrap">
+            <div class="page__content--side">
+                <div
+                    v-html="$md.render(pageData.contentSection1.content_1)"
+                    class="padded__section"
+                ></div>
+                <div class="qa__cell example__question">
+                    <Question
+                        :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination}" 
+                        :example="true" 
+                        :users="users" 
+                    />
+                </div>
+                <div class="padded__section">
+                    <div class="pepper__section">
+                        <h2>The Sexy Pepper!</h2>
+                        <span class="pepper__example question__special">
+                            
+                            <img 
+                                :src="getImage('Pepper')[0].img" 
+                                alt="This is Mucho Hot!" 
+                                class="pepper__example__img"
+                            />
+                            <div class="pepper__example__text">
+                                &#8592; That's one Sexy Pepper!
+                            </div>
+                        </span>
+                        <p class="info__para">
+                            Click the sexy pepper icon next to each question to mark things that you think are especially caliente! 
+                        </p>
+                    </div>
+                </div>
+                <div
+                    v-html="$md.render(pageData.contentSection1.content_2)"
+                    class="padded__section" 
+                ></div>
             </div>
-            <div class="padded__section">
-                <div class="pepper__section">
-                    <h2>The Sexy Pepper!</h2>
-                    <span class="pepper__example question__special">
-                        
+            <div class="page__content--side page__ad__container page__ad__container--side page__ad__container--side--right">
+                <a
+                    :href="this.findProduct('digital', 'Text Him This To Make Him Love You - Banner')['prod']['url']"
+                >
+                    <picture class="page__ad page__ad--side">
+                        <source 
+                            :srcset="this.findProduct('digital', 'Text Him This To Make Him Love You - Side Banner')['img']"
+                            media="(min-width: 730px)"
+                        >
                         <img 
-                            :src="getImage('Pepper')[0].img" 
-                            alt="This is Mucho Hot!" 
-                            class="pepper__example__img"
+                            :src="this.findProduct('digital', 'Text Him This To Make Him Love You - Banner')['img']" 
+                            :alt="this.findProduct('digital', 'Weird Trick to Fixing ED - Side')['name']"
                         />
-                        <div class="pepper__example__text">
-                            &#8592; That's one Sexy Pepper!
-                        </div>
-                    </span>
-                    <p class="info__para">
-                        Click the sexy pepper icon next to each question to mark things that you think are especially caliente! 
-                    </p>
-                </div>
+                    </picture>
+                </a>
             </div>
-            <div
-                v-html="$md.render(pageData.contentSection1.content_2)"
-                class="padded__section" 
-            ></div>
-            <form class="enter__info__fields">
-                <div class="info__section">
-                    <h2>You</h2>
-                    <div class="info__text__field">
-                        <label for="name_1">Your First Name</label>
-                        <p class="info__text__error__para">Please Put Your First Name Here!</p>
-                        <input 
-                            type="name"
-                            name="name_1"
-                            id="name_1"
-                            v-model="users.name_1"
-                        >
+        </div>
+        <div class="page__content page__content--nowrap">
+            <div class="page__content--side">
+                <h2>What We Need</h2>
+                <form class="enter__info__fields">
+                    <div class="info__section">
+                        <h2>You</h2>
+                        <div class="info__text__field">
+                            <label for="name_1">Your First Name</label>
+                            <p class="info__text__error__para">Please Put Your First Name Here!</p>
+                            <input 
+                                type="name"
+                                name="name_1"
+                                id="name_1"
+                                v-model="users.name_1"
+                            >
+                        </div>
+                        <div class="info__text__field">
+                            <label for="email_1">Your Email Address</label>
+                            <p class="info__text__error__para">Please Put Your Email Address Here!</p>
+                            <input 
+                                type="email"
+                                name="email_1"
+                                id="email_1"
+                                v-model="users.email_1"
+                            >
+                        </div>
+                        <p class="equipment__label">Their Equipment</p>
+                        <div class="info__radio__field">
+                            
+                            <input 
+                                type="radio" 
+                                id="equipment_1_male" 
+                                name="equipment_1"
+                                value="male" 
+                                v-model="users.equipment_1" 
+                            >
+                            <label 
+                                for="equipment_1_male"
+                                class="info__radio__field--equipment"
+                            >
+                                <div class="form__img__container">
+                                    <img 
+                                        :src="getImage('Pepper')[0].img" 
+                                        alt="Male Gender Selection" 
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Male</p>
+                            </label>
+                            <input
+                                type="radio"
+                                id="equipment_1_female"
+                                name="equipment_1"
+                                value="female"
+                                v-model="users.equipment_1"
+                            >
+                            <label
+                                for="equipment_1_female"
+                                class="info__radio__field--equipment"
+                            >
+                                <div class="form__img__container">
+                                    <img 
+                                        :src="getImage('Avocado')[0].img" 
+                                        alt="Female Gender Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Female</p>
+                            </label>
+                        </div>
                     </div>
-                    <div class="info__text__field">
-                        <label for="email_1">Your Email Address</label>
-                        <p class="info__text__error__para">Please Put Your Email Address Here!</p>
-                        <input 
-                            type="email"
-                            name="email_1"
-                            id="email_1"
-                            v-model="users.email_1"
-                        >
+                    <div class="info__section">
+                        <h2 class="form__spacer">Them</h2>
+                        <div class="info__text__field">
+                            <label for="name_2">Their First Name</label>
+                            <p class="info__text__error__para">Please Put Your Partner's First Name Here!</p>
+                            <input 
+                                type="name"
+                                name="name_2"
+                                id="name_2"
+                                v-model="users.name_2"
+                            >
+                        </div>
+                        <div class="info__text__field">
+                            <label for="email_2">Their Email Address</label>
+                            <p class="info__text__error__para">Please Put Your Partner's Email Address Here!</p>
+                            <input 
+                                type="email"
+                                name="email_2"
+                                id="email_2"
+                                v-model="users.email_2"
+                            >
+                        </div>
+                        <p class="equipment__label">Their Equipment</p>
+                        <div class="info__radio__field">
+                            
+                            <input 
+                                type="radio" 
+                                id="equipment_2_male" 
+                                name="equipment_2"
+                                value="male" 
+                                v-model="users.equipment_2" 
+                            >
+                            <label 
+                                for="equipment_2_male"
+                                class="info__radio__field--equipment"
+                            >
+                                <div class="form__img__container">
+                                    <img 
+                                        :src="getImage('Pepper')[0].img" 
+                                        alt="Male Gender Selection" 
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Male</p>
+                            </label>
+                            <input
+                                type="radio"
+                                id="equipment_2_female"
+                                name="equipment_2"
+                                value="female"
+                                v-model="users.equipment_2"
+                            >
+                            <label
+                                for="equipment_2_female"
+                                class="info__radio__field--equipment"
+                            >
+                                <div class="form__img__container">
+                                    <img 
+                                        :src="getImage('Avocado')[0].img" 
+                                        alt="Female Gender Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Female</p>
+                            </label>
+                        </div>
                     </div>
-                    <p class="equipment__label">Their Equipment</p>
-                    <div class="info__radio__field">
-                        
-                        <input 
-                            type="radio" 
-                            id="equipment_1_male" 
-                            name="equipment_1"
-                            value="male" 
-                            v-model="users.equipment_1" 
-                        >
-                        <label 
-                            for="equipment_1_male"
-                            class="info__radio__field--equipment"
-                        >
-                            <div class="form__img__container">
-                                <img 
-                                    :src="getImage('Pepper')[0].img" 
-                                    alt="Male Gender Selection" 
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Male</p>
-                        </label>
-                        <input
-                            type="radio"
-                            id="equipment_1_female"
-                            name="equipment_1"
-                            value="female"
-                            v-model="users.equipment_1"
-                        >
-                        <label
-                            for="equipment_1_female"
-                            class="info__radio__field--equipment"
-                        >
-                            <div class="form__img__container">
-                                <img 
-                                    :src="getImage('Avocado')[0].img" 
-                                    alt="Female Gender Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Female</p>
-                        </label>
+                    <div class="info__section">
+                        <h2 class="form__spacer">Types of Questions</h2>
+                        <div class="info__radio__field info__radio__field--spicelevel">
+                            <input 
+                                type="radio" 
+                                id="eldiablo" 
+                                name="spice_level" 
+                                value="10" 
+                                v-model="users.spice_level" 
+                            >
+                            <label for="eldiablo">
+                                <div class="form__img__container">
+                                    <img
+                                        :src="getImage('Booze')[0].img" 
+                                        alt="Advanced Questions Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">El Diablo</p>
+                                <p class="small__para">All the fun stuff.</p>
+                            </label>
+                            <input 
+                                type="radio" 
+                                id="spicy" 
+                                name="spice_level" 
+                                value="7" 
+                                v-model="users.spice_level" 
+                            >
+                            <label for="spicy">
+                                <div class="form__img__container">
+                                    <img
+                                        :src="getImage('Scorpion')[0].img" 
+                                        alt="Advanced Questions Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Spicy</p>
+                                <p class="small__para">Most of the fun stuff.</p>
+                            </label>
+                            <input 
+                                type="radio" 
+                                id="medium" 
+                                name="spice_level" 
+                                value="5" 
+                                v-model="users.spice_level"
+                            >
+                            <label for="medium">
+                                <div class="form__img__container">
+                                    <img
+                                        :src="getImage('Taco')[0].img" 
+                                        alt="Basic Questions Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Medium</p>
+                                <p class="small__para">More than the basics.</p>
+                            </label>
+                            <input 
+                                type="radio" 
+                                id="mild" 
+                                name="spice_level" 
+                                value="3" 
+                                v-model="users.spice_level"
+                            >
+                            <label for="mild">
+                                <div class="form__img__container">
+                                    <img
+                                        :src="getImage('Strawberry Ice Cream')[0].img" 
+                                        alt="Basic Questions Selection"
+                                        class="form__img"
+                                    >
+                                </div>
+                                <p class="form__para">Mild</p>
+                                <p class="small__para">Just the basics.</p>
+                            </label>
+                        </div>
                     </div>
-                </div>
-                <div class="info__section">
-                    <h2 class="form__spacer">Them</h2>
-                    <div class="info__text__field">
-                        <label for="name_2">Their First Name</label>
-                        <p class="info__text__error__para">Please Put Your Partner's First Name Here!</p>
-                        <input 
-                            type="name"
-                            name="name_2"
-                            id="name_2"
-                            v-model="users.name_2"
+                </form>
+            </div>
+            <div class="page__content--side page__ad__container page__ad__container--side page__ad__container--side--right">
+                <a
+                    :href="this.findProduct('digital', 'Rock Solid Boner - Side')['prod']['url']"
+                >
+                    <picture class="page__ad page__ad--side">
+                        <source 
+                            :srcset="this.findProduct('digital', 'Rock Solid Boner - Side')['img']"
+                            media="(min-width: 730px)"
                         >
-                    </div>
-                    <div class="info__text__field">
-                        <label for="email_2">Their Email Address</label>
-                        <p class="info__text__error__para">Please Put Your Partner's Email Address Here!</p>
-                        <input 
-                            type="email"
-                            name="email_2"
-                            id="email_2"
-                            v-model="users.email_2"
-                        >
-                    </div>
-                    <p class="equipment__label">Their Equipment</p>
-                    <div class="info__radio__field">
-                        
-                        <input 
-                            type="radio" 
-                            id="equipment_2_male" 
-                            name="equipment_2"
-                            value="male" 
-                            v-model="users.equipment_2" 
-                        >
-                        <label 
-                            for="equipment_2_male"
-                            class="info__radio__field--equipment"
-                        >
-                            <div class="form__img__container">
-                                <img 
-                                    :src="getImage('Pepper')[0].img" 
-                                    alt="Male Gender Selection" 
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Male</p>
-                        </label>
-                        <input
-                            type="radio"
-                            id="equipment_2_female"
-                            name="equipment_2"
-                            value="female"
-                            v-model="users.equipment_2"
-                        >
-                        <label
-                            for="equipment_2_female"
-                            class="info__radio__field--equipment"
-                        >
-                            <div class="form__img__container">
-                                <img 
-                                    :src="getImage('Avocado')[0].img" 
-                                    alt="Female Gender Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Female</p>
-                        </label>
-                    </div>
-                </div>
-                <div class="info__section">
-                    <h2 class="form__spacer">Types of Questions</h2>
-                    <div class="info__radio__field">
-                        <input 
-                            type="radio" 
-                            id="eldiablo" 
-                            name="spice_level" 
-                            value="10" 
-                            v-model="users.spice_level" 
-                        >
-                        <label for="eldiablo">
-                            <div class="form__img__container">
-                                <img
-                                    :src="getImage('Booze')[0].img" 
-                                    alt="Advanced Questions Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">El Diablo</p>
-                            <p class="small__para">All the fun stuff.</p>
-                        </label>
-                        <input 
-                            type="radio" 
-                            id="spicy" 
-                            name="spice_level" 
-                            value="7" 
-                            v-model="users.spice_level" 
-                        >
-                        <label for="spicy">
-                            <div class="form__img__container">
-                                <img
-                                    :src="getImage('Scorpion')[0].img" 
-                                    alt="Advanced Questions Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Spicy</p>
-                            <p class="small__para">Most of the fun stuff.</p>
-                        </label>
-                        <input 
-                            type="radio" 
-                            id="medium" 
-                            name="spice_level" 
-                            value="5" 
-                            v-model="users.spice_level"
-                        >
-                        <label for="medium">
-                            <div class="form__img__container">
-                                <img
-                                    :src="getImage('Taco')[0].img" 
-                                    alt="Basic Questions Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Medium</p>
-                            <p class="small__para">More than the basics.</p>
-                        </label>
-                        <input 
-                            type="radio" 
-                            id="mild" 
-                            name="spice_level" 
-                            value="3" 
-                            v-model="users.spice_level"
-                        >
-                        <label for="mild">
-                            <div class="form__img__container">
-                                <img
-                                    :src="getImage('Strawberry Ice Cream')[0].img" 
-                                    alt="Basic Questions Selection"
-                                    class="form__img"
-                                >
-                            </div>
-                            <p class="form__para">Mild</p>
-                            <p class="small__para">Just the basics.</p>
-                        </label>
-                    </div>
-                </div>
-            </form>
-            <p>This site is not meant for any ninos under 18 years old.</p>
-            <p class="missing__info__para" v-if="formMissingData">Something is missing above... please fill out all the info, you silly billy!</p>
-            <button 
-                @click.stop.prevent="setData()"
-                class="submit__button"
-            >
-                <span v-if="this.starting === false">Start The Quiz</span>
-                <span v-if="this.starting">Starting...</span>
-            </button>
-            <p class="info__para disclaimer__para">We take your privacy seriously, and apart from anonymous statistics, we don’t (and won't) share information with anyone else, and <u>never</u> anything personally identifiable.</p>
+                        <img 
+                            :src="this.findProduct('digital', 'Man Discovers Natural Trick - Banner')['img']" 
+                            :alt="this.findProduct('digital', 'Rock Solid Boner - Side')['name']"
+                        />
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <div class="page__content">
+                <p>This site is not meant for any ninos under 18 years old.</p>
+                <p class="missing__info__para" v-if="formMissingData">Something is missing above... please fill out all the info, you silly billy!</p>
+                <button 
+                    @click.stop.prevent="setData()"
+                    class="submit__button"
+                >
+                    <span v-if="this.starting === false">Start The Quiz</span>
+                    <span v-if="this.starting">Starting...</span>
+                </button>
+                <p class="info__para disclaimer__para">We take your privacy seriously, and apart from anonymous statistics, we don’t (and won't) share information with anyone else, and <u>never</u> anything personally identifiable.</p>
         </div>
     </section>
 </template>
@@ -301,6 +342,25 @@ export default {
         }
     },
     methods: {
+        findProduct: function(type, name) {
+            let narrowedProduct = {};
+            this.products[type].forEach(prod => {
+                if (prod.productimgs && prod.productimgs.imgs) {
+                    prod.productimgs.imgs.forEach((img, index) => {
+                        if (img.name === name) {
+                            narrowedProduct = {
+                                prod: prod,
+                                img: img.img,
+                                name: img.name,
+                                type: img.type,
+                                index: index
+                            };
+                        }
+                    });
+                }
+            });
+            return narrowedProduct;
+        },
         getImage: function(name) {
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
@@ -442,7 +502,7 @@ export default {
 .example__question {
     background-color: var(--question-color);
     color: #FFF;
-    max-width: 860px;
+    /* max-width: 860px; */
     margin: 30px auto;
 }
 .example__question .question__answer__cell {

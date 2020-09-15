@@ -61,8 +61,11 @@ export const mutations = {
             state.categories[dataObj.category].questions[dataObj.question].superhot = true;
         }
     },
-    setProducts(state,data) {
-        state.products = data;
+    setPhysicalProducts(state,data) {
+        state.products.physical = data;
+    },
+    setDigitalProducts(state,data) {
+        state.products.digital = data;
     }
 };
 
@@ -108,20 +111,20 @@ export const actions = {
         });
         await commit('setCategories', d);
 
-        var products = await require.context('~/assets/content/products/', false, /\.json$/);
-        var d = products.keys().map(key => {
-            let res = products(key);
+        var physicalProducts = await require.context('~/assets/content/products/', false, /\.json$/);
+        var d = physicalProducts.keys().map(key => {
+            let res = physicalProducts(key);
             res.slug = key.slice(2, -5);
             return res;
         });
-        await commit('setProducts', d);
+        await commit('setPhysicalProducts', d);
 
-        // var datas = await require.context('~/assets/content/questions/', false, /\.json$/);
-        // var d = datas.keys().map(key => {
-        //     let res = datas(key);
-        //     res.slug = key.slice(2, -5);
-        //     return res;
-        // });
-        // await commit('setQuestions', d);
+        var digitalProducts = await require.context('~/assets/content/digitalproducts/', false, /\.json$/);
+        var d = digitalProducts.keys().map(key => {
+            let res = digitalProducts(key);
+            res.slug = key.slice(2, -5);
+            return res;
+        });
+        await commit('setDigitalProducts', d);
     }
 };

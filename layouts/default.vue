@@ -264,14 +264,59 @@ a {
 }
 
 
-.enter__info {
-    padding: 70px 0;
+.page__content {
+    padding: 30px 10px 0;
     width: 100%;
     max-width: 960px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+    position: relative;
 }
-.enter__info h2 {
+.page__content--nowrap {
+    flex-wrap: nowrap;
+}
+.page__content h2 {
     color: var(--red);
     margin-top: 28px;
+}
+.page__content p {
+    width: 100%;
+}
+.page__content--side {
+    /* width: auto; */
+    flex: 0 1 100%;
+    max-width: 750px;
+}
+.page__ad__container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+.page__ad__container--side {
+    flex: 1 0 160px;
+}
+.page__ad__container--side--right {
+    margin-left: 40px;
+}
+.page__ad__container--side--left {
+    margin-right: 40px;
+}
+.page__ad__container a {
+    position: sticky;
+    top: 100px;
+    left: 0;
+}
+.page__ad__container picture {
+    width: 100%;
+}
+.page__ad__container img {
+    width: 100%;
 }
 .info__para {
     max-width: 860px;
@@ -280,15 +325,15 @@ a {
 }
 .enter__info__fields {
     width: 100%;
-    max-width: 960px;
+    /* max-width: 960px; */
     margin: 0 auto;
-    padding: 30px 0;
+    padding: 0;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
-    margin: 20px auto 0;
+    margin: 0 auto;
 }
 .info__section {
     padding: 20px 40px 60px;
@@ -332,7 +377,7 @@ a {
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
-    margin: 0px 0 20px;
+    margin: 0 0 20px;
 }
 .form__spacer {
     margin-top: 0px;
@@ -363,6 +408,9 @@ a {
 }
 label.info__radio__field--equipment {
     flex: 1 0 46%;
+}
+.info__radio__field--spicelevel label {
+    max-width: 23%;
 }
 .info__radio__field label:hover {
     background: var(--yellow);
@@ -429,7 +477,7 @@ label.info__radio__field--equipment {
     padding: 0 0 0 0px;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-content: center;
     justify-content: space-between;
 }
@@ -492,7 +540,7 @@ label.info__radio__field--equipment {
     flex: 1;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
     align-content: flex-start;
     justify-content: center;
 }
@@ -709,7 +757,18 @@ body .question__answer__both__partners label:hover {
 .qa__text__explain__text--show {
     max-height: 300px
 }
-
+/* ------------------ MEDIA QUERY ------------------ */
+@media screen and (max-width: 1000px) {
+    .page__ad__container--side {
+        flex: 1 0 100px;
+    }
+    .page__ad__container--side--right {
+        margin-left: 20px;
+    }
+    .page__ad__container--side--left {
+        margin-right: 20px;
+    }
+}
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 940px) {
     .info__radio__field label {
@@ -746,107 +805,7 @@ body .question__answer__both__partners label:hover {
     .question__answer label {
         font-size: 1em;
         line-height: 1em;
-    }
-}
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 730px) {
-    h1 {
-        font-size: 2.7em;
-        line-height: 1em;
-    }
-    h2 {
-        font-size: 2.5em;
-        line-height: 1em;
-    }
-    h3 {
-        font-size: 2em;
-        line-height: 1em;
-    }
-    h5 {
-        font-size: 1.4em;
-        line-height: 1em;
-    }
-    li {
-        font-size: 1.1em;
-        line-height: 1.1em;
-    }
-    p, label {
-        font-size: 1.3em;
-        line-height: 1.3em;
-        font-weight: 400;
-        margin: 11px 0 10px;
-    }
-    .submit__button {
-        font-size: 1.4em;
-        line-height: 1em;
-        max-width: 220px;
-        padding: 8px 10px 6px;
-    }
-    .padded__section {
-        padding: 0 14px;
-    }
-    .half__header__inner {
-        padding-top: 100px;
-    }
-
-    .enter__info {
-        padding: 30px 0;
-        width: 100%;
-    }
-    .enter__info h2, .enter__info p {
-        padding: 0 2px;
-    }
-    .info__para {
-        margin: 0 0 14px;
-        align-self: center;
-    }
-    body .pepper__example {
-        height: 36px;
-        width: 30px;
-        max-width: 30px;
-    }
-    body .pepper__example__img {
-        top: 2px;
-        left: 0px;
-        height: 100%;
-    }
-    .example__question .question__answer__cell {
-        border-left: none;
-    }
-    .enter__info__fields {
-        padding: 0px 0;
-        margin-top: 40px;
-    }
-    .info__section {
-        padding: 40px 16px;
-    }
-    .form__img {
-        max-width: 96%;
-        max-height: 110px;
-        object-fit: contain;
-    }
-    .enter__info__fields input {
-        border: 2px solid var(--gun-grey);
-        border-radius: 8px;
-    }
-    .small__para {
-        text-align: center;
-    }
-    .form__img__container {
-        padding: 16px 10px 16px;
-        max-height: 70%;
-        flex: 1;
-    }
-    body .disclaimer__para {
-        padding: 0 10px;
-    }
-
-    .info__radio__field {
-        flex-wrap: wrap;
-    }
-    .info__radio__field label {
-        flex: 0 1 46%;
-        padding: 0 4px;
+        padding-bottom: 5px;
     }
 
     .question__answer__inner {
@@ -965,6 +924,122 @@ body .question__answer__both__partners label:hover {
     }
 }
 /* ------------------ MEDIA QUERY ------------------ */
+@media screen and (max-width: 730px) {
+    h1 {
+        font-size: 2.7em;
+        line-height: 1em;
+    }
+    h2 {
+        font-size: 2.5em;
+        line-height: 1em;
+    }
+    h3 {
+        font-size: 2em;
+        line-height: 1em;
+    }
+    h5 {
+        font-size: 1.4em;
+        line-height: 1em;
+    }
+    li {
+        font-size: 1.1em;
+        line-height: 1.1em;
+    }
+    p, label {
+        font-size: 1.3em;
+        line-height: 1.3em;
+        font-weight: 400;
+        margin: 11px 0 10px;
+    }
+    .page__content {
+        padding: 40px 10px 0;
+    }
+    .page__content--nowrap {
+        flex-wrap: wrap-reverse;
+    }
+    .page__ad__container--side--right,
+    .page__ad__container--side--left {
+        margin: 10px 0;
+    }
+    .submit__button {
+        font-size: 1.4em;
+        line-height: 1em;
+        max-width: 220px;
+        padding: 8px 10px 6px;
+    }
+    .padded__section {
+        padding: 0 14px;
+    }
+    .half__header__inner {
+        padding-top: 100px;
+    }
+
+    .enter__info {
+        padding: 30px 0;
+        width: 100%;
+    }
+    .enter__info h2, .enter__info p {
+        padding: 0 2px;
+    }
+    .info__para {
+        margin: 0 0 14px;
+        align-self: center;
+    }
+    body .pepper__example {
+        height: 36px;
+        width: 30px;
+        max-width: 30px;
+    }
+    body .pepper__example__img {
+        top: 2px;
+        left: 0px;
+        height: 100%;
+    }
+    .example__question .question__answer__cell {
+        border-left: none;
+    }
+    .enter__info__fields {
+        padding: 0px 0;
+        margin-top: 40px;
+    }
+    .info__section {
+        padding: 40px 16px;
+    }
+    .form__img {
+        max-width: 96%;
+        max-height: 110px;
+        object-fit: contain;
+    }
+    .enter__info__fields input {
+        border: 2px solid var(--gun-grey);
+        border-radius: 8px;
+    }
+    .small__para {
+        text-align: center;
+    }
+    .form__img__container {
+        padding: 16px 10px 16px;
+        max-height: 70%;
+        flex: 1;
+    }
+    body .disclaimer__para {
+        padding: 0 10px;
+    }
+
+    .info__radio__field {
+        flex-wrap: wrap;
+    }
+    .info__radio__field label {
+        flex: 0 1 46%;
+        padding: 0 4px;
+    }
+    .info__radio__field--spicelevel label {
+        max-width: 46%;
+    }
+
+    
+}
+/* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 620px) {
     h1 {
         font-size: 2.5em;
@@ -997,6 +1072,9 @@ body .question__answer__both__partners label:hover {
     }
     .form__img__container {
         padding: 8px;
+    }
+    .page__content {
+        padding: 20px 10px 0;
     }
 }
 /* ------------------ MEDIA QUERY ------------------ */
