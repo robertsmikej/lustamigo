@@ -1,14 +1,23 @@
 {
-    "img": "/img/lelo-hugo.jpg",
-    "name": "Hugo",
-    "tagline": "Remote control prostate explosions",
-    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=119",
-    "typeof": [
-      "male"
-    ],
-    "brandname": "Lelo",
-    "status": true,
-    "pricerange": "8",
-    "importance": "6",
-    "description": "The best hands-free gadget you’ll ever buy! HUGO™ is a luxurious remote control prostate massager which offers the world’s most explosive orgasm."
+  "img": "/img/lelo-hugo.jpg",
+  "name": "Hugo",
+  "tagline": "Remote control prostate explosions",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=119",
+  "typeof": [
+    "male"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "8",
+  "importance": "6",
+  "description": "The best hands-free gadget you’ll ever buy! HUGO™ is a luxurious remote control prostate massager which offers the world’s most explosive orgasm.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": "square",
+        "name": "Hugo",
+        "img": "/img/lelo-hugo.jpg"
+      }
+    ]
+  }
 }
