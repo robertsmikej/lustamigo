@@ -218,7 +218,24 @@ collections:
       - { label: 'Product Name', name: 'name', widget: 'string' }
       - { label: 'Brand Name', name: 'brandname', widget: 'string', required: false }
       - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
-      - { label: "Product Image", name: "img", widget: "image", required: false }
+      - label: "Product Images"
+        name: "productimgs"
+        widget: object
+        fields:
+          - label: "Images"
+            name: "imgs"
+            widget: "list"
+            fields:
+              - { label: 'Image Name', name: 'name', widget: 'string' }
+              - { label: "Product Image", name: "img", widget: "image", required: false }
+              - label: "Image Type"
+                name: "type"
+                widget: "select"
+                multiple: false
+                options: ["square", "banner", "side-tall", "side-short"]
+                default: ["square"]
+                required: false
+                hint: "What type of image is this?"
       - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
       - { label: "Product Description", name: "description", widget: "text", required: false }
       - { label: "Product URL", name: "url", widget: "string", required: false }
@@ -269,7 +286,24 @@ collections:
       - { label: 'Product Name', name: 'name', widget: 'string' }
       - { label: 'Brand Name', name: 'brandname', widget: 'string', required: false }
       - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
-      - { label: "Product Image", name: "img", widget: "image", required: false }
+      - label: "Product Images"
+        name: "productimgs"
+        widget: object
+        fields:
+          - label: "Images"
+            name: "imgs"
+            widget: "list"
+            fields:
+              - { label: 'Image Name', name: 'name', widget: 'string' }
+              - { label: "Product Image", name: "img", widget: "image", required: false }
+              - label: "Image Type"
+                name: "type"
+                widget: "select"
+                multiple: false
+                options: ["square", "banner", "side-tall", "side-short"]
+                default: ["square"]
+                required: false
+                hint: "What type of image is this?"
       - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
       - { label: "Product Description", name: "description", widget: "text", required: false }
       - { label: "Product URL", name: "url", widget: "string", required: false }
