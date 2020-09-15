@@ -1,15 +1,24 @@
 {
-    "img": "/img/lelo-tor-2.jpg",
-    "name": "Tor 2",
-    "tagline": "A luxurious vibrating ring. For a wiener.",
-    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=113",
-    "typeof": [
-      "both",
-      "male"
-    ],
-    "brandname": "Lelo",
-    "status": true,
-    "pricerange": "6",
-    "importance": "5",
-    "description": "Boasting 100% more powerful vibrations than any product of its kind, the smooth silicone design comfortably fits all sizes."
+  "img": "/img/lelo-tor-2.jpg",
+  "name": "Tor 2",
+  "tagline": "A luxurious vibrating ring. For a wiener.",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=113",
+  "typeof": [
+    "both",
+    "male"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "6",
+  "importance": "5",
+  "description": "Boasting 100% more powerful vibrations than any product of its kind, the smooth silicone design comfortably fits all sizes.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": "square",
+        "name": "Tor 2",
+        "img": "/img/lelo-tor-2.jpg"
+      }
+    ]
+  }
 }
