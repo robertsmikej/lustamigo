@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <div class="questions__inner">
+        <div class="questions__inner page__content">
             <!-- CURRENT USER IS NOT DONE -->
             <div
                 v-show="!this.currentUserDone"
