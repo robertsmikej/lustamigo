@@ -1,14 +1,23 @@
 {
-    "img": "/img/intima_red_500x.jpg",
-    "name": "INTIMA Silk Blindfold",
-    "tagline": "Play in the dark!",
-    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=51",
-    "typeof": [
-      "both"
-    ],
-    "brandname": "Lelo",
-    "status": true,
-    "pricerange": "5",
-    "importance": "6",
-    "description": "Heighten the senses and delight in the pleasures that mystery will bring."
+  "img": "/img/intima_red_500x.jpg",
+  "name": "INTIMA Silk Blindfold",
+  "tagline": "Play in the dark!",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=51",
+  "typeof": [
+    "both"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "5",
+  "importance": "6",
+  "description": "Heighten the senses and delight in the pleasures that mystery will bring.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": "square",
+        "name": "INTIMA Silk Blindfold",
+        "img": "/img/intima_red_500x.jpg"
+      }
+    ]
+  }
 }
