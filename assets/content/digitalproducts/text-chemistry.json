@@ -13,6 +13,13 @@
   "productimgs": {
     "img": "/img/text-chemisty-970x250.jpg",
     "name": "Text Him This To Make Him Love You",
-    "imgtype": "banner"
+    "imgtype": "banner",
+    "imgs": [
+      {
+        "type": "banner",
+        "img": "/img/text-chemisty-970x250.jpg",
+        "name": "Text Him This To Make Him Love You"
+      }
+    ]
   }
 }
