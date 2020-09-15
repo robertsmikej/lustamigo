@@ -1,15 +1,24 @@
 {
-    "img": "/img/gigi-2-cool-gray.jpg",
-    "name": "Gigi 2",
-    "tagline": "G-Spot Targeting Missile Dildo",
-    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=37",
-    "typeof": [
-      "both",
-      "female"
-    ],
-    "brandname": "Lelo",
-    "status": true,
-    "pricerange": "7",
-    "importance": "6",
-    "description": "Have you ever experienced the body shakes of a full-blown G-spot orgasm? You’re about to. The world-famous GIGI™ 2 takes G-spot orgasms to a whole new level."
+  "img": "/img/gigi-2-cool-gray.jpg",
+  "name": "Gigi 2",
+  "tagline": "G-Spot Targeting Missile Dildo",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=37",
+  "typeof": [
+    "both",
+    "female"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "7",
+  "importance": "6",
+  "description": "Have you ever experienced the body shakes of a full-blown G-spot orgasm? You’re about to. The world-famous GIGI™ 2 takes G-spot orgasms to a whole new level.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": "square",
+        "name": "Gigi 2",
+        "img": "/img/gigi-2-cool-gray.jpg"
+      }
+    ]
+  }
 }
