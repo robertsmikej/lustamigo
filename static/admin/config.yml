@@ -195,6 +195,15 @@ collections:
                 required: false
                 hint: "None is equal to All Groups being selected"
               - { label: "Question Image", name: "img", widget: "image", required: false }
+              - label: "Related Products"
+                name: "relatedproducts"
+                widget: "relation"
+                collection: "products"
+                searchFields: ["productslist"]
+                valueField: "productslist"
+                multiple: true
+                displayFields: ["productslist"]
+                required: false
 
   - name: 'products'
     label: 'Products'
@@ -206,41 +215,36 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: 'Products List Name', name: 'name', widget: 'string' }
-      - label: "Products"
-        name: "productslist"
-        widget: "list"
-        fields:
-          - { label: 'Product Name', name: 'name', widget: 'string' }
-          - { label: 'Brand Name', name: 'brandname', widget: 'string' }
-          - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
-          - { label: "Product Image", name: "img", widget: "image", required: false }
-          - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
-          - { label: "Product Description", name: "description", widget: "text", required: false }
-          - { label: "Product URL", name: "url", widget: "string", required: false }
-          - label: "Used On"
-            name: "typeof"
-            widget: "select"
-            multiple: true
-            options: ["both", "male", "female"]
-            default: ["both"]
-            required: false
-            hint: "What sex is this product used on?"
-          - label: "Price Range"
-            name: "pricerange"
-            widget: "select"
-            multiple: false
-            options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-            default: ["both"]
-            required: false
-            hint: "On a scale of 1-10, how expensive is this generally?"
-          - label: "Importance To Show"
-            name: "importance"
-            widget: "select"
-            multiple: false
-            options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-            default: ["3"]
-            required: false
-            hint: "How important is it to show this products over others?"
-          - { label: "Special Notes", name: "note", widget: "text", required: false }
+      - { label: 'Product Name', name: 'name', widget: 'string' }
+      - { label: 'Brand Name', name: 'brandname', widget: 'string' }
+      - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
+      - { label: "Product Image", name: "img", widget: "image", required: false }
+      - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
+      - { label: "Product Description", name: "description", widget: "text", required: false }
+      - { label: "Product URL", name: "url", widget: "string", required: false }
+      - label: "Used On"
+        name: "typeof"
+        widget: "select"
+        multiple: true
+        options: ["both", "male", "female"]
+        default: ["both"]
+        required: false
+        hint: "What sex is this product used on?"
+      - label: "Price Range"
+        name: "pricerange"
+        widget: "select"
+        multiple: false
+        options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        default: ["both"]
+        required: false
+        hint: "On a scale of 1-10, how expensive is this generally?"
+      - label: "Importance To Show"
+        name: "importance"
+        widget: "select"
+        multiple: false
+        options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
+        default: ["3"]
+        required: false
+        hint: "How important is it to show this products over others?"
+      - { label: "Special Notes", name: "note", widget: "text", required: false }
           

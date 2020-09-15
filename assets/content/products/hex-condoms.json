@@ -1,14 +1,14 @@
 {
-  "img": "/img/hex_300x250.jpg",
-  "name": "Hex Condoms",
-  "tagline": "Super strong to stop your super sperm.",
-  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=376",
-  "typeof": [
-    "both"
-  ],
-  "brandname": "Lelo",
-  "status": true,
-  "pricerange": "3",
-  "importance": "9",
-  "description": "It's like a condom... and is a condom, but it's made up of Hexagons!"
+    "img": "/img/hex_300x250.jpg",
+    "name": "Hex Condoms",
+    "tagline": "Super strong to stop your super sperm.",
+    "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=376",
+    "typeof": [
+        "both"
+    ],
+    "brandname": "Lelo",
+    "status": true,
+    "pricerange": "3",
+    "importance": "9",
+    "description": "It's like a condom... and is a condom, but it's made up of Hexagons!"
 }
