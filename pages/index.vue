@@ -11,9 +11,9 @@
                 ></div>
                 <div class="qa__cell example__question">
                     <Question
-                        :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination}" 
+                        :question="{question: pageData.examplequestion.questiontext, question_explanation: pageData.examplequestion.questionexplaination, checked: exampleChecked}" 
                         :example="true" 
-                        :users="users" 
+                        :users="users"
                     />
                 </div>
                 <div class="padded__section">
@@ -338,7 +338,8 @@ export default {
                 questions: []
             },
             formMissingData: false,
-            starting: false
+            starting: false,
+            exampleChecked: 1
         }
     },
     methods: {
@@ -457,6 +458,11 @@ export default {
                 });
             })
         },
+        randomCheckInit: function () {
+            setInterval(() => {
+                this.exampleChecked = Math.floor(Math.random() * (2 - 0 + 1) + 0);
+            }, 1200);
+        }
     },
     mounted () {
         //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES
@@ -476,6 +482,7 @@ export default {
             this.users.name_2 = "Audrey";
             this.users.email_2 = "amigo@lustamigo.com"
         }
+        this.randomCheckInit();
     },
     head () {
         return {

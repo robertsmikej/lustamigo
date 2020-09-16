@@ -42,7 +42,7 @@
                     <input 
                         :id="question.question + '-notinterested'"
                         :name="question.question"
-                        :checked="question.checked === 0 ? true : false"
+                        :checked="question.checked === 0"
                         type="radio"
                         value="0"
                         class="question__answer__radio"
@@ -57,7 +57,7 @@
                     <input
                         :id="question.question + '-maybe'"
                         :name="question.question"
-                        :checked="question.checked === 1 ? true : false"
+                        :checked="question.checked === 1"
                         type="radio"
                         value="1"
                         class="question__answer__radio"
@@ -69,19 +69,10 @@
                     </label>
                 </div>
                 <div class="question__answer">
-                    <input 
-                        v-if="example"
-                        :id="question.question + '-interested'" 
-                        :name="question.question"
-                        type="radio"
-                        value="2"
-                        class="question__answer__radio"
-                    >
                     <input
-                        v-if="!example"
                         :id="question.question + '-interested'"
                         :name="question.question"
-                        :checked="question.checked === 2 ? true : false"
+                        :checked="question.checked === 2"
                         type="radio"
                         value="2"
                         class="question__answer__radio"
