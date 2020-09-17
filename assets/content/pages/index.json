@@ -54,5 +54,15 @@
   "examplequestion": {
     "questiontext": "Give A Sexy Massage To Juan",
     "questionexplaination": "If theres a section that may not make sense, we'll try to explain here."
-  }
+  },
+  "ads": [
+    {
+      "type": "side-tall",
+      "digitalad": "Text Chemistry"
+    },
+    {
+      "type": "side-tall",
+      "digitalad": "ED Elixir"
+    }
+  ]
 }
