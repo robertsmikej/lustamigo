@@ -40,22 +40,14 @@
                     class="padded__section" 
                 ></div>
             </div>
-            <div class="page__content--side page__ad__container page__ad__container--side page__ad__container--side--right">
-                <a
-                    :href="this.findProduct('digital', 'Text Him This To Make Him Love You - Banner')['prod']['url']"
-                >
-                    <picture class="page__ad page__ad--side">
-                        <source 
-                            :srcset="this.findProduct('digital', 'Text Him This To Make Him Love You - Side Banner')['img']"
-                            media="(min-width: 730px)"
-                        >
-                        <img 
-                            :src="this.findProduct('digital', 'Text Him This To Make Him Love You - Banner')['img']" 
-                            :alt="this.findProduct('digital', 'Weird Trick to Fixing ED - Side')['name']"
-                        />
-                    </picture>
-                </a>
-            </div>
+
+            <!-- <div class="page__content--side">
+                {{ pageads }}
+                <AdSidebar
+                    v-if="pageads.hasOwnProperty('a')"
+                    :ad="pageads"
+                />
+            </div> -->
         </div>
         <div class="page__content page__content--nowrap">
             <div class="page__content--side">
@@ -274,22 +266,9 @@
                     </div>
                 </form>
             </div>
-            <div class="page__content--side page__ad__container page__ad__container--side page__ad__container--side--right">
-                <a
-                    :href="this.findProduct('digital', 'Rock Solid Boner - Side')['prod']['url']"
-                >
-                    <picture class="page__ad page__ad--side">
-                        <source 
-                            :srcset="this.findProduct('digital', 'Rock Solid Boner - Side')['img']"
-                            media="(min-width: 730px)"
-                        >
-                        <img 
-                            :src="this.findProduct('digital', 'Man Discovers Natural Trick - Banner')['img']" 
-                            :alt="this.findProduct('digital', 'Rock Solid Boner - Side')['name']"
-                        />
-                    </picture>
-                </a>
-            </div>
+            <!-- <div class="page__content--side">
+                <AdSidebar :ad="ads" />
+            </div> -->
         </div>
         <div class="page__content">
                 <p>This site is not meant for any ninos under 18 years old.</p>
@@ -311,17 +290,6 @@ var postmark = require("postmark");
 
 export default {
     watchQuery: true,
-    computed: {
-        sitewide: function () {
-            return this.$store.state.sitewide
-        },
-        pageData: function () {
-            return this.$store.state.pages.index
-        },
-        products: function () {
-            return this.$store.state.products
-        }
-    },
     data () {
         return {
             devMode: false,
@@ -340,6 +308,20 @@ export default {
             formMissingData: false,
             starting: false,
             exampleChecked: 1
+        }
+    },
+    computed: {
+        sitewide: function () {
+            return this.$store.state.sitewide
+        },
+        pageData: function () {
+            return this.$store.state.pages.index
+        },
+        products: function () {
+            return this.$store.state.products
+        },
+        pageads: function () {
+            return this.$store.state.pageads
         }
     },
     methods: {
@@ -462,6 +444,23 @@ export default {
             setInterval(() => {
                 this.exampleChecked = Math.floor(Math.random() * (2 - 0 + 1) + 0);
             }, 1200);
+        },
+        pullInAdData: function () {
+            let adObj = {};
+            this.pageData.ads.forEach(ad => {
+                if (!adObj.hasOwnProperty(ad.type)) {
+                    adObj[ad.type] = [];
+                }
+                if (ad.hasOwnProperty("digitalad")) {
+                    adObj[ad.type][ad.digitalad] = ad;
+                    adObj[ad.type][ad.digitalad].type = "digital"
+                } else {
+                    adObj[ad.type][ad.physicalad] = ad;
+                    adObj[ad.type][ad.digitalad].type = "physical"
+                }
+            });
+            console.log(adObj);
+            this.$store.commit("setPageAds", adObj);
         }
     },
     mounted () {
@@ -483,6 +482,7 @@ export default {
             this.users.email_2 = "amigo@lustamigo.com"
         }
         this.randomCheckInit();
+        // this.pullInAdData();
     },
     head () {
         return {
@@ -613,5 +613,8 @@ body .pepper__example__img {
     margin: 0 auto 2px;
     display: none;
 }
+
+
+
 
 </style>

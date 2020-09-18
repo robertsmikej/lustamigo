@@ -290,34 +290,7 @@ a {
     flex: 0 1 100%;
     max-width: 750px;
 }
-.page__ad__container {
-    margin: 10px;
-    display: flex;
-    flex-direction: row;
-    align-content: center;
-    justify-content: center;
-    align-items: flex-start;
-}
-.page__ad__container--side {
-    flex: 1 0 160px;
-}
-.page__ad__container--side--right {
-    margin-left: 40px;
-}
-.page__ad__container--side--left {
-    margin-right: 40px;
-}
-.page__ad__container a {
-    position: sticky;
-    top: 100px;
-    left: 0;
-}
-.page__ad__container picture {
-    width: 100%;
-}
-.page__ad__container img {
-    width: 100%;
-}
+
 .info__para {
     max-width: 860px;
     margin: 10px auto 10px;
@@ -758,18 +731,7 @@ body .question__answer__both__partners label:hover {
 .qa__text__explain__text--show {
     max-height: 300px
 }
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 1000px) {
-    .page__ad__container--side {
-        flex: 1 0 100px;
-    }
-    .page__ad__container--side--right {
-        margin-left: 20px;
-    }
-    .page__ad__container--side--left {
-        margin-right: 20px;
-    }
-}
+
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 940px) {
     .info__radio__field label {
@@ -957,10 +919,6 @@ body .question__answer__both__partners label:hover {
     }
     .page__content--nowrap {
         flex-wrap: wrap-reverse;
-    }
-    .page__ad__container--side--right,
-    .page__ad__container--side--left {
-        margin: 10px 0;
     }
     .submit__button {
         font-size: 1.4em;

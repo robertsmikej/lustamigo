@@ -152,6 +152,39 @@ collections:
           - { label: "Image Name", name: "imagename", widget: "string", default: "Image" }
           - { label: "Alt Text", name: "imagealt", widget: "string", default: "Alt Text", required: false }
           - { label: "Image", name: "img", widget: "image" }
+      - label: "Ads"
+        name: "ads"
+        widget: "list"
+        fields:
+          - label: "Ad Type"
+            name: "type"
+            widget: "select"
+            multiple: false
+            options: ["square", "banner", "side-tall", "side-short"]
+            default: ["side-tall"]
+            required: false
+            hint: "What type of ad is this?"
+          - label: "Digital Ad"
+            name: "digitalad"
+            widget: "relation"
+            collection: "digitalproducts"
+            searchFields: ["name"]
+            valueField: "name"
+            multiple: false
+            displayFields: ["name"]
+            required: false
+            hint: "If this AD is Digital, which product is it?"
+          - label: "Ad"
+            name: "physicalad"
+            widget: "relation"
+            collection: "products"
+            searchFields: ["name"]
+            valueField: "name"
+            multiple: false
+            displayFields: ["name"]
+            required: false
+            hint: "If this AD is Physical, which product is it?"
+          
 
   - name: 'questioncategories'
     label: 'Question Categories'

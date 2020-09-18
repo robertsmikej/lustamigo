@@ -3,7 +3,8 @@ export const state = () => ({
     nav: [],
     pages: {},
     categories: {},
-    products: {}
+    products: {},
+    pageads: {}
 });
 
 function sortItems(data) {
@@ -66,6 +67,9 @@ export const mutations = {
     },
     setDigitalProducts(state,data) {
         state.products.digital = data;
+    },
+    setPageAds(state,data) {
+        state.pageads = data;
     }
 };
 
@@ -74,7 +78,8 @@ export const getters = {
     nav: state => state.nav,
     pages: state => state.pages,
     categories: state => state.categories,
-    products: state => state.products
+    products: state => state.products,
+    pageads: state => state.pageads
 };
 
 export const actions = {
