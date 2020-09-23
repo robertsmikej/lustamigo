@@ -346,7 +346,6 @@ export default {
             });
         },
 
-
         //WHEN USER CLICKS ON SUBMIT BUTTON
         setAnswerData: function() { //COMBINE ANSWER DATA
             if (this.databaseExists) {

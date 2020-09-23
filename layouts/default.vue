@@ -719,7 +719,6 @@ body .question__answer__both__partners label:hover {
 .qa__text__explain__text--show {
     max-height: 300px
 }
-
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 940px) {
     .info__radio__field label {
@@ -761,7 +760,6 @@ body .question__answer__both__partners label:hover {
         line-height: 1em;
         padding-bottom: 5px;
     }
-
     .question__answer__inner {
         flex: 1;
     }
@@ -771,7 +769,6 @@ body .question__answer__both__partners label:hover {
     .qa__cell {
         margin-bottom: 10px;
     }
-    
     .qa__cell:nth-of-type(odd) {
         border-left: none;
         border-right: none;
@@ -794,14 +791,9 @@ body .question__answer__both__partners label:hover {
     .qa__cell .question__answer__both__partners .question__answer:nth-of-type(2) {
         border: none;
     }
-/* 
-    .qa__cell {
-        border: none !important;
-    } */
     .question__answer__both__partners  input[type="radio"] {
         display: block;
     }
-
     .qa__cell__inner {
         flex-wrap: wrap;
         padding: 0;
@@ -923,7 +915,6 @@ body .question__answer__both__partners label:hover {
     .half__header__inner {
         padding-top: 100px;
     }
-
     .enter__info {
         padding: 30px 0;
         width: 100%;
@@ -986,8 +977,6 @@ body .question__answer__both__partners label:hover {
     .info__radio__field--spicelevel label {
         max-width: 46%;
     }
-
-    
 }
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 620px) {
@@ -1074,7 +1063,6 @@ body .question__answer__both__partners label:hover {
     .form__img {
         max-height: 84px;
     }
-
     .qa__text__explain__icon {
         height: 15px;
         min-height: 15px;
