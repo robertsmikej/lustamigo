@@ -11,13 +11,15 @@
   "status": true,
   "pricerange": "6",
   "importance": "5",
+  "type": "physical",
   "description": "Boasting 100% more powerful vibrations than any product of its kind, the smooth silicone design comfortably fits all sizes.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Tor 2",
-        "img": "/img/lelo-tor-2.jpg"
+        "img": "/img/lelo-tor-2.jpg",
+        "mediatype": "product"
       }
     ]
   }
