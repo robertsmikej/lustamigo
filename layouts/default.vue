@@ -719,6 +719,26 @@ body .question__answer__both__partners label:hover {
 .qa__text__explain__text--show {
     max-height: 300px
 }
+
+.page__ad__container {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    align-items: flex-start;
+}
+.page__ad__container a {
+    position: sticky;
+    top: 100px;
+    left: 0;
+}
+.page__ad__container picture {
+    width: 100%;
+}
+.page__ad__container img {
+    width: 100%;
+}
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 940px) {
     .info__radio__field label {

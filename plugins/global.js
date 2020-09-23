@@ -17,3 +17,12 @@ Vue.component('Answer', Answer);
 
 import AdSidebar from '../components/sitewide/ads/AdSidebar.vue';
 Vue.component('AdSidebar', AdSidebar);
+
+import AdBanner from '../components/sitewide/ads/AdBanner.vue';
+Vue.component('AdBanner', AdBanner);
+
+import AdSquare from '../components/sitewide/ads/AdSquare.vue';
+Vue.component('AdSquare', AdSquare);
+
+import CategoryAds from '../components/sitewide/ads/CategoryAds.vue';
+Vue.component('CategoryAds', CategoryAds);

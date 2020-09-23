@@ -44,6 +44,13 @@
                     <p>Give us just a momento and we'll email you a link to see your results!</p>
                 </div>
             </div>
+            <div class="page__content--ad-banner">
+
+                <AdBanner
+                    v-if="pageads.length > 0 && pageads[0]"
+                    :ad="pageads[0]"
+                />
+            </div>
             <form 
                 v-show="this.justQuestions === true"
                 class="enter__info__fields"
@@ -94,6 +101,7 @@
                             name="spice_level" 
                             value="5" 
                             v-model="users.spice_level"
+                            :checked="true"
                         >
                         <label for="medium">
                             <div class="form__img__container">
@@ -234,8 +242,8 @@ export default {
                 equipment_2: "female",
                 email_2: "",
                 user_2_data_submitted: false,
-                coupletype: "gay-male",
-                spice_level: 4,
+                coupletype: "straight",
+                spice_level: 5,
                 questions: []
             },
             user_name: "",
@@ -254,8 +262,11 @@ export default {
         categories: function () {
             return this.$store.state.categories
         },
-        products: function () {
-            return this.$store.state.products
+        // products: function () {
+        //     return this.$store.state.products
+        // },
+        pageads: function () {
+            return this.$store.state.pages.questions.ads
         }
     },
     methods: {
@@ -302,7 +313,6 @@ export default {
             for (let datapoint in dbData) {
                 this.users[datapoint] = dbData[datapoint];
             }
-            console.log(dbData);
             this.user_name = this.currentUser === 1 ? dbData["name_1"] : dbData["name_2"];
             this.partner_name = this.currentUser === 1 ? dbData["name_2"] : dbData["name_1"];
             this.checkDoneStatuses(dbData);
@@ -457,7 +467,7 @@ export default {
     mounted() {
         if (this.devmode) {
             this.justQuestions = false;
-            this.users.spice_level = 10;
+            this.users.spice_level = 4;
         }
         if (this.$route.query && this.$route.query.uuid) { //IF THERE IS DATA IN THE QUERY FIELDS OF THE URL TO SHOW USER DATA
             this.users.uuid = this.$route.query.uuid.split("-")[0];

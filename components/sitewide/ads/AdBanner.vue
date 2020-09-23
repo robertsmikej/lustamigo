@@ -1,13 +1,13 @@
 <template>
     <div
         v-if="adData"
-        class="page__ad__container page__ad__container--side page__ad__container--side--right"
+        class="page__ad__container page__ad__container--banner"
     >
         <a
             :href="ad.ad_data.url"
         >
             <picture
-                class="page__ad page__ad--side"
+                class="page__ad page__ad--banner"
             >
                 <source
                     :srcset="adData.img"
@@ -48,33 +48,5 @@ export default {
 </script>
 
 <style>
-.page__ad__container--side {
-    flex: 1 0 160px;
-    height: 100%;
-}
-.page__ad__container--side--right {
-    margin-left: 40px;
-}
-.page__ad__container--side--left {
-    margin-right: 40px;
-}
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 1000px) {
-    .page__ad__container--side {
-        flex: 1 0 100px;
-    }
-    .page__ad__container--side--right {
-        margin-left: 20px;
-    }
-    .page__ad__container--side--left {
-        margin-right: 20px;
-    }
-}
-/* ------------------ MEDIA QUERY ------------------ */
-@media screen and (max-width: 730px) {
-    .page__ad__container--side--right,
-    .page__ad__container--side--left {
-        margin: 10px 0;
-    }
-}
+
 </style>

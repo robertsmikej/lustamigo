@@ -62,7 +62,10 @@
                 />
             </div>
         </div>
-
+        <CategoryAds
+            :category="category"
+            :products="products"
+        />
     </div>
 </template>
 
@@ -72,7 +75,6 @@ export default {
     data() {
         return {
             questionsAnswered: {},
-            
         }
     },
     props: {
@@ -84,6 +86,9 @@ export default {
         responseData: Object
     },
     computed: {
+        products: function () {
+            return this.$store.state.products
+        },
         filteredQuestions: function () {
             const catQuestions = this.category.questions;
             const coupletype = this.users.coupletype;
@@ -96,6 +101,7 @@ export default {
                 }
             });
             let spiciness = orientation.filter(function (question) {
+                // console.log(question.question + " - " + question.spicelevel)
                 if (parseInt(question.spicelevel) <= parseInt(userSpiciness)) {
                     return question; 
                 }
