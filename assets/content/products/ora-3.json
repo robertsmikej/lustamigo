@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "8",
   "importance": "3",
+  "type": "physical",
   "description": "The pleasure nub rotates and vibrates, like a tongue, but better.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Ora 3",
-        "img": "/img/lelo_ora_3.jpg"
+        "img": "/img/lelo_ora_3.jpg",
+        "mediatype": "product"
       }
     ]
   }
