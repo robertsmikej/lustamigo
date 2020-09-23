@@ -38,7 +38,12 @@
       "img": "/img/mexi-cons-red-hot-pepper-trimmed.png"
     }
   ],
-  "ads": [],
+  "ads": [
+    {
+      "type": "banner",
+      "ad": "His Secret Obsession"
+    }
+  ],
   "formal_name": "Questions",
   "name": "questions"
 }
