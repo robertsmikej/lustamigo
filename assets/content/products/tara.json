@@ -10,13 +10,15 @@
   "status": false,
   "pricerange": "6",
   "importance": "5",
+  "type": "physical",
   "description": "For indulgent couples who want experiences and sensations like you’ve never shared before.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "TARA",
-        "img": "/img/lelo_tera.jpg"
+        "img": "/img/lelo_tera.jpg",
+        "mediatype": "product"
       }
     ]
   }
