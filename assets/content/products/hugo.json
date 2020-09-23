@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "8",
   "importance": "6",
+  "type": "physical",
   "description": "The best hands-free gadget you’ll ever buy! HUGO™ is a luxurious remote control prostate massager which offers the world’s most explosive orgasm.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Hugo",
-        "img": "/img/lelo-hugo.jpg"
+        "img": "/img/lelo-hugo.jpg",
+        "mediatype": "product"
       }
     ]
   }
