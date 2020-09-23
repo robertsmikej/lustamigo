@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "INTIMA Silk Blindfold",
         "img": "/img/intima_red_500x.jpg",
         "mediatype": "product"
