@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Hugo",
         "img": "/img/lelo-hugo.jpg",
         "mediatype": "product"
