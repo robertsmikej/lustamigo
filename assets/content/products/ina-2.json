@@ -11,13 +11,15 @@
   "status": true,
   "pricerange": "7",
   "importance": "5",
+  "type": "physical",
   "description": "The innovative and unique design of INA™ 2 changed the way we think about rabbit-style massagers, and it will revolutionize the way you think about your pleasure.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Ina 2",
-        "img": "/img/ina2_300x300.jpg"
+        "img": "/img/ina2_300x300.jpg",
+        "mediatype": "ad"
       }
     ]
   }
