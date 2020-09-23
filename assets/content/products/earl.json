@@ -9,13 +9,18 @@
   "status": true,
   "pricerange": "10",
   "importance": "2",
+  "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "Quite simply the most distinguished gentlemen’s plug in the world, perfect for personal indulgence and shared pleasure, EARL™ is available in 24-karat gold or Stainless Steel.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Earl - Front",
-        "img": "/img/lelo_earl.jpg"
+        "img": "/img/lelo_earl.jpg",
+        "mediatype": "product"
       }
     ]
   }
