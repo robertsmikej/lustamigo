@@ -19,7 +19,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Gigi 2",
         "img": "/img/gigi-2-cool-gray.jpg",
         "mediatype": "product"
