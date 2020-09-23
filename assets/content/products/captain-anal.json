@@ -17,7 +17,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Captain Anal - Front",
         "img": "/img/captain-anal-butt-plug-2.jpg",
         "mediatype": "product"
