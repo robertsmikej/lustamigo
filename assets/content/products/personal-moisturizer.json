@@ -1,0 +1,26 @@
+{
+  "name": "Personal Moisturizer",
+  "tagline": "The Best Lube In The World. Probably!",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=7",
+  "typeof": [
+    "both"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "4",
+  "importance": "7",
+  "type": "physical",
+  "description": "This dual-purpose, water-based moisturizer is perfect for use with your pleasure products, your partner, or just to keep your skin feeling vital and luxurious.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": [
+          "square"
+        ],
+        "mediatype": "product",
+        "name": "Personal Moisturizer Bottle",
+        "img": "/img/lelo_personal_moisturizer_lubricant.jpg"
+      }
+    ]
+  }
+}
