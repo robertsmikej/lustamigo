@@ -10,13 +10,18 @@
   "status": true,
   "pricerange": "6",
   "importance": "2",
+  "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "Made from all-natural soy wax, shea butter and apricot kernel oil, the lightly scented wax melts into an exquisite pool of luxurious massage oil.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Flickering Touch Massage Candle",
-        "img": "/img/lelo_accessories_massage-candle.jpg"
+        "img": "/img/lelo_accessories_massage-candle.jpg",
+        "mediatype": "product"
       }
     ]
   }
