@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "SMART WAND Medium",
         "img": "/img/lelo_insignia_smart-wand.jpg",
         "mediatype": "product"
