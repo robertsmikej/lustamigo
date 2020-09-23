@@ -12,19 +12,28 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "banner",
+        "type": [
+          "banner"
+        ],
         "img": "/img/ed-elixer-banner-natural-trick.gif",
-        "name": "Man Discovers Natural Trick - Banner"
+        "name": "Man Discovers Natural Trick - Banner",
+        "mediatype": "ad"
       },
       {
-        "type": "side-tall",
+        "type": [
+          "sidebar"
+        ],
         "img": "/img/ed-elixer-side-rock-solid-boner.gif",
-        "name": "Rock Solid Boner - Side"
+        "name": "Rock Solid Boner - Side",
+        "mediatype": "ad"
       },
       {
-        "type": "side-tall",
+        "type": [
+          "sidebar"
+        ],
         "img": "/img/ed-elixer-side-weird-trick.gif",
-        "name": "Weird Trick to Fixing ED - Side"
+        "name": "Weird Trick to Fixing ED - Side",
+        "mediatype": "ad"
       }
     ]
   }
