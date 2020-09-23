@@ -14,7 +14,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Unicorn Dildo",
         "img": "/img/unicorn_dildo-4.jpg",
         "mediatype": "product"
