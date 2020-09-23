@@ -41,7 +41,20 @@ export const mutations = {
             let obj = data[o];
             newObj[obj.slug] = obj;
         }
+        // console.log(newObj);
         state.pages = newObj;
+        //SET STATIC ADS BELOW - GET AD DATA
+        for (let a in newObj) {
+            let page = newObj[a];
+            if (page.hasOwnProperty("ads") && page.ads.length > 0) {
+                page.ads.forEach(ad => {
+                    let product = state.products.filter(prod => {
+                        return prod.name === ad.ad
+                    });
+                    ad["ad_data"] = product[0];
+                });
+            }
+        }
     },
     setCategories(state, data) {
         for (let cat in data[0].categories) {
@@ -97,6 +110,14 @@ export const actions = {
         });
         await commit('setNav', d);
 
+        var products = await require.context('~/assets/content/products/', false, /\.json$/);
+        var d = products.keys().map(key => {
+            let res = products(key);
+            res.slug = key.slice(2, -5);
+            return res;
+        });
+        await commit('setProducts', d);
+
         var datas = await require.context('~/assets/content/pages/', false, /\.json$/);
         var d = datas.keys().map(key => {
             let res = datas(key);
@@ -113,13 +134,7 @@ export const actions = {
         });
         await commit('setCategories', d);
 
-        var products = await require.context('~/assets/content/products/', false, /\.json$/);
-        var d = products.keys().map(key => {
-            let res = products(key);
-            res.slug = key.slice(2, -5);
-            return res;
-        });
-        await commit('setProducts', d);
+
 
     }
 };

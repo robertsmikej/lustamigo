@@ -35,13 +35,12 @@
                 ></div>
             </div>
 
-            <!-- <div class="page__content--side">
-                {{ pageads }}
+            <div class="page__content--side">
                 <AdSidebar
-                    v-if="pageads.hasOwnProperty('a')"
-                    :ad="pageads"
+                    v-if="pageads.length > 0 && pageads[0]"
+                    :ad="pageads[0]"
                 />
-            </div> -->
+            </div>
         </div>
         <div class="page__content page__content--nowrap">
             <div class="page__content--side">
@@ -259,9 +258,12 @@
                     </div>
                 </form>
             </div>
-            <!-- <div class="page__content--side">
-                <AdSidebar :ad="ads" />
-            </div> -->
+            <div class="page__content--side">
+                <AdSidebar
+                    v-if="pageads.length > 0 && pageads[1]"
+                    :ad="pageads[1]"
+                />
+            </div>
         </div>
         <div class="page__content">
                 <p>This site is not meant for any ninos under 18 years old.</p>
@@ -314,7 +316,7 @@ export default {
             return this.$store.state.products
         },
         pageads: function () {
-            return this.$store.state.pageads
+            return this.$store.state.pages.index.ads
         }
     },
     methods: {

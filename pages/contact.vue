@@ -1,5 +1,5 @@
 <template>
-    <div class="contact">
+    <section class="container contact">
         <div class="page__content page__content--nowrap">
             <div class="page__content--side half__header">
                 <div
@@ -62,7 +62,7 @@
             <h2>Message Sent!</h2>
             <p>Gracias, and we'll be in touch soon!</p>
         </div>
-    </div>
+    </section>
 </template>
 
 <script>

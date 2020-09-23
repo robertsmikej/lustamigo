@@ -1,19 +1,24 @@
 <template>
-    <section class="page__ad__container page__ad__container--side page__ad__container--side--right">
-        <!-- <a
-            :href="a"
+    <section
+        v-if="adData"
+        class="page__ad__container page__ad__container--side page__ad__container--side--right"
+    >
+        <a
+            :href="ad.ad_data.url"
         >
-            <picture class="page__ad page__ad--side">
-                <source 
-                    :srcset="a"
+            <picture
+                class="page__ad page__ad--side"
+            >
+                <source
+                    :srcset="adData.img"
                     media="(min-width: 730px)"
                 >
                 <img 
-                    :src="a" 
-                    :alt="a"
+                    :src="adData.img" 
+                    :alt="adData.name"
                 />
             </picture>
-        </a> -->
+        </a>
     </section>
 </template>
 
@@ -23,18 +28,21 @@ export default {
         ad: Object
     },
     computed: {
-
-    },
-    data () {
-        return {
-            
+        adData: function () {
+            let ad = this.ad;
+            let type = ad.type;
+            let adimgs = ad.ad_data.productimgs.imgs.filter(img => {
+                return ad.type === img.type || img.type.includes(ad.type)
+            });
+            // console.log(adimgs);
+            if (adimgs.length > 0) {
+                if (adimgs.length === 1) {
+                    return adimgs[0];
+                } else {
+                    return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
+                }
+            }
         }
-    },
-    methods: {
-    
-    },
-    mounted () {
-
     }
 }
 </script>
@@ -50,6 +58,7 @@ export default {
     }
     .page__ad__container--side {
         flex: 1 0 160px;
+        height: 100%;
     }
     .page__ad__container--side--right {
         margin-left: 40px;
