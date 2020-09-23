@@ -249,7 +249,7 @@ export default {
             return this.$store.state.sitewide
         },
         pageData: function () {
-            return this.$store.state.pages.index
+            return this.$store.state.pages.questions
         },
         categories: function () {
             return this.$store.state.categories
@@ -470,17 +470,17 @@ export default {
     },
     head () {
         return {
-            title: "Lust Amigo Questions | Sexy Quiz To Bring You Closer With Your Partner",
+            title: this.pageData.seo.title,
             meta: [
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "Answer some fun questions about your sexy fantasies and become closer with your partner.  The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner."
+                    content: this.pageData.seo.description
                 },
                 {
                     hid: 'robots', 
                     name: 'robots', 
-                    content: 'index, follow'
+                    content: this.pageData.seo.indexfollow
                 }
             ]
         }

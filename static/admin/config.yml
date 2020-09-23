@@ -46,7 +46,22 @@ collections:
         fields:
         - { label: 'Footer Logo', name: 'logo', widget: 'image', required: false }
         - { label: 'Footer - Show Footer Logo', name: 'show_logo', widget: 'boolean', required: false }
-        - { label: 'Footer - Show Site Links', name: 'show_site_links', widget: 'boolean', required: false }
+        - { label: 'Footer - Show Company Name', name: 'show_name', widget: 'boolean', required: false }
+        - label: "Footer Site Links"
+          name: "sitelinks"
+          widget: "object"
+          fields:
+          - { label: 'Links Section Header', name: 'links_header', widget: 'string' }
+          - { label: 'Footer - Show Site Links', name: 'show_site_links', widget: 'boolean', required: false }
+          - label: "Footer Links To Show"
+            name: "links"
+            widget: "relation"
+            collection: "pages"
+            searchFields: ["name"]
+            valueField: "name"
+            multiple: true
+            displayFields: ["name"]
+            required: false
         - { label: 'Footer - Show Social Media', name: 'show_social', widget: 'boolean', required: false }
         - { label: 'Footer Short Paragraph', name: 'para', widget: 'text', required: false }
       - label: "Social Media"
@@ -56,6 +71,7 @@ collections:
         - label: "Social Media"
           name: "social_media"
           widget: "list"
+          required: false
           fields:
           - label: "Which Social Network"
             name: "which"
@@ -66,6 +82,7 @@ collections:
       - label: "Site Images"
         name: "siteimages"
         widget: "list"
+        required: false
         fields:
           - { label: "Image Name", name: "imagename", widget: "string", default: "Image" }
           - { label: "Alt Text", name: "imagealt", widget: "string", default: "Alt Text", required: false }
@@ -86,6 +103,7 @@ collections:
       - label: "Nav Items"
         name: "nav_items"
         widget: "list"
+        required: false
         fields:
         - { label: 'Title', name: 'title', widget: 'string' }
         - { label: "Shown", name: "status", widget: "boolean", default: true, required: false }
@@ -95,15 +113,16 @@ collections:
 
   - name: 'pages'
     label: 'Pages'
-    identifier_field: name
+    identifier_field: formal_name
     format: 'json'
     folder: 'assets/content/pages'
     create: true
-    slug: '{{slug}}'
+    slug: '{{name}}'
     editor:
       preview: false
     fields:
-      - { label: 'Page Name', name: 'name', widget: 'string' }
+      - { label: 'Page Formal Name', name: 'formal_name', widget: 'string' }
+      - { label: 'Page Name', name: 'name', widget: 'string', hint: "Page URL name" }
       - label: "SEO Info"
         name: "seo"
         widget: "object"
@@ -156,26 +175,8 @@ collections:
         name: "ads"
         widget: "list"
         fields:
-          - label: "Ad Type"
-            name: "type"
-            widget: "select"
-            multiple: false
-            options: ["square", "banner", "side-tall", "side-short"]
-            default: ["side-tall"]
-            required: false
-            hint: "What type of ad is this?"
-          - label: "Digital Ad"
-            name: "digitalad"
-            widget: "relation"
-            collection: "digitalproducts"
-            searchFields: ["name"]
-            valueField: "name"
-            multiple: false
-            displayFields: ["name"]
-            required: false
-            hint: "If this AD is Digital, which product is it?"
           - label: "Ad"
-            name: "physicalad"
+            name: "ad"
             widget: "relation"
             collection: "products"
             searchFields: ["name"]
@@ -183,7 +184,15 @@ collections:
             multiple: false
             displayFields: ["name"]
             required: false
-            hint: "If this AD is Physical, which product is it?"
+          - label: "Ad Type"
+            name: "type"
+            widget: "select"
+            multiple: false
+            options: ["square", "banner", "sidebar"]
+            default: "sidebar"
+            required: false
+            hint: "What type of ad is this?"
+          
           
 
   - name: 'questioncategories'
@@ -264,11 +273,11 @@ collections:
               - label: "Image Type"
                 name: "type"
                 widget: "select"
-                multiple: false
+                multiple: true
                 options: ["square", "banner", "sidebar"]
                 default: ["square"]
                 required: false
-                hint: "What type of image is this?"
+                hint: "What type shape of image is this? Can be multiple."
               - label: "Media Type"
                 name: "mediatype"
                 widget: "select"

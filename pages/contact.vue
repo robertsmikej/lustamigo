@@ -1,9 +1,11 @@
 <template>
     <div class="contact">
-        <div class="half__header">
-            <div class="half__header__inner">
-                <h1>Contact The Lust Amigo</h1>
-                <p>Want to reach out and tell us something? Have a suggestion to make our site better? Please let us know and we'll do our best to get back quickly.</p>
+        <div class="page__content page__content--nowrap">
+            <div class="page__content--side half__header">
+                <div
+                    v-html="$md.render(pageData.contentSection1.content_1)"
+                    class="padded__section half__header__inner"
+                ></div>
             </div>
         </div>
         <form 
@@ -77,6 +79,14 @@ export default {
             sent: false
         }
     },
+    computed: {
+        sitewide: function () {
+            return this.$store.state.sitewide
+        },
+        pageData: function () {
+            return this.$store.state.pages.contact
+        }
+    },
     methods: {
         handleSubmit: function () {
             let emaildata = JSON.stringify({
@@ -88,17 +98,17 @@ export default {
     },
     head () {
         return {
-            title: "Lust Amigo | Contact The Lust Amigo",
+            title: this.pageData.seo.title,
             meta: [
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "Do you have any questions for the Lust Amigo? He's here to help!"                
+                    content: this.pageData.seo.description
                 },
                 {
                     hid: 'robots', 
                     name: 'robots', 
-                    content: 'index, follow'
+                    content: this.pageData.seo.indexfollow
                 }
             ]
         }

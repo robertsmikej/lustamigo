@@ -2,7 +2,6 @@
     <section class="container">
         <Hero :dataObj="pageData"/>
         <span id="get__started"></span>
-        
         <div class="page__content page__content--nowrap">
             <div class="page__content--side">
                 <div
@@ -17,23 +16,18 @@
                     />
                 </div>
                 <div class="padded__section">
-                    <div class="pepper__section">
-                        <h2>The Sexy Pepper!</h2>
-                        <span class="pepper__example question__special">
-                            
-                            <img 
-                                :src="getImage('Pepper')[0].img" 
-                                alt="This is Mucho Hot!" 
-                                class="pepper__example__img"
-                            />
-                            <div class="pepper__example__text">
-                                &#8592; That's one Sexy Pepper!
-                            </div>
-                        </span>
-                        <p class="info__para">
-                            Click the sexy pepper icon next to each question to mark things that you think are especially caliente! 
-                        </p>
-                    </div>
+                    <h2>The Sexy Pepper!</h2>
+                    <span class="pepper__example question__special">
+                        
+                        <img 
+                            :src="getImage('Pepper')[0].img" 
+                            alt="This is Mucho Hot!" 
+                            class="pepper__example__img"
+                        />
+                        <div class="pepper__example__text">
+                            &#8592; That's one Sexy Pepper!
+                        </div>
+                    </span>
                 </div>
                 <div
                     v-html="$md.render(pageData.contentSection1.content_2)"
@@ -51,7 +45,6 @@
         </div>
         <div class="page__content page__content--nowrap">
             <div class="page__content--side">
-                <h2>What We Need</h2>
                 <form class="enter__info__fields">
                     <div class="info__section">
                         <h2>You</h2>
@@ -348,7 +341,7 @@ export default {
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
         },
-        validateSelections: function () {
+        validateSelections: function() {
             const inputs = document.querySelector(".enter__info__fields").getElementsByTagName("input");
             const empties = Array.from(inputs).filter(input => input.value.length === 0)
             // const empties
@@ -486,17 +479,17 @@ export default {
     },
     head () {
         return {
-            title: "Lust Amigo | Sexy Quiz To Bring You Closer With Your Partner",
+            title: this.pageData.seo.title,
             meta: [
                 { 
                     hid: 'description',
                     name: 'description',
-                    content: "The Lust Amigo is an fun, quick way to see what sort of kinks, and desires you have in common with your partner."
+                    content: this.pageData.seo.description
                 },
                 {
                     hid: 'robots', 
                     name: 'robots', 
-                    content: 'index, follow'
+                    content: this.pageData.seo.indexfollow
                 }
             ],
             script: [{ src: 'https://identity.netlify.com/v1/netlify-identity-widget.js' }],
@@ -509,7 +502,6 @@ export default {
 .example__question {
     background-color: var(--question-color);
     color: #FFF;
-    /* max-width: 860px; */
     margin: 30px auto;
 }
 .example__question .question__answer__cell {

@@ -265,9 +265,11 @@ a {
 
 
 .page__content {
-    padding: 30px 10px 0;
     width: 100%;
     max-width: 960px;
+    padding: 30px 10px 0;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -737,6 +739,9 @@ body .question__answer__both__partners label:hover {
     .info__radio__field label {
         flex: 0 1 auto;
         padding: 0 4px;
+    }
+    label.info__radio__field--equipment {
+        flex: 1 1 46%;
     }
     .form__img__container {
         padding: 20px;
