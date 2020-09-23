@@ -11,13 +11,18 @@
   "status": true,
   "pricerange": "7",
   "importance": "6",
+  "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "Have you ever experienced the body shakes of a full-blown G-spot orgasm? You’re about to. The world-famous GIGI™ 2 takes G-spot orgasms to a whole new level.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Gigi 2",
-        "img": "/img/gigi-2-cool-gray.jpg"
+        "img": "/img/gigi-2-cool-gray.jpg",
+        "mediatype": "product"
       }
     ]
   }
