@@ -13,7 +13,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "sidebar"
+        ],
         "mediatype": "ad",
         "name": "Pornstar Method - Square Ad",
         "img": "/img/pornstar-method-ad.jpg"
