@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "7",
   "importance": "6",
+  "type": "physical",
   "description": "For couples who demand the most intense and luxurious pleasure without the bulk of a larger wand.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "SMART WAND Medium",
-        "img": "/img/lelo_insignia_smart-wand.jpg"
+        "img": "/img/lelo_insignia_smart-wand.jpg",
+        "mediatype": "product"
       }
     ]
   }
