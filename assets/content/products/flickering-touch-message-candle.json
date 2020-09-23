@@ -18,7 +18,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Flickering Touch Massage Candle",
         "img": "/img/lelo_accessories_massage-candle.jpg",
         "mediatype": "product"
