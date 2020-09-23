@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Ora 3",
         "img": "/img/lelo_ora_3.jpg",
         "mediatype": "product"
