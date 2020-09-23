@@ -10,13 +10,17 @@
   "pricerange": "5",
   "importance": "5",
   "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "This patriotic anal toy underwent a super secret silicone operation which transformed it from a boring old silicone plug, into a super awesome, multi coloured, anal Indulger!",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Captain Anal - Front",
-        "img": "/img/captain-anal-butt-plug-2.jpg"
+        "img": "/img/captain-anal-butt-plug-2.jpg",
+        "mediatype": "product"
       }
     ]
   }
