@@ -17,7 +17,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Earl - Front",
         "img": "/img/lelo_earl.jpg",
         "mediatype": "product"
