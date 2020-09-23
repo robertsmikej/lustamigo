@@ -20,7 +20,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Elise 2",
         "img": "/img/lelo_elise_2.jpg",
         "mediatype": "product"
