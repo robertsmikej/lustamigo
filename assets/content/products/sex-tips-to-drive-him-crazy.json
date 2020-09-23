@@ -13,19 +13,25 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "banner",
+        "type": [
+          "banner"
+        ],
         "name": "Sex Tips To Drive Him Crazy - Banner",
         "img": "/img/sex-tips-to-drive-him-crazy-banner.jpg",
         "mediatype": "ad"
       },
       {
-        "type": "side-tall",
+        "type": [
+          "sidebar"
+        ],
         "img": "/img/sex-tips-to-drive-him-crazy-side.jpg",
         "name": "Sex Tips To Drive Him Crazy - Side",
         "mediatype": "ad"
       },
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "img": "/img/sex-tips-to-drive-him-crazy-square.jpg",
         "name": "Sex Tips To Drive Him Crazy - Square",
         "mediatype": "ad"
