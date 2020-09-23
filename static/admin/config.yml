@@ -265,10 +265,18 @@ collections:
                 name: "type"
                 widget: "select"
                 multiple: false
-                options: ["square", "banner", "sidebar", "side-short"]
+                options: ["square", "banner", "sidebar"]
                 default: ["square"]
                 required: false
                 hint: "What type of image is this?"
+              - label: "Media Type"
+                name: "mediatype"
+                widget: "select"
+                multiple: false
+                options: ["product", "ad"]
+                default: ["square"]
+                required: false
+                hint: "What type of media is this? Product Image, Ad, Etc.?"
       - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
       - { label: "Product Description", name: "description", widget: "text", required: false }
       - { label: "Product URL", name: "url", widget: "string", required: false }
