@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "TANTRA Feather Teaser",
         "img": "/img/lelo_accessories_tantra.jpg",
         "mediatype": "product"
