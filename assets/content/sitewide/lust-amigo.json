@@ -16,7 +16,8 @@
     "logo": "/img/lust-amigo-small.png",
     "show_logo": true,
     "show_site_links": true,
-    "para": "The Lust Amigo is an interactive quiz to help you improve your sex life with your partner."
+    "para": "The Lust Amigo is an interactive quiz to help you improve your sex life with your partner.",
+    "show_name": true
   },
   "siteimages": [
     {
