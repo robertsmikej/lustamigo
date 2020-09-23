@@ -265,7 +265,7 @@ collections:
                 name: "type"
                 widget: "select"
                 multiple: false
-                options: ["square", "banner", "side-tall", "side-short"]
+                options: ["square", "banner", "sidebar", "side-short"]
                 default: ["square"]
                 required: false
                 hint: "What type of image is this?"
