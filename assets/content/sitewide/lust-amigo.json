@@ -20,7 +20,14 @@
     "show_name": true,
     "footerLinks": [
       "index"
-    ]
+    ],
+    "sitelinks": {
+      "links_header": "Site Links",
+      "show_site_links": true,
+      "links": [
+        "index"
+      ]
+    }
   },
   "siteimages": [
     {
