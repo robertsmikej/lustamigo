@@ -16,7 +16,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Ina 2",
         "img": "/img/ina2_300x300.jpg",
         "mediatype": "ad"
