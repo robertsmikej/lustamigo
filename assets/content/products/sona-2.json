@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "7",
   "importance": "6",
+  "type": "physical",
   "description": "The biggest step forward in pleasure in the past decade because it uses SenSonic technology to stimulate more of the clitoris than ever before. ",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Sona 2",
-        "img": "/img/lelo-sona2.jpg"
+        "img": "/img/lelo-sona2.jpg",
+        "mediatype": "product"
       }
     ]
   }
