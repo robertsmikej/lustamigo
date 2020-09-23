@@ -94,28 +94,40 @@
           "question": "Be louder during sex (Both or one of you)",
           "description": "Channel your inner porn star!",
           "bothpartners": true,
-          "spicelevel": "3"
+          "spicelevel": "3",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Be rougher in sex",
           "bothpartners": true,
-          "spicelevel": "4"
+          "spicelevel": "4",
+          "relatedproducts": [
+            "SENSUA Suede Whip"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Rub genitals on partner's body",
           "bothpartners": true,
-          "spicelevel": "3"
+          "spicelevel": "3",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Rub genitals on partner's face",
           "bothpartners": true,
-          "spicelevel": "5"
+          "spicelevel": "5",
+          "relatedproducts": [
+            "INTIMA Silk Blindfold"
+          ]
         },
         {
           "status": true,
@@ -123,7 +135,10 @@
           "question": "Face Sitting",
           "description": "A special treat!",
           "bothpartners": true,
-          "spicelevel": "5"
+          "spicelevel": "5",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ]
         },
         {
           "status": true,
@@ -133,7 +148,11 @@
           "typeof": [
             "straight"
           ],
-          "spicelevel": "2"
+          "spicelevel": "2",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ],
+          "description": "To thrust the penis between a women's preferably large breasts and ejaculate on her chest and/or face."
         },
         {
           "status": true,
@@ -145,7 +164,10 @@
             "straight",
             "gay-male"
           ],
-          "spicelevel": "4"
+          "spicelevel": "4",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ]
         },
         {
           "status": true,
@@ -162,26 +184,38 @@
           "typeof": [
             "straight"
           ],
-          "spicelevel": "4"
+          "spicelevel": "4",
+          "relatedproducts": [
+            "Personal Moisturizer"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Go to a Strip Club",
-          "spicelevel": "3"
+          "spicelevel": "3",
+          "relatedproducts": [
+            "Batt Plug"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Medium",
           "question": "Nipple Play!",
           "description": "Bite Em'.",
-          "spicelevel": "2"
+          "spicelevel": "2",
+          "relatedproducts": [
+            "Hex Condoms"
+          ]
         },
         {
           "status": true,
           "spicinesslevel": "Mild",
           "question": "Have Phone Sex",
-          "spicelevel": "1"
+          "spicelevel": "1",
+          "relatedproducts": [
+            "His Secret Obsession"
+          ]
         },
         {
           "status": true,
