@@ -16,7 +16,8 @@
       {
         "type": "square",
         "name": "The Incredible Dong",
-        "img": "/img/incredible-dong-5.jpg"
+        "img": "/img/incredible-dong-5.jpg",
+        "mediatype": "product"
       }
     ]
   }
