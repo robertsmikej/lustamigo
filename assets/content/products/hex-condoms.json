@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "3",
   "importance": "9",
+  "type": "physical",
   "description": "It's like a condom... and is a condom, but it's made up of Hexagons!",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Hex Condoms",
-        "img": "/img/hex_300x250.jpg"
+        "img": "/img/hex_300x250.jpg",
+        "mediatype": "ad"
       }
     ]
   }
