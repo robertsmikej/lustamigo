@@ -19,7 +19,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Billy 2",
         "img": "/img/lelo_billy_2.jpg",
         "mediatype": "product"
