@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "TARA",
         "img": "/img/lelo_tera.jpg",
         "mediatype": "product"
