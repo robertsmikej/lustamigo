@@ -16,7 +16,8 @@
       {
         "type": "square",
         "name": "Space Station Ball Gag - Front",
-        "img": "/img/space-station-ball-gag-001.jpg"
+        "img": "/img/space-station-ball-gag-001.jpg",
+        "mediatype": "product"
       }
     ]
   }
