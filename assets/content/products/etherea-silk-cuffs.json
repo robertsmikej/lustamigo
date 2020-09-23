@@ -18,7 +18,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "ETHEREA Silk Cuffs",
         "img": "/img/lelo_accessories_etherea.jpg",
         "mediatype": "product"
