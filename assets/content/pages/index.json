@@ -57,12 +57,14 @@
   },
   "ads": [
     {
-      "type": "side-tall",
-      "digitalad": "Text Chemistry"
+      "type": "sidebar",
+      "digitalad": "Text Chemistry",
+      "ad": "His Secret Obsession"
     },
     {
-      "type": "side-tall",
-      "digitalad": "ED Elixir"
+      "type": "square",
+      "digitalad": "ED Elixir",
+      "ad": "Pornstar Method"
     }
   ]
 }
