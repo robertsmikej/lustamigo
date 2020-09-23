@@ -17,7 +17,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Batt Plug - Front",
         "img": "/img/batt_plug-3.jpg",
         "mediatype": "product"
