@@ -11,7 +11,28 @@
   "contentSection1": {
     "header_1": "Header Text Here"
   },
-  "pageimages": [],
+  "pageimages": [
+    {
+      "imagename": "Booze",
+      "imagealt": "Booze Bottle",
+      "img": "/img/mexi-cons-beer-growler.png"
+    },
+    {
+      "imagename": "Scorpion",
+      "imagealt": "Scorpion Image",
+      "img": "/img/mexi-cons-scorpion-trimmed.png"
+    },
+    {
+      "imagename": "Taco",
+      "imagealt": "Sexy Taco Image",
+      "img": "/img/mexi-cons-taco.png"
+    },
+    {
+      "imagename": "Strawberry Ice Cream",
+      "imagealt": "Strawberry Ice Cream Image",
+      "img": "/img/mexi-cons-strawberry-shaved-ice-trimmed.png"
+    }
+  ],
   "ads": [],
   "formal_name": "Questions",
   "name": "questions"
