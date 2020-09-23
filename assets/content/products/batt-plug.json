@@ -10,13 +10,17 @@
   "pricerange": "5",
   "importance": "4",
   "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "This crime fighting vigilante anal toy is sure to provide you with a uniquely fun experience in the bedroom. Using a firm yet smooth 100% body safe silicone Batt Plug is a must have addition to your anal toy collection.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Batt Plug - Front",
-        "img": "/img/batt_plug-3.jpg"
+        "img": "/img/batt_plug-3.jpg",
+        "mediatype": "product"
       }
     ]
   }
