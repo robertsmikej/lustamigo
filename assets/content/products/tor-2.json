@@ -16,7 +16,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Tor 2",
         "img": "/img/lelo-tor-2.jpg",
         "mediatype": "product"
