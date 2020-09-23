@@ -11,13 +11,18 @@
   "status": true,
   "pricerange": "9",
   "importance": "4",
+  "type": "physical",
+  "usedon": [
+    "both"
+  ],
   "description": "Explore new, more daring pleasure – now with 8 pleasure settings and even more power. There is simply no finer or more luxurious prostate massager for men who are serious about their personal satisfaction. And now, it’s waterproof and USB-rechargeable too!",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "Billy 2",
-        "img": "/img/lelo_billy_2.jpg"
+        "img": "/img/lelo_billy_2.jpg",
+        "mediatype": "product"
       }
     ]
   }
