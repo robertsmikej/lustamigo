@@ -239,7 +239,7 @@ collections:
                 required: false
 
   - name: 'products'
-    label: 'Physical Products'
+    label: 'Products'
     identifier_field: name
     format: 'json'
     folder: 'assets/content/products'
@@ -313,64 +313,3 @@ collections:
         required: false
         hint: "How important is it to show this products over others?"
       - { label: "Special Notes", name: "note", widget: "text", required: false }
-
-  - name: 'digitalproducts'
-    label: 'Digital Products'
-    identifier_field: name
-    format: 'json'
-    folder: 'assets/content/digitalproducts'
-    create: true
-    slug: '{{slug}}'
-    editor:
-      preview: false
-    fields:
-      - { label: 'Product Name', name: 'name', widget: 'string' }
-      - { label: 'Brand Name', name: 'brandname', widget: 'string', required: false }
-      - { label: "Show This Product", name: "status", widget: "boolean", default: false, required: false }
-      - label: "Product Images"
-        name: "productimgs"
-        widget: object
-        fields:
-          - label: "Images"
-            name: "imgs"
-            widget: "list"
-            fields:
-              - { label: 'Image Name', name: 'name', widget: 'string' }
-              - { label: "Product Image", name: "img", widget: "image", required: false }
-              - label: "Image Type"
-                name: "type"
-                widget: "select"
-                multiple: false
-                options: ["square", "banner", "side-tall", "side-short"]
-                default: ["square"]
-                required: false
-                hint: "What type of image is this?"
-      - { label: "Product Tag Line", name: "tagline", widget: "string", required: false }
-      - { label: "Product Description", name: "description", widget: "text", required: false }
-      - { label: "Product URL", name: "url", widget: "string", required: false }
-      - label: "Used On"
-        name: "typeof"
-        widget: "select"
-        multiple: true
-        options: ["both", "male", "female"]
-        default: ["both"]
-        required: false
-        hint: "What sex is this product used on?"
-      - label: "Price Range"
-        name: "pricerange"
-        widget: "select"
-        multiple: false
-        options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        default: ["both"]
-        required: false
-        hint: "On a scale of 1-10, how expensive is this generally?"
-      - label: "Importance To Show"
-        name: "importance"
-        widget: "select"
-        multiple: false
-        options: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"]
-        default: ["3"]
-        required: false
-        hint: "How important is it to show this products over others?"
-      - { label: "Special Notes", name: "note", widget: "text", required: false }
-          
