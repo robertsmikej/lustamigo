@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Hula",
         "img": "/img/lelohula.jpg",
         "mediatype": "product"
