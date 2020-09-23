@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "4",
   "importance": "4",
+  "type": "physical",
   "description": "Made with the softest feathers for exploring the most sensitive places.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "TANTRA Feather Teaser",
-        "img": "/img/lelo_accessories_tantra.jpg"
+        "img": "/img/lelo_accessories_tantra.jpg",
+        "mediatype": "product"
       }
     ]
   }
