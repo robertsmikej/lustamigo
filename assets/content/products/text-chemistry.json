@@ -17,13 +17,17 @@
     "imgtype": "banner",
     "imgs": [
       {
-        "type": "banner",
+        "type": [
+          "banner"
+        ],
         "img": "/img/text-chemisty-970x250.jpg",
         "name": "Text Him This To Make Him Love You - Banner",
         "mediatype": "ad"
       },
       {
-        "type": "sidebar",
+        "type": [
+          "sidebar"
+        ],
         "img": "/img/text-chemisty-160x600.jpg",
         "name": "Text Him This To Make Him Love You - Side Banner",
         "mediatype": "ad"
