@@ -1,0 +1,26 @@
+{
+  "name": "SENSUA Suede Whip",
+  "tagline": "Perfect for horse and partner riding.",
+  "url": "http://lip.go2cloud.org/aff_c?offer_id=2&aff_id=3648&url_id=105",
+  "typeof": [
+    "both"
+  ],
+  "brandname": "Lelo",
+  "status": true,
+  "pricerange": "6",
+  "importance": "5",
+  "type": "physical",
+  "description": "The soft and supple suede tassels, alongside the polished metal and acrylic handle, make it a stylish addition to any collection.",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": [
+          "square"
+        ],
+        "mediatype": "product",
+        "img": "/img/lelo_sensua_suede_whip.jpg",
+        "name": "Sensua Suede Whip Image"
+      }
+    ]
+  }
+}
