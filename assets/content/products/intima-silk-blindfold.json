@@ -10,13 +10,15 @@
   "status": true,
   "pricerange": "5",
   "importance": "6",
+  "type": "physical",
   "description": "Heighten the senses and delight in the pleasures that mystery will bring.",
   "productimgs": {
     "imgs": [
       {
         "type": "square",
         "name": "INTIMA Silk Blindfold",
-        "img": "/img/intima_red_500x.jpg"
+        "img": "/img/intima_red_500x.jpg",
+        "mediatype": "product"
       }
     ]
   }
