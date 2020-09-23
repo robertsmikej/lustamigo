@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Sona 2",
         "img": "/img/lelo-sona2.jpg",
         "mediatype": "product"
