@@ -15,7 +15,9 @@
   "productimgs": {
     "imgs": [
       {
-        "type": "square",
+        "type": [
+          "square"
+        ],
         "name": "Hex Condoms",
         "img": "/img/hex_300x250.jpg",
         "mediatype": "ad"
