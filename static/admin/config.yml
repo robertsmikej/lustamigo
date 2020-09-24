@@ -221,6 +221,7 @@ collections:
               - { label: 'Question', name: 'question', widget: 'text' }
               - { label: "Show This Question", name: "status", widget: "boolean", default: false, required: false }
               - { label: "Question Description", name: "description", widget: "text", required: false }
+              - { label: "Search Term", name: "searchterm", widget: "string", required: false }
               - { label: "Ask Both Partners", name: "bothpartners", widget: "boolean", default: false, required: false }
               - label: "Spice Level"
                 name: "spicelevel"

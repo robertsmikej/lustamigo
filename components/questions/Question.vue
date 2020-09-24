@@ -8,7 +8,7 @@
             </p>
             <div 
                 v-if="question.description"
-                @click="toggleExplainButton" 
+                @click="toggleExplainButton($event); getUrbanDef(question.searchterm)" 
                 class="qa__text__explain__icon"
             >
                 <span>?</span>
@@ -154,6 +154,7 @@ export default {
             return images.filter(img => img.imagename === name);
         },
         toggleExplainButton: function (event) {
+            console.log(event);
             let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
             if (change) {
                 if (!change.classList.contains("qa__text__explain__text--show")) {
@@ -163,9 +164,14 @@ export default {
                 }
             }
         },
-        toggleExplainClose: function () {
+        toggleExplainClose: function (event) {
+            
             let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
             change.classList.remove("qa__text__explain__text--show");
+        },
+        getUrbanDef: function (term) {
+            console.log(term);
+            this.$emit('get-urban', term)
         }
     }
 }

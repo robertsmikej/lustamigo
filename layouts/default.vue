@@ -1,7 +1,7 @@
 <template>
     <div>
         <Nav :sitewide="sitewide" :nav="nav"/>
-        <Nuxt />
+        <Nuxt @get-urban="getUrbanDictionaryDefinition"/>
         <Footer/>
     </div>
 </template>
@@ -15,6 +15,36 @@ export default {
         nav: function () {
             return this.$store.state.nav
         }
+    },
+    methods: {
+        //INITIAL DATABASE CHECK FUNCTIONS
+        getUrbanDictionaryDefinition: function (e) { //CHECK DB FOR USER DATA AND EXISTANCE
+            console.log(e);
+            const databaseFunction = "/.netlify/functions/get-urban-definition";
+            const data = {
+                term: e
+            };
+            console.log(data);
+            return new Promise((resolve, reject) => {
+                fetch(databaseFunction, {
+                    method: "POST",
+                    body: JSON.stringify(data)
+                }).then(async response => {
+                    return response.json();
+                }).then(data => {
+                    // console.log(data);
+                    if (data.name !== "NotFound") { //CHECKS TO SEE IF DATA OR USER EXISTS IN DATABASE
+                        this.databaseExists = true;
+                        this.setDataFromDatabase(data);
+                    } else { //IF NO USER DATA IN DATABASE THEN JUST QUESTIONS ARE SHOWN
+                        this.justShowQuestions();
+                    }
+                    resolve(data);
+                }).catch(err => {
+                    reject(err);
+                });
+            })
+        },
     }
 }
 </script>
