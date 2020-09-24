@@ -1,8 +1,8 @@
 <template>
     <div class="category__ad__container">
-        <h5>
+        <!-- <h5>
             Some Related Products
-        </h5>
+        </h5> THIS SEEMS TO BE BREAKING THINGS WHEN USING AN V-IF TO CHECK FOR PRODUCT ARRAY LENGTH -->
         <AdSquare
             v-for="(ad, index) in narrowedAds"
             :ad="ad"
