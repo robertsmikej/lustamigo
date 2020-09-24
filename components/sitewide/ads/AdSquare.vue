@@ -1,36 +1,13 @@
 <template>
-    <div
-        class="page__ad__container page__ad__container--square"
-    >
-        <a
-            :href="ad.url"
-            class="page__ad page__ad--square"
-        >
+    <div class="page__ad__container page__ad__container--square">
+        <a :href="ad.url" class="page__ad page__ad--square">
             <div class="ad__square__image__container">
-                <img 
-                    :src="adData.img" 
-                    :alt="adData.name"
-                />
+                <img :src="ad.img" :alt="ad.name"/>
             </div>
             <div class="ad__square__text__container">
-                <h5 
-                    v-if="ad.name"
-                    class="ad__product__name"
-                >
-                    {{ ad.name }}
-                </h5>
-                <h6 
-                    v-if="ad.brandname"
-                    class="ad__product__brand"
-                >
-                    {{ ad.brandname }}
-                </h6>
-                <p 
-                    v-if="ad.tagline"
-                    class="ad__product__tagline"
-                >
-                    {{ ad.tagline }}
-                </p>
+                <h5 v-if="ad.name" class="ad__product__name">{{ ad.name }}</h5>
+                <h6 v-if="ad.brandname" class="ad__product__brand">{{ ad.brandname }}</h6>
+                <p v-if="ad.tagline" class="ad__product__tagline">{{ ad.tagline }}</p>
             </div>
         </a>
     </div>
@@ -40,29 +17,6 @@
 export default {
     props: {
         ad: Object
-    },
-    data () {
-        return {
-            type: "square"
-        }
-    },
-    computed: {
-        adData: function () {
-            let ad = this.ad;
-            let type = this.type;
-            let adimgs = ad.productimgs.imgs.filter(img => {
-                return this.type === img.type || img.type.includes(this.type)
-            });
-            return adimgs[0];
-            // console.log(adimgs);
-            // if (adimgs.length > 0) {
-            //     if (adimgs.length === 1) {
-            //         return adimgs[0];
-            //     } else {
-            //         return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
-            //     }
-            // }
-        }
     }
 }
 </script>
@@ -70,10 +24,13 @@ export default {
 <style>
 .page__ad__container--square {
     flex: 1 1 30%;
+    max-width: 33%;
     border: 1px solid var(--gun-grey);
     padding: 0;
+    display: block;
 }
 body .page__ad--square {
+    width: 100%;
     text-decoration: none;
     color: inherit;
     height: 100%;
@@ -100,7 +57,7 @@ body .page__ad--square {
 }
 .ad__product__name {
     font-size: 1.1em;
-    line-height: 1em;
+    line-height: 1.2em;
     font-weight: 700;
 }
 .ad__product__brand {

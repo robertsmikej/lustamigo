@@ -1,18 +1,16 @@
 <template>
-    <section 
-        class="category__ad__container"
-    >
-        <h5>Some Related Products</h5>
-        <div 
-            class="category__ad__container--inner"
-        >
+    <div class="category__ad__container">
+        <h5 v-if="this.categoryAds.length > 0">
+            Some Related Products
+        </h5>
+        <div class="category__ad__container--inner">
             <AdSquare
                 v-for="(ad, index) in narrowedAds"
                 :ad="ad"
                 :key="category.name + ad.name + index"
-            />            
+            />
         </div>
-    </section>
+    </div>
 </template>
 
 <script>
@@ -51,10 +49,14 @@ export default {
                 }
                 let fullAdArr = this.products.filter(prod => {
                     return narrowedList.includes(prod.name);
+                });
+                fullAdArr.forEach(ad => {
+                    ad.img = ad.productimgs.imgs.filter(img => {
+                        return img.type.includes("square")
+                    })[0].img;
                 })
                 return fullAdArr;
             }
-            
         }
     }
 }
