@@ -1,13 +1,38 @@
 <template>
     <div>
         <Nav :sitewide="sitewide" :nav="nav"/>
-        <Nuxt @get-urban="getUrbanDictionaryDefinition"/>
+        <Nuxt/>
+        <Definition 
+            :definition="definition"
+            v-if="definition.showDefinition"
+        />
+        <div
+            v-if="definition.showDefinition"
+            @click.prevent="closeDefine"
+            class="modal__overlay"
+        ></div>
         <Footer/>
     </div>
 </template>
 
 <script>
 export default {
+    data () {
+        return {
+            definition: {
+                showDefinition: false,
+                term: "",
+                explainText: "Random Definition From Urban Dictionary",
+                definition: "",
+                example: "",
+                buttonText: "Get New Definition",
+                closeText: "Close",
+                currentDefinitions: [],
+                errorMessage: "Unfortunately There Aren't Any (more) Definitions For This",
+                showError: false
+            }
+        }
+    },
     computed: {
         sitewide: function () {
             return this.$store.state.sitewide
@@ -16,15 +41,46 @@ export default {
             return this.$store.state.nav
         }
     },
+    created() {
+        this.$nuxt.$on('showdefine', data => {
+            this.definition.showDefinition = !this.definition.showDefinition;
+            this.definition.showError = false;
+            if (data !== undefined) {
+                this.getUrbanDictionaryDefinition(data);
+            } else {
+                this.showError = true;
+            }
+
+        });
+        this.$nuxt.$on('hidedefine', data => {
+            this.definition.showDefinition = false;
+            this.resetDictionary();
+            this.definition.showError = true;
+        });
+        this.$nuxt.$on('getnewdefine', data => {
+            let currentDefs = this.definition.currentDefinitions;
+            if (currentDefs.legnth >= 1) {
+                let getRandom = this.chooseRandomFromArray(currentDefs);
+                this.definition.definition = getRandom.definition;
+                this.definition.example = getRandom.example;
+            } else {
+                this.resetDictionary();
+                this.definition.showError = true;
+            }
+        });
+    },
     methods: {
-        //INITIAL DATABASE CHECK FUNCTIONS
-        getUrbanDictionaryDefinition: function (e) { //CHECK DB FOR USER DATA AND EXISTANCE
-            console.log(e);
+        resetDictionary: function () {
+            this.definition.term = "";
+            this.definition.definition = "";
+            this.definition.example = "";
+            this.definition.currentDefinitions = [];
+        },
+        getUrbanDictionaryDefinition: function (term) { //CHECK DB FOR USER DATA AND EXISTANCE
             const databaseFunction = "/.netlify/functions/get-urban-definition";
             const data = {
-                term: e
+                term: term
             };
-            console.log(data);
             return new Promise((resolve, reject) => {
                 fetch(databaseFunction, {
                     method: "POST",
@@ -32,19 +88,33 @@ export default {
                 }).then(async response => {
                     return response.json();
                 }).then(data => {
-                    // console.log(data);
-                    if (data.name !== "NotFound") { //CHECKS TO SEE IF DATA OR USER EXISTS IN DATABASE
-                        this.databaseExists = true;
-                        this.setDataFromDatabase(data);
-                    } else { //IF NO USER DATA IN DATABASE THEN JUST QUESTIONS ARE SHOWN
-                        this.justShowQuestions();
-                    }
+                    this.definition.term = term;
+                    this.definition.currentDefinitions = data.list;
+                    let getRandom = this.chooseRandomFromArray(data.list);
+                    this.definition.definition = getRandom.definition;
+                    this.definition.example = getRandom.example;
                     resolve(data);
                 }).catch(err => {
+                    this.definition.showError = true;
                     reject(err);
                 });
             })
         },
+        chooseRandomFromArray: function (arr) {
+            let currentArr = this.definition.currentDefinitions;
+            let index = Math.floor(Math.random() * currentArr.length);
+            // console.log(index);
+            let randomDefinition = currentArr[index];
+            currentArr.splice(index, 1);
+            return {
+                "definition": randomDefinition.definition.replace(/\[/g, "").replace(/\]/g, ""),
+                "example": randomDefinition.example.replace(/\[/g, "").replace(/\]/g, ""),
+                "currentIndex": index
+            }
+        },
+        closeDefine: function () {
+            this.$nuxt.$emit('hidedefine');
+        }
     }
 }
 </script>
@@ -102,6 +172,16 @@ body {
 *:after {
     box-sizing: border-box;
     margin: 0;
+}
+
+.modal__overlay {
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.4);;
+    z-index: 20;
 }
 
 h1 {
@@ -901,6 +981,7 @@ body .question__answer__both__partners label:hover {
     }
     .question__answer__both__partners p {
         padding-top: 2px;
+        width: auto;
     }
     .question__answer:nth-of-type(even) {
         border-right: 1px solid #FFF;
@@ -948,7 +1029,7 @@ body .question__answer__both__partners label:hover {
         margin: 11px 0 10px;
     }
     .page__content {
-        padding: 40px 10px 0;
+        padding: 40px 0px 0;
     }
     .page__content--nowrap {
         flex-wrap: wrap-reverse;
@@ -990,7 +1071,7 @@ body .question__answer__both__partners label:hover {
         border-left: none;
     }
     .enter__info__fields {
-        padding: 0px 0;
+        padding: 0px 10px;
         margin-top: 40px;
     }
     .info__section {
@@ -1063,7 +1144,7 @@ body .question__answer__both__partners label:hover {
         padding: 8px;
     }
     .page__content {
-        padding: 20px 10px 0;
+        padding: 20px 0 0;
     }
 }
 /* ------------------ MEDIA QUERY ------------------ */
@@ -1083,13 +1164,16 @@ body .question__answer__both__partners label:hover {
         line-height: 1.1em;
     }
     p, label {
-        font-size: 1.1em;
-        line-height: 1.4em;
+        font-size: 1em;
+        line-height: 1.2em;
         font-weight: 400;
         margin: 11px 0 10px;
     }
     .enter__info h2 {
         margin-top: 20px;
+    }
+    .info__radio__field {
+        margin: 0;
     }
     .info__section {
         padding: 20px 6px 40px;

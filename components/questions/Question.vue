@@ -1,14 +1,12 @@
 <template>
     <div class="qa__cell__inner">
         <div class="qa__text__cell">
-            <p 
-                v-if="question.question"
-            >
+            <p v-if="question.question">
                 {{ question.question }}
             </p>
             <div 
                 v-if="question.description"
-                @click="toggleExplainButton($event); getUrbanDef(question.searchterm)" 
+                @click="getUrbanDict(searchTerm)" 
                 class="qa__text__explain__icon"
             >
                 <span>?</span>
@@ -119,7 +117,7 @@
                 </div>
             </div>
         </form>
-        <div
+        <!-- <div
             v-if="question.description"
             class="qa__text__explain__text"
         >
@@ -130,7 +128,7 @@
                 @click="toggleExplainClose"
                 class="explain__close submit__button"
             >Close</div>
-        </div>
+        </div> -->
     </div>
 </template>
 
@@ -146,6 +144,9 @@ export default {
     computed: {
         pageData: function () {
             return this.$store.state.pages.index
+        },
+        searchTerm: function () {
+            return this.question.searchterm ? this.question.searchterm : this.question.question
         }
     },
     methods: {
@@ -153,25 +154,23 @@ export default {
             const images = this.pageData.pageimages;
             return images.filter(img => img.imagename === name);
         },
-        toggleExplainButton: function (event) {
-            console.log(event);
-            let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
-            if (change) {
-                if (!change.classList.contains("qa__text__explain__text--show")) {
-                    change.classList.add("qa__text__explain__text--show");
-                } else {
-                    change.classList.remove("qa__text__explain__text--show");
-                }
-            }
-        },
-        toggleExplainClose: function (event) {
+        // toggleExplainButton: function (event) {
+        //     let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
+        //     if (change) {
+        //         if (!change.classList.contains("qa__text__explain__text--show")) {
+        //             change.classList.add("qa__text__explain__text--show");
+        //         } else {
+        //             change.classList.remove("qa__text__explain__text--show");
+        //         }
+        //     }
+        // },
+        // toggleExplainClose: function (event) {
             
-            let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
-            change.classList.remove("qa__text__explain__text--show");
-        },
-        getUrbanDef: function (term) {
-            console.log(term);
-            this.$emit('get-urban', term)
+        //     let change = event.target.closest(".qa__cell__inner").querySelector(".qa__text__explain__text");
+        //     change.classList.remove("qa__text__explain__text--show");
+        // },
+        getUrbanDict: function (term) {
+            this.$nuxt.$emit('showdefine', term);
         }
     }
 }

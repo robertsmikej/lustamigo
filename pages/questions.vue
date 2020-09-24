@@ -57,7 +57,7 @@
             >
                 <div class="info__section">
                     <h2 class="form__spacer">Types of Questions</h2>
-                    <p>What type of questions do you want to see?</p>
+                    <p>Select Your Spice Level</p>
                     <div class="info__radio__field">
                         <input 
                             type="radio" 

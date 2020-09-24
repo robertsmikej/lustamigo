@@ -15,6 +15,9 @@ Vue.component('Question', Question);
 import Answer from '../components/questions/Answer.vue';
 Vue.component('Answer', Answer);
 
+import Definition from '../components/questions/Definition.vue';
+Vue.component('Definition', Definition);
+
 import AdSidebar from '../components/sitewide/ads/AdSidebar.vue';
 Vue.component('AdSidebar', AdSidebar);
 

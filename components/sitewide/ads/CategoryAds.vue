@@ -1,10 +1,12 @@
 <template>
     <div class="category__ad__container">
-        <!-- <h5>
+        <h5
+            v-if="category.fullads.length > 0"    
+        >
             Some Related Products
-        </h5> THIS SEEMS TO BE BREAKING THINGS WHEN USING AN V-IF TO CHECK FOR PRODUCT ARRAY LENGTH -->
+        </h5>
         <AdSquare
-            v-for="(ad, index) in narrowedAds"
+            v-for="(ad, index) in category.fullads"
             :ad="ad"
             :key="category.name + ad.name + index"
         />
@@ -79,4 +81,8 @@ export default {
     align-content: flex-start;
     justify-content: center;
 } */
+/* ------------------ MEDIA QUERY ------------------ */
+@media screen and (max-width: 900px) {
+
+}
 </style>

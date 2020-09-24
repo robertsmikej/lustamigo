@@ -25,6 +25,13 @@ function slugSomething(text) {
 function slugSomethingLarge(text) {
     return text.toLowerCase().replace(/\W/g, '-').replace(/--/g, '-').substring(0,3);
 }
+function getProductInfo(productList) {
+    console.log(productList);
+    
+}
+function getRandom(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
 
 export const mutations = {
     setSitewide(state, data) {
@@ -59,9 +66,37 @@ export const mutations = {
     setCategories(state, data) {
         for (let cat in data[0].categories) {
             const category = data[0].categories[cat];
+            category.fullads = [];
             for (let ques in category.questions) {
-                category.questions[ques]["checked"] = -1;
-                category.questions[ques]["superhot"] = false;
+                let question = category.questions[ques];
+                question["checked"] = -1;
+                question["superhot"] = false;
+            }
+            let questionsWithAds = category.questions.filter(function (question) {
+                return question.hasOwnProperty("relatedproducts");
+            });
+            let allAds = [];
+            questionsWithAds.forEach(ques => {
+                ques.relatedproducts.forEach(ad => {
+                    allAds.push(ad);
+                });
+            });
+            allAds = [...new Set(allAds)];
+            if (allAds.length > 0) {
+                let narrowedList = [];
+                while (narrowedList.length <= 3) {
+                    narrowedList.push(getRandom(allAds));
+                }
+                let fullAdArr = state.products.filter(prod => {
+                    return narrowedList.includes(prod.name);
+                });
+                fullAdArr.forEach(ad => {
+                    let squareImg = ad.productimgs.imgs.filter(img => {
+                        return img.type.includes("square")
+                    })[0].img;
+                    ad.img = squareImg;
+                });
+                category.fullads = fullAdArr;
             }
         }
         state.categories = data[0].categories;
@@ -133,8 +168,5 @@ export const actions = {
             return res;
         });
         await commit('setCategories', d);
-
-
-
     }
 };
