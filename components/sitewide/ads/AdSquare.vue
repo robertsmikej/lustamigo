@@ -5,9 +5,9 @@
                 <img :src="ad.img" :alt="ad.name"/>
             </div>
             <div class="ad__square__text__container">
-                <h5 v-if="ad.name" class="ad__product__name">{{ ad.name }}</h5>
-                <h6 v-if="ad.brandname" class="ad__product__brand">{{ ad.brandname }}</h6>
-                <p v-if="ad.tagline" class="ad__product__tagline">{{ ad.tagline }}</p>
+                <h5 class="ad__product__name">{{ ad.name }}</h5>
+                <h6 class="ad__product__brand">{{ ad.brandname }}</h6>
+                <p class="ad__product__tagline">{{ ad.tagline }}</p>
             </div>
         </a>
     </div>

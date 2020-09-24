@@ -226,7 +226,7 @@ export default {
         return {
             devmode: false,
             starting: false,
-            justQuestions: false,
+            justQuestions: true,
             allDone: false,
             currentUserDone: false,
             onePersonDone: false,

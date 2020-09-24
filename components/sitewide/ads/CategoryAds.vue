@@ -1,15 +1,13 @@
 <template>
     <div class="category__ad__container">
-        <h5 v-if="this.categoryAds.length > 0">
+        <h5>
             Some Related Products
         </h5>
-        <div class="category__ad__container--inner">
-            <AdSquare
-                v-for="(ad, index) in narrowedAds"
-                :ad="ad"
-                :key="category.name + ad.name + index"
-            />
-        </div>
+        <AdSquare
+            v-for="(ad, index) in narrowedAds"
+            :ad="ad"
+            :key="category.name + ad.name + index"
+        />
     </div>
 </template>
 
@@ -21,8 +19,7 @@ export default {
     },
     data () {
         return {
-            narrowedAds: this.getAds(),
-            categoryAds: []
+            narrowedAds: this.getAds()
         }
     },
     methods: {
@@ -40,8 +37,7 @@ export default {
                 });
             })
             let catAds = [...new Set(catArray)];
-            this.categoryAds = catAds;
-            if (this.categoryAds.length > 0) {
+            if (catAds.length > 0) {
                 let narrowedList = [];
                 for (var i = 0; i < 3; i++) {
                     let randomAd = this.getRandom(catAds);
@@ -66,13 +62,21 @@ export default {
 .category__ad__container {
     width: 100%;
     margin: 0 auto;
-}
-.category__ad__container--inner {
-    width: 100%;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
 }
+.category__ad__container h5 {
+    width: 100%;
+}
+/* .category__ad__container--inner {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    justify-content: center;
+} */
 </style>
