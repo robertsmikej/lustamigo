@@ -21,7 +21,7 @@
           "banner"
         ],
         "img": "/img/text-chemisty-970x250.jpg",
-        "name": "Text Him This To Make Him Love You - Banner",
+        "name": "Text Him This To Make Him Love You - Cartoon - Banner",
         "mediatype": "ad"
       },
       {
@@ -29,8 +29,32 @@
           "sidebar"
         ],
         "img": "/img/text-chemisty-160x600.jpg",
-        "name": "Text Him This To Make Him Love You - Side Banner",
+        "name": "Text Him This To Make Him Love You - Cartoon - Side",
         "mediatype": "ad"
+      },
+      {
+        "type": [
+          "banner"
+        ],
+        "mediatype": "ad",
+        "name": "Text Him This To Make Him Love You - Pink Banner",
+        "img": "/img/set1-728x90.jpg"
+      },
+      {
+        "type": [
+          "square"
+        ],
+        "mediatype": "ad",
+        "name": "Text Him This To Make Him Love You - Pink Square",
+        "img": "/img/set1-336x280.jpg"
+      },
+      {
+        "type": [
+          "sidebar"
+        ],
+        "mediatype": "ad",
+        "name": "Text Him This To Make Him Love You - Pink Side",
+        "img": "/img/set1-300x1050.jpg"
       }
     ]
   }
