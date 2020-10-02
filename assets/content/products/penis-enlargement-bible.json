@@ -1,0 +1,42 @@
+{
+  "name": "Penis Enlargement Bible",
+  "tagline": "Get BIGGER and LONGER Without Surgery",
+  "url": "https://hop.clickbank.net/?affiliate=lustamigo&vendor=pebible",
+  "typeof": [
+    "male"
+  ],
+  "brandname": "PE Bible",
+  "status": true,
+  "pricerange": "5",
+  "importance": "5",
+  "type": "digital",
+  "description": "Do you want a longer and thicker penis without expensive surgery, extenders or suction devices that just don't work?",
+  "productimgs": {
+    "imgs": [
+      {
+        "type": [
+          "banner"
+        ],
+        "mediatype": "ad",
+        "name": "PEB - Banner",
+        "img": "/img/peb-728x90-2.jpg"
+      },
+      {
+        "type": [
+          "sidebar"
+        ],
+        "mediatype": "ad",
+        "name": "PEB - Side",
+        "img": "/img/peb-120x600-2.jpg"
+      },
+      {
+        "type": [
+          "square"
+        ],
+        "mediatype": "ad",
+        "name": "PEB - Square",
+        "img": "/img/peb-336x280-2.jpg"
+      }
+    ]
+  }
+}
