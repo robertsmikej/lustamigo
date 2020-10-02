@@ -60,12 +60,14 @@
     {
       "type": "sidebar",
       "digitalad": "Text Chemistry",
-      "ad": "His Secret Obsession"
+      "ad": "His Secret Obsession",
+      "indexnum": 2
     },
     {
       "type": "sidebar",
       "digitalad": "ED Elixir",
-      "ad": "Pornstar Method"
+      "ad": "Pornstar Method",
+      "indexnum": 1
     }
   ],
   "formal_name": "Home"
