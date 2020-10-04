@@ -56,5 +56,17 @@
     "questiontext": "Give A Sexy Massage To Juan",
     "questionexplaination": "If theres a section that may not make sense, we'll try to explain here."
   },
-  "formal_name": "Home"
+  "formal_name": "Home",
+  "ads": {
+    "sidebars": [
+      {
+        "indexnum": 1,
+        "ad": "His Secret Obsession"
+      },
+      {
+        "indexnum": 1,
+        "ad": "Penis Enlargement Bible"
+      }
+    ]
+  }
 }
