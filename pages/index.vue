@@ -36,9 +36,10 @@
             </div>
 
             <div class="page__content--side">
+                {{pageads.sidebar[0]}}
                 <AdSidebar
-                    v-if="pageads.length > 0 && pageads[0]"
-                    :ad="pageads[0]"
+                    v-if="pageads.sidebar.length > 0 && pageads.sidebar[0]"
+                    :ad="pageads.sidebar[0].data"
                 />
             </div>
         </div>
@@ -259,10 +260,10 @@
                 </form>
             </div>
             <div class="page__content--side">
-                <AdSidebar
+                <!-- <AdSidebar
                     v-if="pageads.length > 0 && pageads[1]"
                     :ad="pageads[1]"
-                />
+                /> -->
             </div>
         </div>
         <div class="page__content">
@@ -281,7 +282,7 @@
 </template>
 
 <script>
-var postmark = require("postmark");
+let postmark = require("postmark");
 
 export default {
     watchQuery: true,
@@ -316,7 +317,37 @@ export default {
             return this.$store.state.products
         },
         pageads: function () {
-            return this.$store.state.pages.index.ads
+            let products = this.$store.state.products;
+            // let pageData = this.$store.state.pages.index;
+            let adData = this.$store.state.pages.index.adData
+            console.log(adData);
+
+            // let ad = data;
+            // let type = ad.type;
+            for (let type in adData) {
+                // console.log(adtype);
+                // console.log(adData[adtype]);
+                let adType = adData[type];
+                console.log(adType);
+                adType.forEach(ad => {
+
+                
+                    if (ad.data && ad.data.productimgs) {
+                        let adimgs = ad.data.productimgs.imgs.filter(img => {
+                            return ad.type === img.type || img.type.includes(ad.type)
+                        });
+                        console.log(adimgs);
+                        if (adimgs.length > 0) {
+                            if (adimgs.length === 1) {
+                                return adimgs[0];
+                            } else {
+                                return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
+                            }
+                        }
+                    }
+                })
+            }
+            return this.$store.state.pages.index.adData
         }
     },
     methods: {
@@ -440,23 +471,40 @@ export default {
                 this.exampleChecked = Math.floor(Math.random() * (2 - 0 + 1) + 0);
             }, 1200);
         },
-        pullInAdData: function () {
-            let adObj = {};
-            this.pageData.ads.forEach(ad => {
-                if (!adObj.hasOwnProperty(ad.type)) {
-                    adObj[ad.type] = [];
-                }
-                if (ad.hasOwnProperty("digitalad")) {
-                    adObj[ad.type][ad.digitalad] = ad;
-                    adObj[ad.type][ad.digitalad].type = "digital"
-                } else {
-                    adObj[ad.type][ad.physicalad] = ad;
-                    adObj[ad.type][ad.digitalad].type = "physical"
-                }
-            });
-            console.log(adObj);
-            this.$store.commit("setPageAds", adObj);
-        }
+        // pullInAdData: function () {
+        //     let adObj = {};
+        //     this.pageData.ads.forEach(ad => {
+        //         if (!adObj.hasOwnProperty(ad.type)) {
+        //             adObj[ad.type] = [];
+        //         }
+        //         if (ad.hasOwnProperty("digitalad")) {
+        //             adObj[ad.type][ad.digitalad] = ad;
+        //             adObj[ad.type][ad.digitalad].type = "digital"
+        //         } else {
+        //             adObj[ad.type][ad.physicalad] = ad;
+        //             adObj[ad.type][ad.digitalad].type = "physical"
+        //         }
+        //     });
+        //     console.log(adObj);
+        //     this.$store.commit("setPageAds", adObj);
+        // },
+        // findAdData: function (data) {
+        //     let ad = data;
+        //     let type = ad.type;
+        //     if (ad.ad_data && ad.ad_data.productimgs) {
+        //         let adimgs = ad.ad_data.productimgs.imgs.filter(img => {
+        //             return ad.type === img.type || img.type.includes(ad.type)
+        //         });
+        //         // console.log(adimgs);
+        //         if (adimgs.length > 0) {
+        //             if (adimgs.length === 1) {
+        //                 return adimgs[0];
+        //             } else {
+        //                 return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
+        //             }
+        //         }
+        // //     }
+        // }
     },
     mounted () {
         //INITIAL CHECKING OF THE RADIO BUTTONS TO SHOW DEFAULT VALUES

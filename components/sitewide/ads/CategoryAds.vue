@@ -6,7 +6,7 @@
             Some Related Products
         </h5>
         <AdSquare
-            v-for="(ad, index) in category.fullads"
+            v-for="(ad, index) in narrowAds(category.fullads)"
             :ad="ad"
             :key="category.name + ad.name + index"
         />
@@ -21,40 +21,15 @@ export default {
     },
     data () {
         return {
-            narrowedAds: this.getAds()
+            // narrowedAds: this.getAds()
         }
     },
     methods: {
         getRandom: function (array) {
             return array[Math.floor(Math.random() * array.length)];
         },
-        getAds: function () {
-            let questionsWithAds = this.category.questions.filter(function (question) {
-                return question.hasOwnProperty("relatedproducts");
-            });
-            let catArray = [];
-            questionsWithAds.forEach(ques => {
-                ques.relatedproducts.forEach(ad => {
-                    catArray.push(ad);
-                });
-            })
-            let catAds = [...new Set(catArray)];
-            if (catAds.length > 0) {
-                let narrowedList = [];
-                for (var i = 0; i < 3; i++) {
-                    let randomAd = this.getRandom(catAds);
-                    narrowedList.push(randomAd);
-                }
-                let fullAdArr = this.products.filter(prod => {
-                    return narrowedList.includes(prod.name);
-                });
-                fullAdArr.forEach(ad => {
-                    ad.img = ad.productimgs.imgs.filter(img => {
-                        return img.type.includes("square")
-                    })[0].img;
-                })
-                return fullAdArr;
-            }
+        narrowAds: function (arr) {
+            return arr.slice(0, 3);
         }
     }
 }

@@ -85,9 +85,43 @@ body .page__ad--square {
 /* ------------------ MEDIA QUERY ------------------ */
 @media screen and (max-width: 600px) {
     .page__ad__container--square {
-        flex: 1 1 45%;
+        flex: 0 1 45%;
         max-width: 100%;
         margin: 5px;
     }
+}
+/* ------------------ MEDIA QUERY ------------------ */
+@media screen and (max-width: 450px) {
+    .page__ad__container--square {
+        flex: 0 1 31%;
+        margin: 3px;
+    }
+    .ad__square__image__container {
+        height: auto;
+    }
+    .ad__square__image__container img {
+        max-width: 120px;
+    }
+    .ad__square__text__container {
+        height: auto;
+        max-height: 100%;
+        min-height: 0;
+        padding: 4px 6px;
+    }
+    .ad__product__name {
+        font-size: .8em;
+        line-height: 1em;
+        margin: 6px auto;
+    }
+    .ad__product__brand {
+        font-size: .8em;
+        line-height: 1em;
+        margin: 2px auto;
+    }
+    .ad__product__tagline {
+        font-size: .8em;
+        margin: 4px auto;
+    }
+
 }
 </style>
