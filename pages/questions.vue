@@ -44,11 +44,10 @@
                     <p>Give us just a momento and we'll email you a link to see your results!</p>
                 </div>
             </div>
-            <div class="page__content--ad-banner">
-
+            <div>
                 <AdBanner
-                    v-if="pageads.length > 0 && pageads[0]"
-                    :ad="pageads[0]"
+                    v-if="pageData.ads.hasOwnProperty('banners') && pageData.ads.banners[0]"
+                    :ad="pageData.ads.banners[0]"
                 />
             </div>
             <form 
@@ -172,6 +171,13 @@
                 :key="this.users.spice_level"
                 class="page__questions"
             >
+                <div>
+                    {{pageData.ads.banners[1]}}
+                    <AdBanner
+                        v-if="pageData.ads.hasOwnProperty('banners') && pageData.ads.banners[1]"
+                        :ad="pageData.ads.banners[1]"
+                    />
+                </div>
                 <CategoryCell 
                     v-for="category in categories"
                     :key="category.name"

@@ -65,12 +65,18 @@ export const mutations = {
                             let product = state.products.filter(prod => {
                                 return prod.name === ad.ad
                             });
-                            let images = product[0].productimgs.imgs.filter(img => {
-                                return adCategory.indexOf(img.type) >= 0;
-                            });
-                            ad.data = product[0];
-                            ad.data.productimgs = images;
-                            // console.log(images);
+                            console.log(product[0].productimgs);
+                            if (product[0] && product[0].productimgs && product[0].productimgs.imgs) {
+                                console.log('here');
+                                let images = product[0].productimgs.imgs.filter(img => {
+                                    return adCategory.indexOf(img.type) >= 0;
+                                });
+                                ad.data = product[0];
+                                ad.data.productimgs = images;
+                                console.log(images);
+                            }
+                            
+                            
                             // console.log(ad.data);
                         });
                     }

@@ -27,25 +27,6 @@
 export default {
     props: {
         ad: Object
-    },
-    computed: {
-        // adData: function () {
-        //     let ad = this.ad;
-        //     let type = ad.type;
-        //     if (ad.ad_data && ad.ad_data.productimgs) {
-        //         let adimgs = ad.ad_data.productimgs.imgs.filter(img => {
-        //             return ad.type === img.type || img.type.includes(ad.type)
-        //         });
-        //         // console.log(adimgs);
-        //         if (adimgs.length > 0) {
-        //             if (adimgs.length === 1) {
-        //                 return adimgs[0];
-        //             } else {
-        //                 return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
-        //             }
-        //         }
-        //     }
-        // }
     }
 }
 </script>
