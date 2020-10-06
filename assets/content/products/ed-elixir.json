@@ -13,14 +13,6 @@
     "imgs": [
       {
         "type": [
-          "banner"
-        ],
-        "img": "/img/ed-elixer-banner-natural-trick.gif",
-        "name": "Man Discovers Natural Trick - Banner",
-        "mediatype": "ad"
-      },
-      {
-        "type": [
           "sidebar"
         ],
         "img": "/img/ed-elixer-side-rock-solid-boner.gif",
@@ -34,6 +26,14 @@
         "img": "/img/ed-elixer-side-weird-trick.gif",
         "name": "Weird Trick to Fixing ED - Side",
         "mediatype": "ad"
+      },
+      {
+        "type": [
+          "banner"
+        ],
+        "mediatype": "ad",
+        "name": "Man Discovers Natural Trick - Banner",
+        "img": "/img/ed-elixer-banner-natural-trick.gif"
       }
     ]
   }
