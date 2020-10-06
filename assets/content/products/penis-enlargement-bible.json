@@ -15,14 +15,6 @@
     "imgs": [
       {
         "type": [
-          "banner"
-        ],
-        "mediatype": "ad",
-        "name": "PEB - Banner",
-        "img": "/img/peb-728x90-2.jpg"
-      },
-      {
-        "type": [
           "sidebar"
         ],
         "mediatype": "ad",
@@ -36,6 +28,14 @@
         "mediatype": "ad",
         "name": "PEB - Square",
         "img": "/img/peb-336x280-2.jpg"
+      },
+      {
+        "type": [
+          "banner"
+        ],
+        "mediatype": "ad",
+        "name": "Penis Enlargement Bible - Banner",
+        "img": "/img/peb-728x90-2.jpg"
       }
     ]
   }
