@@ -1,22 +1,22 @@
 <template>
     <div
-        v-if="adData"
+        v-if="ad.data"
         class="page__ad__container page__ad__container--side page__ad__container--side--right"
     >
         <a
-            :href="ad.ad_data.url"
+            :href="ad.data.url"
         >
             <picture
-                v-if="adData.img"
+                v-if="ad.data.productimgs[0].img"
                 class="page__ad page__ad--side"
             >
                 <source
-                    :srcset="adData.img"
+                    :srcset="ad.data.productimgs[0].img"
                     media="(min-width: 730px)"
                 >
                 <img 
-                    :src="adData.img" 
-                    :alt="adData.name"
+                    :src="ad.data.productimgs[0].img" 
+                    :alt="ad.data.name"
                 />
             </picture>
         </a>
@@ -29,31 +29,35 @@ export default {
         ad: Object
     },
     computed: {
-        adData: function () {
-            let ad = this.ad;
-            let type = ad.type;
-            if (ad.ad_data && ad.ad_data.productimgs) {
-                let adimgs = ad.ad_data.productimgs.imgs.filter(img => {
-                    return ad.type === img.type || img.type.includes(ad.type)
-                });
-                // console.log(adimgs);
-                if (adimgs.length > 0) {
-                    if (adimgs.length === 1) {
-                        return adimgs[0];
-                    } else {
-                        return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
-                    }
-                }
-            }
-        }
+        // adData: function () {
+        //     let ad = this.ad;
+        //     let type = ad.type;
+        //     if (ad.ad_data && ad.ad_data.productimgs) {
+        //         let adimgs = ad.ad_data.productimgs.imgs.filter(img => {
+        //             return ad.type === img.type || img.type.includes(ad.type)
+        //         });
+        //         // console.log(adimgs);
+        //         if (adimgs.length > 0) {
+        //             if (adimgs.length === 1) {
+        //                 return adimgs[0];
+        //             } else {
+        //                 return adimgs[0]; //SET LOGIC FOR WHAT AD TO SELECT HERE IF MORE THAN ONE AD RETURNED, NOT FINISHED WITH THIS
+        //             }
+        //         }
+        //     }
+        // }
     }
 }
 </script>
 
 <style>
 .page__ad__container--side {
-    flex: 1 0 160px;
+    flex: 1 0 120px;
+    max-width: 120px;
     height: 100%;
+}
+.page__ad__container--side a {
+    width: 100%;
 }
 .page__ad__container--side--right {
     margin-left: 40px;

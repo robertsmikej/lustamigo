@@ -19,6 +19,11 @@
 export default {
     data () {
         return {
+            pageAds: {
+                banners: [],
+                sidebars: [],
+                squares: []
+            },
             definition: {
                 showDefinition: false,
                 term: "",
@@ -67,6 +72,12 @@ export default {
                 this.resetDictionary();
                 this.definition.showError = true;
             }
+        });
+        this.$nuxt.$on('getAd', data => {
+            let pageAds = data.data;
+            let specificAd = pageAds[data.type][data.adnum];
+            let imagesToChoose = specificAd.data.productimgs[specificAd.indexnum];
+            this.pageAds[data.type].push(imagesToChoose ? imagesToChoose : false);
         });
     },
     methods: {

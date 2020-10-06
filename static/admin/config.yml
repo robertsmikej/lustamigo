@@ -191,9 +191,9 @@ collections:
               - label: "Ad Number"
                 name: "indexnum"
                 widget: "number"
-                default: 1
+                default: 0
                 value_type: "int"
-                min: 1
+                min: 0
                 max: 10
                 step: 1
                 hint: "If more than one banner, which one in the order that they're in products?"
@@ -213,9 +213,9 @@ collections:
               - label: "Ad Number"
                 name: "indexnum"
                 widget: "number"
-                default: 1
+                default: 0
                 value_type: "int"
-                min: 1
+                min: 0
                 max: 10
                 step: 1
                 hint: "If more than one sidebar, which one in the order that they're in products?"
@@ -232,15 +232,6 @@ collections:
                 multiple: false
                 displayFields: ["name"]
                 required: false
-              - label: "Ad Number"
-                name: "indexnum"
-                widget: "number"
-                default: 1
-                value_type: "int"
-                min: 1
-                max: 10
-                step: 1
-                hint: "If more than one square, which one in the order that they're in products?"
           
           
 

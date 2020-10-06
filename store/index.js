@@ -3,8 +3,7 @@ export const state = () => ({
     nav: [],
     pages: {},
     categories: {},
-    products: {},
-    pageads: {}
+    products: {}
 });
 
 function sortItems(data) {
@@ -55,36 +54,28 @@ export const mutations = {
         }
         // console.log(newObj);
         state.pages = newObj;
-        //SET STATIC ADS BELOW - GET AD DATA
+        //SET STATIC ADS BELOW - GET AD DATA AND GET IMAGES FROM PRODUCT DETAILS
         for (let a in newObj) {
             let page = newObj[a];
-            // console.log(page);
-            // console.log(page.ads);
-            page.adData = {};
-
-            if (page.hasOwnProperty("ads") && page.ads.length > 0) {
-                page.ads.forEach(ad => {
-                    let product = state.products.filter(prod => {
-                        return prod.name === ad.ad
-                    });
-                    ad["data"] = product[0];
-                    if (page.adData.hasOwnProperty(ad.type)) {
-                        page.adData[ad.type].push(ad);
-                    } else {
-                        page.adData[ad.type] = [ad];
+            if (page.hasOwnProperty("ads") && Object.keys(page.ads).length > 0) {
+                for (let adCategory in page.ads) {
+                    let category = page.ads[adCategory];
+                    if (category.length > 0) {
+                        category.forEach(ad => {
+                            let product = state.products.filter(prod => {
+                                return prod.name === ad.ad
+                            });
+                            let images = product[0].productimgs.imgs.filter(img => {
+                                return adCategory.indexOf(img.type) >= 0;
+                            });
+                            ad.data = product[0];
+                            ad.data.productimgs = images;
+                            // console.log(images);
+                            // console.log(ad.data);
+                        });
                     }
-                });
+                }
             };
-            // if (page.hasOwnProperty("ads") && page.ads.length > 0) {
-            //     page.ads.forEach(ad => {
-            //         let product = state.products.filter(prod => {
-            //             return prod.name === ad.ad
-            //         });
-            //         // console.log(product);
-            //         ad["ad_data"] = product[0];
-            //     });
-                
-            // }
         }
     },
     setCategories(state, data) {
@@ -111,17 +102,20 @@ export const mutations = {
                 while (narrowedList.length <= 14 && allAds.length >= narrowedList.length) {
                     narrowedList.push(getRandom(allAds));
                 }
-                let fullAdArr = state.products.filter(prod => {
-                    return narrowedList.includes(prod.name);
-                });
-                fullAdArr.forEach(ad => {
-                    let squareImg = ad.productimgs.imgs.filter(img => {
-                        return img.type.includes("square")
-                    })[0].img;
-                    ad.img = squareImg;
-                });
-                category.fullads = shuffleArr(fullAdArr);
-                // console.log(fullAdArr);
+                if (state.products) {
+                    let fullAdArr = state.products.filter(prod => {
+                        return narrowedList.includes(prod.name);
+                    });
+                    fullAdArr.forEach(ad => {
+                        if (ad.productimgs && ad.productimgs.imgs) {
+                            let squareImg = ad.productimgs.imgs.filter(img => {
+                                return img.type.includes("square")
+                            })[0].img;
+                            ad.img = squareImg;
+                        }
+                    });
+                    category.fullads = shuffleArr(fullAdArr);
+                }
             }
         }
         state.categories = data[0].categories;
@@ -137,10 +131,7 @@ export const mutations = {
     },
     setProducts(state,data) {
         state.products = data;
-    },
-    // setPageAds(state,data) {
-    //     state.pageads = data;
-    // }
+    }
 };
 
 export const getters = {
@@ -148,8 +139,7 @@ export const getters = {
     nav: state => state.nav,
     pages: state => state.pages,
     categories: state => state.categories,
-    products: state => state.products,
-    // pageads: state => state.pageads
+    products: state => state.products
 };
 
 export const actions = {
